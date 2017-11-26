@@ -1651,7 +1651,7 @@ function syncOutlet() {
 
 
 
-fdisplayStringShow=fdisplayStringShow+hightName+'<table width="50%" border="0"><tr style="color:#0329C0"> <td style="color:#006A6A; font-size:18px;">Height:</td> <td  style="color:#006A6A; font-size:18px;"><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;"><input type="number" id="'+widthName+'" value=""></td></tr></table></br>'
+fdisplayStringShow=fdisplayStringShow+hightName+'<table width="100%" border="0"><tr style="color:#0329C0"> <td style="color:#006A6A; font-size:18px;">Height:</td> <td  style="color:#006A6A; font-size:18px;" width="10%"><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" width="10%"><input type="number" id="'+widthName+'" value=""></td></tr></table></br>'
 
 			//}  		// for loop of ===== for (var slab=0; slab < fdisplaySlabTotal-1; slab++){
 						//var ho=	hightName.val()
