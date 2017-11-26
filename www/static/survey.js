@@ -10,11 +10,11 @@
 //var apipath_image = 'http://127.0.0.1:8000/unilever/';
 
 
-//var apipath='http://e3.businesssolutionapps.com/unilever/syncmobile_schedule/';
-//var apipath_image = 'http://e3.businesssolutionapps.com/unilever/';
+var apipath='http://w02.yeapps.com/unilever18/syncmobile_schedule/';
+var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
-var apipath='http://127.0.0.1:8000/unilever_latest/syncmobile_schedule/';
-var apipath_image = 'http://127.0.0.1:8000/unilever_latest/';
+//var apipath='http://127.0.0.1:8000/unilever_latest/syncmobile_schedule/';
+//var apipath_image = 'http://127.0.0.1:8000/unilever_latest/';
 
  
 var step_flag=0; // 1 fd , 2 qpds, 3 gift
