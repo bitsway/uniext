@@ -1618,6 +1618,7 @@ function syncOutlet() {
 					var fdisplaySlab_1Array = fdisplayList.split('<slab>');
 					
 					var fdisplaySlab_image = fdisplaySlabArray[slab].split('<slab>')[0].split('<fdfd>')[1];
+					
 					var fdisplaySlab_name = fdisplaySlabArray[slab].split('<slab>')[0].split('<fdfd>')[0];
 					
 					var slab_text=slab.toString()
@@ -1631,6 +1632,9 @@ function syncOutlet() {
 					var brSLfdisplay='brSLfdisplay_'+slab_text+fdisplaySlab_name.replace(' / ','_')
 					var brandCheckStr=localStorage.brandCheckStr
 					var bListGet=''
+					
+					//alert (fdisplaySlab_name)
+					
 					if (brandCheckStr.indexOf(fdisplaySlab_name)!= -1){ 
 						 bListGet=brandCheckStr.split('<'+fdisplaySlab_name+'>')[1].split('<')[0]
 					}
@@ -1638,8 +1642,8 @@ function syncOutlet() {
 						 bListGet=''
 					}
 					//var colName=bId+'_'+fdisplaySlab_name
-					var hightName='hightName_'+slab_text+fdisplaySlab_name.replace(' / ','_')
-					var widthName='widthName_'+slab_text+fdisplaySlab_name.replace(' / ','_')
+					var hightName='hightName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+					var widthName='widthName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 					
 					
 					fdisplayStringShow=fdisplayStringShow+'</br></br><table width="100%" border="0"> <tr><td style=" font-weight:bold; font-size:28px color:#006A6A; background:#FFECFF">'+fdisplaySlab_name+'</td> </tr></table>';
@@ -1651,7 +1655,7 @@ function syncOutlet() {
 
 
 
-fdisplayStringShow=fdisplayStringShow+hightName+'<table width="100%" border="0"><tr style="color:#0329C0"> <td style="color:#006A6A; font-size:18px;">Height:</td> <td  style="color:#006A6A; font-size:18px;" width="10%"><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" width="10%"><input type="number" id="'+widthName+'" value=""></td></tr></table></br>'
+fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr style="color:#0329C0"> <td style="color:#006A6A; font-size:18px;">Height:</td> '+hightName+'<td  style="color:#006A6A; font-size:18px;" width="10%"><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td style="color:#006A6A; font-size:18px;">Width:</td> '+widthName+'<td  style="color:#006A6A; font-size:18px;" width="10%"><input type="number" id="'+widthName+'" value=""></td></tr></table></br>'
 
 			//}  		// for loop of ===== for (var slab=0; slab < fdisplaySlabTotal-1; slab++){
 						//var ho=	hightName.val()
@@ -1669,7 +1673,7 @@ fdisplayStringShow=fdisplayStringShow+hightName+'<table width="100%" border="0">
 							var bId=bListAll[b].split('fdfd')[1]
 							var bName=bListAll[b].split('fdfd')[2]
 							//alert(bName)
-							var colName=bId+'_'+fdisplaySlab_name.replace(' / ','_')
+							var colName=bId+'_'+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 							fdisplayStringShow=fdisplayStringShow+'<tr style="color:#0329C0"><td  style="color:#006A6A; "><input type="hidden" name="'+ bId +'" id="'+ bId +'" value="'+bName+'" min="0">'+bName+'</td> <td  style="color:#006A6A; font-size:18px;"><input type="number" id="'+colName+'"></td></tr >'
 						
 						fdisplayStringShow=fdisplayStringShow+'<tr  ><td></td><td></td></tr>'
@@ -2182,6 +2186,7 @@ function fdisplay_ready_data() {
 			var fdSLfdisplay=$("#fdSLfdisplay_"+i.toString()).val(); 
 
 		//		alert(localStorage.fdisplay_done);
+			
 			for (var d=0; d < fdTotal-1; d++){
 				var ItemQtyfdisplay=''
 				var Itemfdisplay=$("#Itemfdisplay_"+i.toString()+"_"+d.toString()).val();
@@ -2194,12 +2199,16 @@ function fdisplay_ready_data() {
 				
 				
 				
-				var hightName='hightName_'+i.toString()+fdisplaySlab_name.replace(' / ','_')
-				var widthName='widthName_'+i.toString()+fdisplaySlab_name.replace(' / ','_')
+				var hightName='hightName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+				var widthName='widthName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+				
+				
 				
 				var hightNameValue=$("#"+hightName).val();
 				
 				var widthNameValue=$("#"+widthName).val();
+				
+				
 				
 				var	 brandCheckStr = localStorage.brandCheckStr
 				
@@ -2211,19 +2220,19 @@ function fdisplay_ready_data() {
 					else{ 
 						 bListGet=''
 					}
-				//alert(bListGet)
+				alert(bListGet)
 				if (bListGet!=''){	
 						bListAll=bListGet.split('rdrd')
 						br_dis_str_inc=''
 						for (var b=0; b < bListAll.length-1; b++){
 								//var bId=bListAll[b].split('fdfd')[0]
-								var brSLfdisplay='brSLfdisplay_'+i.toString()+fdisplaySlab_name.replace(' / ','_')
+								var brSLfdisplay='brSLfdisplay_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 								//var brdSLfdisplay=$("#"+brSLfdisplay).val();
 								///var brdSLfdisplay= brSLfdisplay.val()
 								var bName=bListAll[b].split('fdfd')[1]
 								
 								//var brSLfdisplay=$("#fdSLfdisplay_"+i.toString()).val();
-								var colName=bName+'_'+fdisplaySlab_name.replace(' / ','_')
+								var colName=bName+'_'+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 								var colNameValue=$("#"+colName).val();
 								var bNameValue= $("#"+bName).val();
 								br_dis_str_inc=br_dis_str_inc+'<brbr>'+bName+'fdfd'+bNameValue+'fdfd'+colNameValue
