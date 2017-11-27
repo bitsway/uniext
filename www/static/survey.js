@@ -1733,7 +1733,7 @@ fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height
 
 						
 						
-						fdisplayStringShow=fdisplayStringShow+'<tr ><td width="1%" >&nbsp;</td><td>'+itemName+'<input type="hidden" name="'+ Itemfdisplay +'" id="'+ Itemfdisplay +'" value="'+itemID+'" min="0"> <input type="hidden" name="'+ slabfdisplay +'" id="'+ slabfdisplay +'" value="'+slab_fdisplay+'" min="0"><br></td>'+ '<td style=" vertical-align:central" id="'+ItemVisiblefdisplayTDY+'"><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="Yes"></td><td id="'+ItemVisiblefdisplayTDN+'"  style=" vertical-align:central"><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="No"> </td></tr>'
+						fdisplayStringShow=fdisplayStringShow+'<tr height="30px" ><td width="1%" >&nbsp;</td><td>'+itemName+'<input type="hidden" name="'+ Itemfdisplay +'" id="'+ Itemfdisplay +'" value="'+itemID+'" min="0"> <input type="hidden" name="'+ slabfdisplay +'" id="'+ slabfdisplay +'" value="'+slab_fdisplay+'" min="0"><br></td>'+ '<td style=" vertical-align:central" id="'+ItemVisiblefdisplayTDY+'"><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="Yes"></td><td id="'+ItemVisiblefdisplayTDN+'"  style=" vertical-align:central"><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="No"> </td></tr>'
 										  
 										 // '<label style="background:#81C0C0"><input type="radio" name="RadioRoute"  value="'+routeID+'" id="RadioGroup1_0"> '+routeName+'</label>'
 										 
