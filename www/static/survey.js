@@ -1655,7 +1655,7 @@ function syncOutlet() {
 
 
 
-fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr style="color:#0329C0"> <td style="color:#006A6A; font-size:18px;">Height:</td> '+hightName+'<td  style="color:#006A6A; font-size:18px;" width="10%"><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td style="color:#006A6A; font-size:18px;">Width:</td> '+widthName+'<td  style="color:#006A6A; font-size:18px;" width="10%"><input type="number" id="'+widthName+'" value=""></td></tr></table></br>'
+fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height="25px" style="color:#0329C0"> <td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+widthName+'" value=""></td></tr></table></br>'
 
 			//}  		// for loop of ===== for (var slab=0; slab < fdisplaySlabTotal-1; slab++){
 						//var ho=	hightName.val()
@@ -1717,6 +1717,7 @@ fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr style=
 						var ItemVisiblefdisplay ='ItemVisiblefdisplay_'+slab_text+'_'+i_text
 						//var ItemVisiblefdisplayIDN ='ItemVisiblefdisplayIDY_'+slab_text+'_'+i_text
 						var ItemVisiblefdisplayTDY ='ItemVisiblefdisplayTDY_'+slab_text+'_'+i_text
+						var ItemVisiblefdisplayTDN ='ItemVisiblefdisplayTDN_'+slab_text+'_'+i_text
 						//var radioID='radioFsu_'+slab_text+'_'+i_text
 						
 						
@@ -1732,7 +1733,7 @@ fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr style=
 
 						
 						
-						fdisplayStringShow=fdisplayStringShow+'<tr ><td width="1%" >&nbsp;</td><td>'+itemName+'<input type="hidden" name="'+ Itemfdisplay +'" id="'+ Itemfdisplay +'" value="'+itemID+'" min="0"> <input type="hidden" name="'+ slabfdisplay +'" id="'+ slabfdisplay +'" value="'+slab_fdisplay+'" min="0"></td>'+ '<td id="'+ItemVisiblefdisplayTDY+'"><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="Yes"></td><td><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="No"> </td></tr>'
+						fdisplayStringShow=fdisplayStringShow+'<tr ><td width="1%" >&nbsp;</td><td>'+itemName+'<input type="hidden" name="'+ Itemfdisplay +'" id="'+ Itemfdisplay +'" value="'+itemID+'" min="0"> <input type="hidden" name="'+ slabfdisplay +'" id="'+ slabfdisplay +'" value="'+slab_fdisplay+'" min="0"><br></td>'+ '<td style=" vertical-align:central" id="'+ItemVisiblefdisplayTDY+'"><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="Yes"></td><td id="'+ItemVisiblefdisplayTDN+'"  style=" vertical-align:central"><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="No"> </td></tr>'
 										  
 										 // '<label style="background:#81C0C0"><input type="radio" name="RadioRoute"  value="'+routeID+'" id="RadioGroup1_0"> '+routeName+'</label>'
 										 
@@ -2220,7 +2221,7 @@ function fdisplay_ready_data() {
 					else{ 
 						 bListGet=''
 					}
-				alert(bListGet)
+				//alert(bListGet)
 				if (bListGet!=''){	
 						bListAll=bListGet.split('rdrd')
 						br_dis_str_inc=''
@@ -2465,10 +2466,13 @@ if (localStorage.fdisplay_data_ready.length > 10){
 					if (ItemVisiblefdisplay=='YES'){
 						//alert ('test')
 						$("#ItemVisiblefdisplayTDY_" +i.toString()+"_"+d.toString()).html('YES');
+						$("#ItemVisiblefdisplayTDN_" +i.toString()+"_"+d.toString()).html('');
+						
 					} 
 					else {
 						
-						$("#ItemVisiblefdisplayTDY_"   +i.toString()+"_"+d.toString()).html('NO');
+						$("#ItemVisiblefdisplayTDY_"   +i.toString()+"_"+d.toString()).html('');
+						$("#ItemVisiblefdisplayTDN_" +i.toString()+"_"+d.toString()).html('NO');
 					} //endif
 
 					
@@ -3064,7 +3068,7 @@ function submit_data() {
 			var fdisplay_data=localStorage.fdisplay_data_ready.replace('detaildetail','')
 			var qpds_data=localStorage.qpds_data_ready.replace('detaildetail','')
 			//$("#submit_data_check").html(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
-			alert(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
+			//alert(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
 		//	+'&brand_data='+localStorage.br_distrib_string
 			//alert(fdisplay_data)
 			var check_outlet= localStorage.outletString;
@@ -3082,7 +3086,7 @@ function submit_data() {
 										$("#submit_data_check").html(result);
 									}
 									if (result=='SUCCESS'){
-										
+										//alert ('1')
 										//marchandising distribution
 										var temp="";							
 										if(localStorage.mar_distrib_data=="undefined" || localStorage.mar_distrib_data==undefined || localStorage.mar_distrib_data==""){
@@ -3144,8 +3148,8 @@ function submit_data() {
 										
 										localStorage.show_cancel=0;
 		
-										
-		
+										//alert ('2')
+													
 										localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
 										
 										//localStorage.outletString=outletStringShow
@@ -3177,6 +3181,7 @@ function submit_data() {
 										
 										//upload_fd();
 										cancel_outlet();
+										
 										var url = "#outletPage";
 										$.mobile.navigate(url);
 										//location.reload();
