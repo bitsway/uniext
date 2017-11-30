@@ -3498,7 +3498,7 @@ function upload_fd(){
 			var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+ "_before").val();
 			
 			
-		
+			
 			
 			if (image_name.length >10){
 				uploadPhoto(fdSLfdisplay_image_path, image_name);
@@ -3511,6 +3511,7 @@ function upload_fd(){
 		}
 					
 		}//end for
+	alert (fdSLfdisplay_image_path)	
 	upload_qpds();
 
 }
