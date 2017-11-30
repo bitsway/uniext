@@ -3511,7 +3511,7 @@ function upload_fd(){
 		}
 					
 		}//end for
-	alert (fdSLfdisplay_image_path)	
+	//alert (fdSLfdisplay_image_path)	
 	upload_qpds();
 
 }
@@ -3723,7 +3723,7 @@ function uploadPhoto(imageURI, imageName) {
 function win(r) {
 
 	file_upload_error = 0;
-	alert ('test')
+	//alert ('test')
 //	step_flag=0; //1 fd , 2 qpds, 3 giftuniext
 	
 	if (localStorage.step_flag==1){ //for fixed display
