@@ -3179,7 +3179,7 @@ function submit_data() {
 										// Enable disable div end
 										
 										
-										//upload_fd();
+										upload_fd();
 										cancel_outlet();
 										
 										var url = "#outletPage";
