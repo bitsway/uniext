@@ -14,7 +14,7 @@
 
 
 
-var apipath='http://w02.yeapps.com/unilever18/syncmobile_schedule/';
+var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew/';
 var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
 //var apipath='http://127.0.0.1:8000/unilever_latest/syncmobile_schedule/';
