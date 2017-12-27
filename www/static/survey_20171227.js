@@ -9,10 +9,6 @@
 //var apipath='http://127.0.0.1:8000/unilever/syncmobile_schedule/';
 //var apipath_image = 'http://127.0.0.1:8000/unilever/';
 
-//var apipath='http://127.0.0.1:8000/uniext/syncmobile_schedule/';
-//var apipath_image = 'http://w02.yeapps.com/unilever18/';
-
-
 
 var apipath='http://w02.yeapps.com/unilever18/syncmobile_schedule/';
 var apipath_image = 'http://w02.yeapps.com/unilever18/';
@@ -1414,14 +1410,12 @@ function selectOutletException() {
 		
 		}
 		else if (localStorage.qpdsSkip==0){
-			//var url = "#qpdsPage";
-			var url = "#npdPage";
+			var url = "#qpdsPage";
 			$.mobile.navigate(url);
 			
 		}
 		else{
-		//	var url = "#npdPage";
-			var url = "#qpdsPage";
+			var url = "#npdPage";
 			$.mobile.navigate(url);
 		}
 		
@@ -1454,15 +1448,7 @@ function syncOutlet() {
 			fdisplay = npdArray[1];
 			var fdisplayArray = fdisplay.split('</fdisplayList>');									
 			fdisplayList = fdisplayArray[0].replace("<fdisplayList>","");
-			localStorage.p6=0
-			//if ((fdisplayList.indexOf('6P')==-1) || (fdisplayList.indexOf('6P')!=0) ){
-			//	localStorage.p6=0
-			//}
-			if (fdisplayList.indexOf('6P')==0){
-				localStorage.p6=1
-			}
 			
-			//alert (fdisplayList.indexOf('6P'))
 			//$("#show_result").text(fdisplayList);
 			
 								
@@ -1658,10 +1644,6 @@ function syncOutlet() {
 					//var colName=bId+'_'+fdisplaySlab_name
 					var hightName='hightName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 					var widthName='widthName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
-					var sghightName='sghightName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
-					var sgwidthName='sgwidthName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
-					var UBLhightName='UBLhightName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
-					var UBLwidthName='UBLwidthName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 					
 					
 					fdisplayStringShow=fdisplayStringShow+'</br></br><table width="100%" border="0"> <tr><td style=" font-weight:bold; font-size:28px color:#006A6A; background:#FFECFF">'+fdisplaySlab_name+'</td> </tr></table>';
@@ -1671,11 +1653,9 @@ function syncOutlet() {
 					fdisplayStringShow=fdisplayStringShow+'<img height="100px" width="100%"  src="'+apipath_image+'static/uni_images/display/'+fdisplaySlab_image+'" alt="FixedDisplay" />';
 
 
-					if (localStorage.p6==1){
 
-fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;"> <label>Cat Shelf Space</label> </td><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+widthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;"> <label>Suggested Shelf Space</label></td><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+sghightName +'" id="'+sghightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+sgwidthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;"> <label>UBL Shelf Space</label></td><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+UBLhightName +'" id="'+UBLhightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+UBLwidthName+'" value=""></td></tr></table></br>'
 
-					}
+fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height="25px" style="color:#0329C0"> <td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+widthName+'" value=""></td></tr></table></br>'
 
 			//}  		// for loop of ===== for (var slab=0; slab < fdisplaySlabTotal-1; slab++){
 						//var ho=	hightName.val()
@@ -2094,9 +2074,8 @@ function npd_ready_data() {
 //		var url = "#mhskusPage";
 //		$.mobile.navigate(url);
 
-	//	var url = "#placePage";
 
-		var url = "#qpdsPage";
+		var url = "#placePage";
 		$.mobile.navigate(url);
 
 		$('#npd').find('input, textarea, button, select').attr('disabled','disabled');
@@ -2186,7 +2165,7 @@ function fdisplay_ready_data() {
 	var br_dis_str_inc="";
 	//alert(localStorage.fdisplay_done);
 	
-	//alert(localStorage.fdisplaySlabTotal);
+		//alert(localStorage.fdisplaySlabTotal);
 	for (var i=0; i < localStorage.fdisplaySlabTotal-1; i++){
 		var fdisplayTotal='fdisplayTotal'+i.toString()
 		
@@ -2223,10 +2202,6 @@ function fdisplay_ready_data() {
 				
 				var hightName='hightName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 				var widthName='widthName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
-				var sghightName='sghightName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
-				var sgwidthName='sgwidthName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
-				var UBLhightName='UBLhightName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
-				var UBLwidthName='UBLwidthName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 				
 				
 				
@@ -2234,14 +2209,6 @@ function fdisplay_ready_data() {
 				
 				var widthNameValue=$("#"+widthName).val();
 				
-				var sghightNameValue=$("#"+sghightName).val();
-				
-				var sgwidthNameValue=$("#"+sgwidthName).val();
-				
-				var UBLhightNameValue=$("#"+UBLhightName).val();
-				
-				var UBLwidthNameValue=$("#"+UBLwidthName).val();
-			//	alert(sghightNameValue)
 				
 				
 				var	 brandCheckStr = localStorage.brandCheckStr
@@ -2318,11 +2285,7 @@ function fdisplay_ready_data() {
 		} /////////for localStorage.fdisplay_done fixed value
 		fdisplay_data_detail=fdisplay_data_detail+'detaildetail'
 		//alert(br_distrib_string)
-		if (localStorage.p6==1){
-		
-		br_distrib_string=br_distrib_string+'<'+fdisplaySlab_name+'>'+'<HW>'+hightNameValue+'fdfd'+widthNameValue+'fdfd'+sghightNameValue+'fdfd'+sgwidthNameValue+'fdfd'+UBLhightNameValue+'fdfd'+UBLwidthNameValue+'</HW>'}
-		
-		br_distrib_string=br_distrib_string+br_dis_str_inc
+		br_distrib_string=br_distrib_string+'<'+fdisplaySlab_name+'>'+'<HW>'+hightNameValue+'fdfd'+widthNameValue+'</HW>'+br_dis_str_inc
 		
 		fdisplay_data_head=fdisplay_data_head+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+fdSLfdisplay_image_name+'fdfd'+fdSLfdisplay_image_path+'fdfd'+fdSLfdisplay_image_name_before+'fdfd'+fdSLfdisplay_image_path_before+'fdfd'+'rdrd'
 		
@@ -2330,7 +2293,7 @@ function fdisplay_ready_data() {
 	//}
 	 fdisplay_data='headstart'+fdisplay_data_head+'headend'+fdisplay_data_detail +'<brStart>'+br_distrib_string
 	 localStorage.fdisplay_data_ready=fdisplay_data
-	 alert (localStorage.fdisplay_data_ready)
+	// alert (localStorage.fdisplay_data_ready)
 	 
 	// alert (localStorage.fdisplay_data_ready)
 		//}
@@ -2360,11 +2323,7 @@ function fdisplay_ready_data() {
 		$.mobile.navigate(url);
 		
 	}
-		else if (localStorage.npdTotal > 0){
-		var url = "#npdPage";
-		$.mobile.navigate(url);
-	}
-
+	
 	else if (localStorage.qpdsSkip==0 ){
 		var url = "#qpdsPage";
 		$.mobile.navigate(url);
@@ -2372,6 +2331,10 @@ function fdisplay_ready_data() {
 		$('#fdisplay').addClass('disabledAnchor');	
 		localStorage.fd_done_flag=1;
 		
+	}
+	else if (localStorage.npdTotal > 0){
+		var url = "#npdPage";
+		$.mobile.navigate(url);
 	}
 	else {
 		var url = "#mhskusPage";
@@ -2633,10 +2596,7 @@ function qpds_ready_data() {
 	}
 
 	else{
-		var url = "#keyTaskPage";
-	
-		
-		//var url = "#npdPage";
+		var url = "#npdPage";
 		//var url = "#submitPage";
 		$.mobile.navigate(url);
 		$('#qpds').find('input, textarea, button, select').attr('disabled','disabled');
@@ -3111,7 +3071,6 @@ function submit_data() {
 			//alert(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
 		//	+'&brand_data='+localStorage.br_distrib_string
 			//alert(fdisplay_data)
-			alert(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
 			var check_outlet= localStorage.outletString;
 			$.ajax({
 						type: 'POST',
