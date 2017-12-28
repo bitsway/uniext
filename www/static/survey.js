@@ -1634,6 +1634,7 @@ function syncOutlet() {
 					var fdisplaySlab_image = fdisplaySlabArray[slab].split('<slab>')[0].split('<fdfd>')[1];
 					
 					var fdisplaySlab_name = fdisplaySlabArray[slab].split('<slab>')[0].split('<fdfd>')[0];
+					var fdiPerc = fdisplaySlabArray[slab].split('<slab>')[0].split('<fdfd>')[2];
 					
 					var slab_text=slab.toString()
 					var fdSL_image_div='fdSL_image_div_'+slab_text
@@ -1643,6 +1644,7 @@ function syncOutlet() {
 					var fdSL_image='fdSL_image_'+slab_text
 					var fdSL_image_div='fdSL_image_div_'+slab_text
 					var fdSLfdisplay='fdSLfdisplay_'+slab_text
+					var fdiPercText='fdiPerc_'+slab_text
 					var brSLfdisplay='brSLfdisplay_'+slab_text+fdisplaySlab_name.replace(' / ','_')
 					var brandCheckStr=localStorage.brandCheckStr
 					var bListGet=''
@@ -1664,7 +1666,7 @@ function syncOutlet() {
 					var UBLwidthName='UBLwidthName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
 					
 					
-					fdisplayStringShow=fdisplayStringShow+'</br></br><table width="100%" border="0"> <tr><td style=" font-weight:bold; font-size:28px color:#006A6A; background:#FFECFF">'+fdisplaySlab_name+'</td> </tr></table>';
+					fdisplayStringShow=fdisplayStringShow+'</br></br><table width="100%" border="0"> <tr><td style=" font-weight:bold; font-size:28px color:#006A6A; background:#FFECFF">'+fdisplaySlab_name+'</td> </tr></table>'+'<input readonly  type="hidden" name="'+fdiPercText +'" id="'+fdiPercText+'" value="'+fdiPerc+'" min="0">';
 					
 					
 					
@@ -1673,7 +1675,7 @@ function syncOutlet() {
 
 					if (localStorage.p6==1){
 
-fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;"> <label>Cat Shelf Space</label> </td><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+widthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;"> <label>Suggested Shelf Space</label></td><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+sghightName +'" id="'+sghightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+sgwidthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;"> <label>UBL Shelf Space</label></td><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+UBLhightName +'" id="'+UBLhightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+UBLwidthName+'" value=""></td></tr></table></br>'
+fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height="25px" style="color:#0329C0"><td style="color:#006A6A; font-size:18px;" colspan="2"> <label>Cart Shelf Space  ('+fdiPerc+'%) </label> </td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input onBlur="getOtherValue(/'+hightName+'|'+slab_text+'/)" type="number" id="'+widthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td style="color:#006A6A; font-size:18px;" colspan="2"> <label>Suggested Shelf Space</label></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input readonly  type="number" name="'+sghightName +'" id="'+sghightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input readonly type="number" id="'+sgwidthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td  style="color:#006A6A; font-size:18px;" colspan="2"> <label>UBL Shelf Space</label></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input readonly  type="number" name="'+UBLhightName +'" id="'+UBLhightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+UBLwidthName+'" value=""></td></tr></table></br>'
 
 					}
 
@@ -1972,6 +1974,44 @@ fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height
 			  
 }
 //=====================Select Outlet End=========================
+function getOtherValue(hName){
+	
+	var get_i= hName.toString();
+	var getF=get_i.split('|')[0]
+	var getPer=get_i.split('|')[1].replace('/','')
+	
+	var hightName1=getF.replace('/','')
+	var hightName=hightName1.replace('/','')
+	var widthName=hightName.replace('hightName_','widthName_')
+	var sghightName=hightName.replace('hightName_','sghightName_')
+	var sgwidthName=hightName.replace('hightName_','sgwidthName_')
+	var UBLhightName=hightName.replace('hightName_','UBLhightName_')
+	var UBLwidthName=hightName.replace('hightName_','UBLwidthName_')
+
+	
+	var heightVal=$( "#"+hightName).val();
+	var widthNameVal=$( "#"+widthName).val();
+	
+	$( "#"+sghightName).val(heightVal);
+	$( "#"+UBLhightName).val(heightVal);
+	var sgwidthNameVal=$( "#"+widthName).val();
+	//alert (sgwidthNameVal)
+	var fdiPercText='fdiPerc_'+getPer.toString()
+	var fdiPercTextVal=$( "#"+fdiPercText).val();
+	
+	//alert (fdiPercTextVal)
+	var cVal= (widthNameVal / 100) * fdiPercTextVal
+	//alert (cVal)
+	
+	
+	
+	
+	$( "#"+sgwidthName).val(cVal);
+	//48 / 100 X 30
+	
+	
+	
+}
 
 //=====================Route Exception start=====================
 function selectRouteException() { 
