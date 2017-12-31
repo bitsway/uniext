@@ -2383,6 +2383,7 @@ function fdisplay_ready_data() {
 		//}
 	 
 	// alert (localStorage.fdisplayStringShow)
+	 alert (image_flag)
 	 fdisplay_page_set()
 	// brand_ready_data();
 	 //alert (localStorage.fdisplayStringShow) 
