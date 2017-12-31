@@ -2239,7 +2239,7 @@ function fdisplay_ready_data() {
 		
 		//alert (fdSLfdisplay_image_path)
 		//alert (fdSLfdisplay_image_path.length)
-		alert (localStorage.fdisplay_done)
+		//alert (localStorage.fdisplay_done)
 		if (localStorage.fdisplay_done==0){
 		
 		if (fdSLfdisplay_image_path.length<10){
@@ -2401,7 +2401,7 @@ function fdisplay_ready_data() {
 //		$.mobile.navigate(url);
 //		
 //	}
-	//alert (image_flag)
+	alert (image_flag)
 	if (image_flag==1){
 		
 		var url = "#fixedDisplay";
