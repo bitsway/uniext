@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"  />
         <title>UNILEVER</title>
         
         <link rel="stylesheet" href="static/my.css"  />
@@ -253,7 +253,7 @@ $(document).ready(function(){
 				$("#saved_button").html('<a data-role="button" onClick="savedVisit()" ><img src="saved_visit.png"></a>')
 				
 				}
-				
+				//localStorage.ItemVisiblefdisplay;
 				//alert (localStorage.outletIDnameShow);
 				
 				//alert (localStorage.outletIDnameShow);
@@ -628,7 +628,8 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 				 
 				 </br></br>
 				<!--<a data-role="button" href="#qpdsPage" onClick="fdisplay_ready_data();" >Next</a>-->
-                <a data-role="button" onClick="fdisplay_ready_data();" >Next</a>
+              <!--  brand_ready_data();-->
+                <a data-role="button" onClick="fdisplay_ready_data();fdisplay_ready_data_done();" >Next</a>
 				<br/><br/></br></br></br></br></br></br><br/><br/><br/>
               <div id="dataerror" style="color:#FF0; font-family:Arial, Helvetica, sans-serif; text-decoration:none; font-size:12px; font-style:normal; font-weight:lighter; text-shadow:none"  align="center"> </div>
                 <br/><br/>
@@ -776,7 +777,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
     <table id="newMarchandizing_1"  width="100%" border="0" >
                   <tr >
                     
-                    <td>
+                    <td >
                     <div id="selectItem">
                     
 
@@ -914,7 +915,13 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 				
 				<div id="next_option">
 				<!--<a data-role="button" onClick="outlet_next_page();getlocationand_askhelp();" >Next</a>-->
+                
+                					<!--2017/11/16 Thursday Start-->
+                
 				<a data-role="button" onClick="outlet_next_page();getlocationand_askhelp();" >Next</a>
+                					
+                                    <!--2017/11/16 Thursday End-->
+            <!--    <a data-role="button" onClick="outlet_next_page()" >Next</a>-->
 				</div>
 				<br/><br/></br></br></br></br></br></br><br/><br/><br/>
 				
@@ -1015,7 +1022,8 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 		<div data-theme="c" data-role="header" data-position="fixed" >
 			    <a style="height:18px" onClick="munu_page_check()"  class="ui-btn-left ui-btn-icon-notext"><img src="unilogo13.png"></a>
                 <a style="height:18px" data-rel="back" data-iconpos="left" class="ui-btn-right"><img src="back1.png"></a>
-                <h3>KeyTask</h3>
+<!--                <h3>KeyTask</h3> 	-->
+                <h3>Self Check List </h3>
             </div>
 		    
 			<div  data-role="content" style="height:90%" >

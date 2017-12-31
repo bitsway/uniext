@@ -9,9 +9,16 @@
 //var apipath='http://127.0.0.1:8000/unilever/syncmobile_schedule/';
 //var apipath_image = 'http://127.0.0.1:8000/unilever/';
 
+//var apipath='http://127.0.0.1:8000/uniext/syncmobile_schedule/';
+//var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
-var apipath='http://e3.businesssolutionapps.com/unilever/syncmobile_schedule/';
-var apipath_image = 'http://e3.businesssolutionapps.com/unilever/';
+
+
+var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew/';
+var apipath_image = 'http://w02.yeapps.com/unilever18/';
+
+//var apipath='http://127.0.0.1:8000/unilever_latest/syncmobile_schedule/';
+//var apipath_image = 'http://127.0.0.1:8000/unilever_latest/';
 
  
 var step_flag=0; // 1 fd , 2 qpds, 3 gift
@@ -108,13 +115,16 @@ function outlet_next_page(){
 	shop_ready_data();
 	var shop_image_name=$("#shop_image_name_hidden").val();
 	var shop_image_path=$("#shop_image_div_hidden").val();
-	
-	//if (shop_image_name.length < 10){
-	if (shop_image_path.length < 10){
+	//alert (shop_image_name.length)
+	if (shop_image_name.length < 10){
+	//if (shop_image_path.length < 10){
+	//	alert('1')
 			var url = "#cancelPage";
 			$.mobile.navigate(url);
+			
 	}
 	else{
+	//	alert('2')
 		   if ((localStorage.routeException_found == '1') && ((localStorage.outletException=='undefined') || (localStorage.outletException==undefined))){
 				
 				var url = "#outletexceptionPage";
@@ -125,8 +135,12 @@ function outlet_next_page(){
 			}
 			else{
 					if (localStorage.fdSkip==0){
-					var url = "#fdbeforePage";
+//					var url = "#fdbeforePage";
+//					$.mobile.navigate(url);
+
+					var url = "#fixedDisplay";
 					$.mobile.navigate(url);
+
 					  $('#shop_show').find('input, textarea, button, select').attr('disabled','disabled');
 					  $('#shop_show').addClass('disabledAnchor');
 					  localStorage.shop_next_flag=1;
@@ -477,13 +491,13 @@ function check_user() {
 		localStorage.outletString='';
 	//	clear_autho();
    		
-		
+	//alert (apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode)	
 	//$("#error_login").html(apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode);	
    		$.ajax({
 				 type: 'POST',
 				 url: apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode,
 				 success: function(result) {
-					
+						//alert (result)
 						if (result==''){
 							$("#loginButton").show();
 							$("#login_image").hide();
@@ -498,6 +512,7 @@ function check_user() {
 								$("#error_login").html('Unauthorized User');
 							}
 							if (resultArray[0]=='SUCCESS'){
+								 
 								cancel_outlet();
 								$("#loginButton").show();
 								$("#login_image").hide();
@@ -996,7 +1011,7 @@ function marketPJP() {
 	if(localStorage.selectedRoute!=undefined){
 		//$("#dataerror").html(apipath+'sync_route?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute);
 	//======================================	
-		
+		//alert (apipath+'sync_route?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute)
 		localStorage.routeException='';
 		$.ajax({
 				 type: 'POST',
@@ -1025,6 +1040,10 @@ function marketPJP() {
 										var merchandisingDistribStr=resultArray[2];
 										localStorage.merchandisingDistribStr=merchandisingDistribStr
 										
+										
+										var brandCheckStr=resultArray[3];
+										localStorage.brandCheckStr=brandCheckStr
+											
 										var mar_distrib_stock=""
 										if(merchandisingDistribStr!=""){
 											var merchanDistribList=merchandisingDistribStr.split('rdrd')
@@ -1140,7 +1159,7 @@ function marketPJP() {
 										
 										localStorage.outletString=outletStringShow
 										$("#outletString").html(localStorage.outletString);
-										
+										//alert(localStorage.outletString);
 										$("#routeS_image").hide();
 										$("#RSButton").show();
 										
@@ -1214,6 +1233,10 @@ function marketPJP_check() {
 //=====================select Outlet start============
 
 function select_outlet() { 
+   		var a_0 = 0;
+		localStorage.fdisplay_done=parseInt(a_0);
+
+
 		
 		localStorage.latlongSubmit=0;
 		localStorage.dataSubmit=0;
@@ -1241,7 +1264,7 @@ function select_outlet() {
 		
 		
 			
-		var selected_outletID_get=($("input:radio[name='RadioOutlet']:checked").val())		
+		var selected_outletID_get=($("input:radio[name='RadioOutlet']:checked").val())
 		var selected_outletID_list = selected_outletID_get.split('rdrd');
 		
 		var selected_outletID=selected_outletID_list[0];	
@@ -1382,17 +1405,23 @@ function selectOutletException() {
 		localStorage.outletException=selected_outlet_exception;
 		
 		if (localStorage.fdSkip==0){
-		var url = "#fdbeforePage";
+//		var url = "#fdbeforePage";
+//		$.mobile.navigate(url);
+
+		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
+
 		
 		}
 		else if (localStorage.qpdsSkip==0){
-			var url = "#qpdsPage";
+			//var url = "#qpdsPage";
+			var url = "#npdPage";
 			$.mobile.navigate(url);
 			
 		}
 		else{
-			var url = "#npdPage";
+		//	var url = "#npdPage";
+			var url = "#qpdsPage";
 			$.mobile.navigate(url);
 		}
 		
@@ -1425,7 +1454,15 @@ function syncOutlet() {
 			fdisplay = npdArray[1];
 			var fdisplayArray = fdisplay.split('</fdisplayList>');									
 			fdisplayList = fdisplayArray[0].replace("<fdisplayList>","");
+			localStorage.p6=0
+			//if ((fdisplayList.indexOf('6P')==-1) || (fdisplayList.indexOf('6P')!=0) ){
+			//	localStorage.p6=0
+			//}
+			if (fdisplayList.indexOf('6P')==0){
+				localStorage.p6=1
+			}
 			
+			//alert (fdisplayList.indexOf('6P'))
 			//$("#show_result").text(fdisplayList);
 			
 								
@@ -1442,6 +1479,10 @@ function syncOutlet() {
 			var marchadizingArray = marchadizing.split('</marList>');									
 			marchadizingList = marchadizingArray[0].replace("<marList>","");
 								
+
+			
+
+
 			
 			//=====marchandizing Item=======
 			marchadizingItem = marchadizingArray[1];
@@ -1502,6 +1543,8 @@ function syncOutlet() {
 			
 			var npdStringShow=''
 			npdStringShow=npdStringShow+'<table width="100%" border="0"><tr style="color:#0329C0"> <td colspan="2" style="color:#006A6A; font-size:18px;">'+localStorage.routeIDName+'<br>'+localStorage.outletNameID+'</td></tr><tr > </table></br>'
+
+			
 			npdStringShow=npdStringShow+'<table  width="100%" border="0" cellpadding="0" cellspacing="0">'
 			npdStringShow=npdStringShow+'<tr bgcolor="#9FCED7"  ><td></td><td>Item</td><td> QTY</td><td ></td></tr><tr height="1px" bgcolor="#CCCCCC" ><td></td><td></td><td> </td><td ></td></tr>'
 			
@@ -1551,7 +1594,7 @@ function syncOutlet() {
 						'<td> <a data-role="button" href="#" onClick="get_pic_npd('+i_text+')" >Take Picture </a></td></tr></table>'+ 
 						'<img id="'+npd_image_div+'" height="100px" width="100px"  src="" alt="NPDPic" />'+
 						'<input type="hidden" name="'+ npd_image_div_hidden +'" id="'+ npd_image_div_hidden +'" value="" >'+
-						'<input type="hidden" name="'+ npd_image_name_hidden +'" id="'+ npd_image_name_hidden +'" value="" ><br>--------------------------------------------------------------------'
+						'<input type="hidden" name="'+ npd_image_name_hidden +'" id="'+ npd_image_name_hidden +'" value="" ><br><table width="100%" border="0"><tr style="background-color:#633;" height="1px">'+'<td> </td></tr></table>'
 						
 
 				
@@ -1589,7 +1632,9 @@ function syncOutlet() {
 					var fdisplaySlab_1Array = fdisplayList.split('<slab>');
 					
 					var fdisplaySlab_image = fdisplaySlabArray[slab].split('<slab>')[0].split('<fdfd>')[1];
+					
 					var fdisplaySlab_name = fdisplaySlabArray[slab].split('<slab>')[0].split('<fdfd>')[0];
+					var fdiPerc = fdisplaySlabArray[slab].split('<slab>')[0].split('<fdfd>')[2];
 					
 					var slab_text=slab.toString()
 					var fdSL_image_div='fdSL_image_div_'+slab_text
@@ -1599,15 +1644,74 @@ function syncOutlet() {
 					var fdSL_image='fdSL_image_'+slab_text
 					var fdSL_image_div='fdSL_image_div_'+slab_text
 					var fdSLfdisplay='fdSLfdisplay_'+slab_text
+					var fdiPercText='fdiPerc_'+slab_text
+					var brSLfdisplay='brSLfdisplay_'+slab_text+fdisplaySlab_name.replace(' / ','_')
+					var brandCheckStr=localStorage.brandCheckStr
+					var bListGet=''
 					
-				
-					//fdisplayStringShow=fdisplayStringShow+'<div id="fddiv_'+slab.toString()+'">'
-					fdisplayStringShow=fdisplayStringShow+'</br></br><table width="100%" border="0"> <tr><td style=" font-weight:bold; font-size:28px color:#006A6A; background:#FFECFF">'+fdisplaySlab_name+'</td> </tr></table>';
+					//alert (fdisplaySlab_name)
+					
+					if (brandCheckStr.indexOf(fdisplaySlab_name)!= -1){ 
+						 bListGet=brandCheckStr.split('<'+fdisplaySlab_name+'>')[1].split('<')[0]
+					}
+					else{ 
+						 bListGet=''
+					}
+					//var colName=bId+'_'+fdisplaySlab_name
+					var hightName='hightName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+					var widthName='widthName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+					var sghightName='sghightName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+					var sgwidthName='sgwidthName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+					var UBLhightName='UBLhightName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+					var UBLwidthName='UBLwidthName_'+slab_text+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+					
+					
+					fdisplayStringShow=fdisplayStringShow+'</br></br><table width="100%" border="0"> <tr><td style=" font-weight:bold; font-size:28px color:#006A6A; background:#FFECFF">'+fdisplaySlab_name+'</td> </tr></table>'+'<input readonly  type="hidden" name="'+fdiPercText +'" id="'+fdiPercText+'" value="'+fdiPerc+'" min="0">';
+					
+					
+					
 					fdisplayStringShow=fdisplayStringShow+'<img height="100px" width="100%"  src="'+apipath_image+'static/uni_images/display/'+fdisplaySlab_image+'" alt="FixedDisplay" />';
+
+
+					if (localStorage.p6==1){
+
+fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height="25px" style="color:#0329C0"><td style="color:#006A6A; font-size:18px;" colspan="2"> <label>Cart Shelf Space  ('+fdiPerc+'%) </label> </td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input onBlur="getOtherValue(/'+hightName+'|'+slab_text+'/)" type="number" id="'+widthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td style="color:#006A6A; font-size:18px;" colspan="3"> <label>Suggested Shelf Space</label></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input readonly  type="number" name="'+sghightName +'" id="'+sghightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input readonly type="number" id="'+sgwidthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td  style="color:#006A6A; font-size:18px;" colspan="2"> <label>UBL Shelf Space</label></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input readonly  type="number" name="'+UBLhightName +'" id="'+UBLhightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+UBLwidthName+'" value=""></td></tr></table></br>'
+
+					}
+
+			//}  		// for loop of ===== for (var slab=0; slab < fdisplaySlabTotal-1; slab++){
+						//var ho=	hightName.val()
+					
+					//alert(ho);
+					
+					//<input type="hidden" name="'+ brSLfdisplay +'" id="'+ brSLfdisplay +'" value="'+brSLfdisplay+'" min="0">
+				
+					if (bListGet!=''){
+						fdisplayStringShow=fdisplayStringShow+'<table width="70%" border="0" cellpadding="0" cellspacing="0"><tr bgcolor="#9FCED7" ><td style="color:#006A6A; font-size:18px;">Brand</td> <td  style="color:#006A6A; font-size:18px;" width="10%">Column</td></tr>'
+						
+						bListAll=bListGet.split('rdrd')
+						
+						for (var b=0; b < bListAll.length-1; b++){
+							var bId=bListAll[b].split('fdfd')[1]
+							var bName=bListAll[b].split('fdfd')[2]
+							//alert(bName)
+							var colName=bId+'_'+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+							fdisplayStringShow=fdisplayStringShow+'<tr style="color:#0329C0"><td  style="color:#006A6A; "><input type="hidden" name="'+ bId +'" id="'+ bId +'" value="'+bName+'" min="0">'+bName+'</td> <td  style="color:#006A6A; font-size:18px;"><input type="number" id="'+colName+'"></td></tr >'
+						
+						fdisplayStringShow=fdisplayStringShow+'<tr  ><td></td><td></td></tr>'
+						
+						
+						}
+						fdisplayStringShow=fdisplayStringShow+'</table></br>'
+					}
+					
+					
+					
 					
 					fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0" cellpadding="0" cellspacing="0">'
 					
-					fdisplayStringShow=fdisplayStringShow+'<tr bgcolor="#9FCED7" ><td width="1%" >&nbsp;</td><td >Item</td> <td width="50px">QTY</td><td></td><td width="50px">Face Up</td><td></td><td width="100px">Order</td></tr>'
+					fdisplayStringShow=fdisplayStringShow+'<tr bgcolor="#9FCED7" ><td width="1%" >&nbsp;</td><td >Item</td> <td>Yes</td><td>No</td></tr>'
+//					fdisplayStringShow=fdisplayStringShow+'<tr bgcolor="#9FCED7" ><td width="1%" >&nbsp;</td><td >Item</td> <td width="50px">QTY</td><td></td><td width="50px">Face Up</td><td></td><td width="100px">Order</td></tr>'
 					
 					var fdisplaySingleArray = fdisplaySlabList.split('rdrd');	
 					var fdisplaySingleTotal = fdisplaySingleArray.length;
@@ -1634,18 +1738,39 @@ function syncOutlet() {
 						var ItemFaceupfdisplay='ItemFaceupfdisplay_'+slab_text+'_'+i_text
 						var ItemVisiblefdisplay='ItemVisiblefdisplay_'+slab_text+'_'+i_text
 						var slabfdisplay='slabfdisplay_'+slab_text+'_'+i_text
+						
+						var ItemVisiblefdisplay ='ItemVisiblefdisplay_'+slab_text+'_'+i_text
+						//var ItemVisiblefdisplayIDN ='ItemVisiblefdisplayIDY_'+slab_text+'_'+i_text
+						var ItemVisiblefdisplayTDY ='ItemVisiblefdisplayTDY_'+slab_text+'_'+i_text
+						var ItemVisiblefdisplayTDN ='ItemVisiblefdisplayTDN_'+slab_text+'_'+i_text
+						//var radioID='radioFsu_'+slab_text+'_'+i_text
+						
+						
 						//var fdSLfdisplay='fdSLfdisplay_'+i_text
 						
 						
+
+						
+//						fdisplayStringShow=fdisplayStringShow+'<tr ><td width="1%" >&nbsp;</td><td>'+itemName+'<input type="hidden" name="'+ Itemfdisplay +'" id="'+ Itemfdisplay +'" value="'+itemID+'" min="0"> <input type="hidden" name="'+ slabfdisplay +'" id="'+ slabfdisplay +'" value="'+slab_fdisplay+'" min="0"></td>'+
+
+
+//						fdisplayStringShow=fdisplayStringShow+'<tr ><td width="1%" >&nbsp;</td><td>'+itemName+'<input type="hidden" name="'+ Itemfdisplay +'" id="'+ Itemfdisplay +'" value="'+itemID+'" min="0"> <input type="hidden" name="'+ slabfdisplay +'" id="'+ slabfdisplay +'" value="'+slab_fdisplay+'" min="0"></td>'+ '<td id="'+ItemVisiblefdisplayTDY+'">'+ItemVisiblefdisplay+'<input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="Yes"></td><td><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="No"> </td></tr>'
+
 						
 						
-						fdisplayStringShow=fdisplayStringShow+'<tr ><td width="1%" >&nbsp;</td><td>'+itemName+'<input type="hidden" name="'+ Itemfdisplay +'" id="'+ Itemfdisplay +'" value="'+itemID+'" min="0"> <input type="hidden" name="'+ slabfdisplay +'" id="'+ slabfdisplay +'" value="'+slab_fdisplay+'" min="0"></td>'+
-										  '<td><input  onClick="checkQtyFd(/'+slab_text+'_'+i_text+'/)" onKeyUp="checkQtyFd(/'+slab_text+'_'+i_text+'/)" type="number" name="'+ItemQtyfdisplay +'" id="'+ ItemQtyfdisplay +'" value="" min="0"></td><td></td>'+
-										  '<td><input onKeyUp="checkQtyFd(/'+slab_text+'_'+i_text+'/)" type="number" name="'+ItemFaceupfdisplay +'" id="'+ ItemFaceupfdisplay +'" value="" min="0"></td>'+
-										  '<td></td><td><label  style="width:5px; height:8px"><input type="checkbox" name="'+ ItemVisiblefdisplay +'" id="'+ ItemVisiblefdisplay +'" value=""/></label></td></tr>'
+						fdisplayStringShow=fdisplayStringShow+'<tr height="30px" ><td width="1%" >&nbsp;</td><td>'+itemName+'<input type="hidden" name="'+ Itemfdisplay +'" id="'+ Itemfdisplay +'" value="'+itemID+'" min="0"> <input type="hidden" name="'+ slabfdisplay +'" id="'+ slabfdisplay +'" value="'+slab_fdisplay+'" min="0"><br></td>'+ '<td style=" vertical-align:central" id="'+ItemVisiblefdisplayTDY+'" width="50px"><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="Yes"></td><td id="'+ItemVisiblefdisplayTDN+'"  style=" vertical-align:central" width="50px" ><input type="radio" id="'+ItemVisiblefdisplay+'" name="'+ItemVisiblefdisplay+'" value="No"> </td></tr>'
+										  
+										 // '<label style="background:#81C0C0"><input type="radio" name="RadioRoute"  value="'+routeID+'" id="RadioGroup1_0"> '+routeName+'</label>'
+										 
+										  
+										 
+										//  <label><input type="radio" name="gender" value="male">Male</label> 
+//        <label><input type="radio" name="gender" value="female">Female</label>
+//										  
+										 // '<td></td><td><label  style="width:5px; height:8px"><input type="radio" name="'+ ItemVisiblefdisplay +'" id="'+ ItemVisiblefdisplay +'" value="Yes"/></label></td></tr>'
 						fdisplayStringShow=fdisplayStringShow+'<tr height="1px" bgcolor="#CCCCCC" ><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>'
 						
-					}
+					} // for loop of ===== for (var slab=0; slab < fdisplaySlabTotal-1; slab++){
 					fdisplayStringShow=fdisplayStringShow+'</table>'
 					fdisplayStringShow=fdisplayStringShow+'</div>'	
 					
@@ -1672,11 +1797,15 @@ function syncOutlet() {
 //====================	After
 					fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr>'+
 							'<input type="hidden" name="'+ fdSLfdisplay +'" id="'+ fdSLfdisplay +'" value="'+fdSL_fdisplay+'" min="0">  '+
-							'<td> <a data-role="button" href="#" onClick="get_pic_fdisplay('+slab+')" >Take Picture </a></td></tr></table>'+ 
+							'<td> <a data-role="button" href="#" onClick="get_pic_fdisplay('+slab+')" >Take Picture </a></td></tr><tr>'+
+							'<input type="hidden" name="'+ fdSLfdisplay +'" id="'+ fdSLfdisplay +'" value="'+fdSL_fdisplay+'" min="0">  '+
+							
+							//+
+							//'<td> <a data-role="button" href="#" onClick="get_pic_fdisplay('+slab+')" >Take Picture </a></td></tr></table>'+ 
 							'<img id="'+fdSL_image_div+'" height="100px" width="100px"  src="" alt="FixedDisplay" />'+
 							'<input type="hidden" name="'+ fdSL_image_div_hidden +'" id="'+ fdSL_image_div_hidden +'" value="" >'+
 							'<input type="hidden" name="'+ fdSL_image_name_hidden +'" id="'+ fdSL_image_name_hidden +'" value="" >'+
-							'<input type="hidden" name="'+ fdSL_total_hidden +'" id="'+ fdSL_total_hidden +'" value="'+fdisplaySingleTotal+'" >'
+							'<input type="hidden" name="'+ fdSL_total_hidden +'" id="'+ fdSL_total_hidden +'" value="'+fdisplaySingleTotal+'" ><br><table width="100%" border="0"><tr style="background-color:#633;" height="1px">'+'<td> </td></tr></table>'
 										
 			}
 			
@@ -1687,7 +1816,7 @@ function syncOutlet() {
 			localStorage.fdisplayStringShow=fdisplayStringShow
 			$("#fdisplay").html(localStorage.fdisplayStringShow);
 			
-			
+			//alert (localStorage.fdisplayStringShow)
 			
 
 			//==========Create QPDS Display list
@@ -1848,6 +1977,44 @@ function syncOutlet() {
 			  
 }
 //=====================Select Outlet End=========================
+function getOtherValue(hName){
+	
+	var get_i= hName.toString();
+	var getF=get_i.split('|')[0]
+	var getPer=get_i.split('|')[1].replace('/','')
+	
+	var hightName1=getF.replace('/','')
+	var hightName=hightName1.replace('/','')
+	var widthName=hightName.replace('hightName_','widthName_')
+	var sghightName=hightName.replace('hightName_','sghightName_')
+	var sgwidthName=hightName.replace('hightName_','sgwidthName_')
+	var UBLhightName=hightName.replace('hightName_','UBLhightName_')
+	var UBLwidthName=hightName.replace('hightName_','UBLwidthName_')
+
+	
+	var heightVal=$( "#"+hightName).val();
+	var widthNameVal=$( "#"+widthName).val();
+	
+	$( "#"+sghightName).val(heightVal);
+	$( "#"+UBLhightName).val(heightVal);
+	var sgwidthNameVal=$( "#"+widthName).val();
+	//alert (sgwidthNameVal)
+	var fdiPercText='fdiPerc_'+getPer.toString()
+	var fdiPercTextVal=$( "#"+fdiPercText).val();
+	
+	//alert (fdiPercTextVal)
+	var cVal= (widthNameVal / 100) * fdiPercTextVal
+	//alert (cVal)
+	
+	
+	
+	
+	$( "#"+sgwidthName).val(cVal);
+	//48 / 100 X 30
+	
+	
+	
+}
 
 //=====================Route Exception start=====================
 function selectRouteException() { 
@@ -1934,10 +2101,14 @@ function npd_ready_data() {
 		var npd_image_name_hidden=$("#npd_image_name_hidden_"+i.toString()).val(); 
 		
 		if (ItemQtynpd.length < 1){
-			error_flag_qty_npd=1;
+		//	error_flag_qty_npd=1;
+			error_flag_qty_npd=0;
+
 		}
 		if (npd_image_div_path.length < 1){
-			error_image_flag_npd=1;
+		//	error_image_flag_npd=1;
+			error_image_flag_npd=0;
+
 		}
 		
 		npd_data=npd_data+Itemnpd+'fdfd'+ItemQtynpd+'fdfd'+minQty+'fdfd'+npd_image_div_path+'fdfd'+npd_image_name_hidden+'rdrd';
@@ -1963,8 +2134,14 @@ function npd_ready_data() {
 		$.mobile.navigate(url);
 	}
 	else{
-		var url = "#mhskusPage";
+//		var url = "#mhskusPage";
+//		$.mobile.navigate(url);
+
+	//	var url = "#placePage";
+
+		var url = "#qpdsPage";
 		$.mobile.navigate(url);
+
 		$('#npd').find('input, textarea, button, select').attr('disabled','disabled');
 		$('#npd').addClass('disabledAnchor');
 		localStorage.npd_next_flag=1;
@@ -2011,8 +2188,9 @@ function fdisplay_before_page_next() {
 		var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+"_before").val(); 
 		var fdSLfdisplay_image_name=$("#fdSL_image_name_hidden_"+i.toString()+"_before").val(); 
 		
-		//if (fdSLfdisplay_image_name.length<10){
-		if (fdSLfdisplay_image_path_before.length<10){
+		if (fdSLfdisplay_image_name.length<10){
+			//alert('51')
+		//if (fdSLfdisplay_image_path_before.length<10){
 			image_flag=1
 		}
 
@@ -2026,74 +2204,185 @@ function fdisplay_before_page_next() {
 
 	}
 	else{
-		var url = "#fdbeforePage";
+//		var url = "#fdbeforePage";
+//		$.mobile.navigate(url);
+
+		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
+
 	}
 
 }
 
 //====================fdisply before page end=======================
+function fdisplay_ready_data_done() { 
+	localStorage.fdisplay_done = parseInt(localStorage.fdisplay_done)+1;
+}
 function fdisplay_ready_data() { 
 	//===============fixeddisplay data==================
+	var br_distrib_string=""
 	var fdisplay_data=""
 	var fdisplay_data_detail="";
 	var fdisplay_data_head="";
 	var image_flag=0;
 	var error_qty_flag=0;
+	var br_dis_str_inc="";
+	//alert(localStorage.fdisplay_done);
 	
+	//alert(localStorage.fdisplaySlabTotal);
 	for (var i=0; i < localStorage.fdisplaySlabTotal-1; i++){
 		var fdisplayTotal='fdisplayTotal'+i.toString()
 		
 		var fdTotal=$("#fdSL_total_hidden_"+i.toString()).val();
+		//alert(fdisplayTotal)
 		var fdSLfdisplay_image_path=$("#fdSL_image_div_hidden_"+i.toString()).val(); 
 		var fdSLfdisplay_image_name=$("#fdSL_image_name_hidden_"+i.toString()).val(); 
 		
-	
+		if (localStorage.fdisplay_done==0){
+		
 		if (fdSLfdisplay_image_path.length<10){
-			image_flag=1
+			//image_flag=1
+			image_flag=0
 		}
 		
 			var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+"_before").val(); 
 			var fdSLfdisplay_image_name_before=$("#fdSL_image_name_hidden_"+i.toString()+"_before").val();
 			
-			
 			var fdSLfdisplay=$("#fdSLfdisplay_"+i.toString()).val(); 
+
+		//		alert(localStorage.fdisplay_done);
 			
 			for (var d=0; d < fdTotal-1; d++){
-				var ItemQtyfdisplay=$("#ItemQtyfdisplay_"+i.toString()+"_"+d.toString()).val();
+				var ItemQtyfdisplay=''
 				var Itemfdisplay=$("#Itemfdisplay_"+i.toString()+"_"+d.toString()).val();
-				var ItemFaceupfdisplay=$("#ItemFaceupfdisplay_"+i.toString()+"_"+d.toString()).val();
+				var ItemFaceupfdisplay=''
 				var slabfdisplay=$("#slabfdisplay_"+i.toString()+"_"+d.toString()).val();
+				//alert(slabfdisplay)
+
+				//================HeightWight and Brand==================
+				var fdisplaySlab_name = localStorage.outletChannel+" / "+slabfdisplay
 				
 				
-				var ItemVisiblefdisplay_f="#ItemVisiblefdisplay_"+i.toString()+"_"+d.toString();
-				var ItemVisiblefdisplay_g= ($(ItemVisiblefdisplay_f).is(':checked') ? 1 : 0);
 				
-					if (ItemVisiblefdisplay_g==0){
-						ItemVisiblefdisplay='NO'
-					}
-					if (ItemVisiblefdisplay_g==1){
-						ItemVisiblefdisplay='YES'
-					}	
-				if  ((ItemQtyfdisplay.length < 1) || (ItemFaceupfdisplay.length < 1) || (ItemVisiblefdisplay=='NO')){
-					error_qty_flag=1;
+				var hightName='hightName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+				var widthName='widthName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+				var sghightName='sghightName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+				var sgwidthName='sgwidthName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+				var UBLhightName='UBLhightName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+				var UBLwidthName='UBLwidthName_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+				
+				
+				
+				var hightNameValue=$("#"+hightName).val();
+				
+				var widthNameValue=$("#"+widthName).val();
+				
+				var sghightNameValue=$("#"+sghightName).val();
+				
+				var sgwidthNameValue=$("#"+sgwidthName).val();
+				
+				var UBLhightNameValue=$("#"+UBLhightName).val();
+				
+				var UBLwidthNameValue=$("#"+UBLwidthName).val();
+			//	alert(sghightNameValue)
+				
+				
+				var	 brandCheckStr = localStorage.brandCheckStr
+				
+				if(brandCheckStr!=""){
+					if (brandCheckStr.indexOf(fdisplaySlab_name)!= -1){ 
 					
+						 bListGet=brandCheckStr.split('<'+fdisplaySlab_name+'>')[1].split('<')[0]
+					}
+					else{ 
+						 bListGet=''
+					}
+				//alert(bListGet)
+				if (bListGet!=''){	
+						bListAll=bListGet.split('rdrd')
+						br_dis_str_inc=''
+						for (var b=0; b < bListAll.length-1; b++){
+								//var bId=bListAll[b].split('fdfd')[0]
+								var brSLfdisplay='brSLfdisplay_'+i.toString()+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+								//var brdSLfdisplay=$("#"+brSLfdisplay).val();
+								///var brdSLfdisplay= brSLfdisplay.val()
+								var bName=bListAll[b].split('fdfd')[1]
+								
+								//var brSLfdisplay=$("#fdSLfdisplay_"+i.toString()).val();
+								var colName=bName+'_'+fdisplaySlab_name.replace(' / ','_').replace(' ','_')
+								var colNameValue=$("#"+colName).val();
+								var bNameValue= $("#"+bName).val();
+								br_dis_str_inc=br_dis_str_inc+'<brbr>'+bName+'fdfd'+bNameValue+'fdfd'+colNameValue
+								//alert(br_distrib_string)
+						}
 				}
 				
-					fdisplay_data_detail=fdisplay_data_detail+Itemfdisplay+'fdfd'+ItemQtyfdisplay+'fdfd'+ItemFaceupfdisplay+'fdfd'+ItemVisiblefdisplay+'fdfd'+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+'rdrd'
+					//alert(br_distrib_string)
+			}//if(brandCheckStr!
 			
-		}
-		fdisplay_data_detail=fdisplay_data_detail+'detaildetail'
+		//==========================Brand===================================							
+	
+
+				var ItemVisiblefdisplay_f="#ItemVisiblefdisplay_"+i.toString()+"_"+d.toString();
+				//alert (ItemVisiblefdisplay_f)
+				var ItemVisiblefdisplay_g= ($(ItemVisiblefdisplay_f).is(':checked') ? 1 : 0);
+				//alert (ItemVisiblefdisplay_g)
+					if (ItemVisiblefdisplay_g==0){
+						
+						ItemVisiblefdisplay='NO'
+						
+					}
+					if (ItemVisiblefdisplay_g==1){
+						
+						ItemVisiblefdisplay='YES'
+					}	
+					//alert(localStorage.ItemVisiblefdisplay)
+				if  ((ItemQtyfdisplay.length < 1) || (ItemFaceupfdisplay.length < 1) || (ItemVisiblefdisplay=='NO')){
+					//error_qty_flag=1;
+					error_qty_flag=0;
+					
+				}
+			
+		//	alert(localStorage.outletChannel+" / "+slabfdisplay+" / "+hightName)
+				//alert (localStorage.outletChannel+" / "+slabfdisplay+" / "+hightName+" / "+widthName)
+				
+				//alert(hightName)
+//alert(fdisplay_data_detail=fdisplay_data_detail+Itemfdisplay+'fdfd'+ItemQtyfdisplay+'fdfd'+ItemFaceupfdisplay+'fdfd'+ItemVisiblefdisplay+'fdfd'+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+hightName+'fdfd'+widthName+'fdfd'+'rdrd')
+
+					fdisplay_data_detail=fdisplay_data_detail+Itemfdisplay+'fdfd'+ItemQtyfdisplay+'fdfd'+ItemFaceupfdisplay+'fdfd'+ItemVisiblefdisplay+'fdfd'+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+'rdrd'
+
+
+
+				
+//					fdisplay_data_detail=fdisplay_data_detail+Itemfdisplay+'fdfd'+ItemQtyfdisplay+'fdfd'+ItemFaceupfdisplay+'fdfd'+ItemVisiblefdisplay+'fdfd'+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+hightName+'fdfd'+widthName+'fdfd'+'rdrd'
+			
+		} 
 		
-		fdisplay_data_head=fdisplay_data_head+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+fdSLfdisplay_image_name+'fdfd'+fdSLfdisplay_image_path+'fdfd'+fdSLfdisplay_image_name_before+'fdfd'+fdSLfdisplay_image_path_before+'rdrd'
+		} /////////for localStorage.fdisplay_done fixed value
+		fdisplay_data_detail=fdisplay_data_detail+'detaildetail'
+		//alert(br_distrib_string)
+		if (localStorage.p6==1){
+		
+		br_distrib_string=br_distrib_string+'<'+fdisplaySlab_name+'>'+'<HW>'+hightNameValue+'fdfd'+widthNameValue+'fdfd'+sghightNameValue+'fdfd'+sgwidthNameValue+'fdfd'+UBLhightNameValue+'fdfd'+UBLwidthNameValue+'</HW>'}
+		
+		br_distrib_string=br_distrib_string+br_dis_str_inc
+		
+		fdisplay_data_head=fdisplay_data_head+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+fdSLfdisplay_image_name+'fdfd'+fdSLfdisplay_image_path+'fdfd'+fdSLfdisplay_image_name_before+'fdfd'+fdSLfdisplay_image_path_before+'fdfd'+'rdrd'
 		
 	}
-	 fdisplay_data='headstart'+fdisplay_data_head+'headend'+fdisplay_data_detail
+	//}
+	 fdisplay_data='headstart'+fdisplay_data_head+'headend'+fdisplay_data_detail +'<brStart>'+br_distrib_string
 	 localStorage.fdisplay_data_ready=fdisplay_data
-	
+	// alert (localStorage.fdisplay_data_ready)
+	 
+	// alert (localStorage.fdisplay_data_ready)
+		//}
+	 
+	// alert (localStorage.fdisplayStringShow)
 	 fdisplay_page_set()
-	
-	
+	// brand_ready_data();
+	 //alert (localStorage.fdisplayStringShow) 
+		
 	
 	//==============
 	
@@ -2103,27 +2392,29 @@ function fdisplay_ready_data() {
 	//--------------------------
 	
 	if (error_qty_flag==1){
+		
 		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
 		
 	}
 	else if (image_flag==1){
+		
 		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
 		
 	}
-	
-	else if (localStorage.qpdsSkip==0){
+		else if (localStorage.npdTotal > 0){
+		var url = "#npdPage";
+		$.mobile.navigate(url);
+	}
+
+	else if (localStorage.qpdsSkip==0 ){
 		var url = "#qpdsPage";
 		$.mobile.navigate(url);
 		$('#fdisplay').find('input, textarea, button, select').attr('disabled','disabled');
 		$('#fdisplay').addClass('disabledAnchor');	
 		localStorage.fd_done_flag=1;
 		
-	}
-	else if (localStorage.npdTotal > 0){
-		var url = "#npdPage";
-		$.mobile.navigate(url);
 	}
 	else {
 		var url = "#mhskusPage";
@@ -2136,6 +2427,55 @@ function fdisplay_ready_data() {
 
 }
 
+
+//====================  2017/11/21 starts 
+function brand_ready_data(){
+		      
+			
+			
+		
+			result_string_b=localStorage.selected_outletinfo_all_final;
+			//alert(result_string_b)
+			
+			
+//			if (result_string.length > 50){
+//			
+//			//=====Brand List=======
+//			alert(brandList_all)
+
+			//alert (apipath+'get_category_list?cid=UNILEVER&outletChannel='+localStorage.outletChannel)
+//			$.ajax({
+//					type: 'POST',
+//					url:apipath+'get_brand_list?cid=UNILEVER&outletChannel='+localStorage.outletChannel,
+//					   success: function(result1) {
+//						
+//						var cStrList=result1.split('<fd>');					
+//
+//						schList='';
+//						schList+="";
+//						for (i=0;i<cStrList.length;i++){
+//							chListTotal=cStrList[i].split('|');					
+//							schList+="<option value="+encodeURIComponent(chListTotal[0])+">"+chListTotal[1]+"</option>";	
+//						
+//						}		
+//						localStorage.schList=schList;
+//						var rpt_rep_ob=$("#catCombo");	
+//																	
+//						rpt_rep_ob.empty();							
+//						rpt_rep_ob.append(localStorage.schList);
+//						
+//					  
+//					   }});
+						
+		}
+		 
+		 
+
+
+//====================  2017/11/21 ends 
+
+
+
 function fdisplay_page_set() { 
 
 if (localStorage.fdisplay_data_ready.length > 10){
@@ -2147,6 +2487,7 @@ if (localStorage.fdisplay_data_ready.length > 10){
 	var fdisplay_head_array =  fdisplay_head.split('rdrd');
 	
 	for (var i=0; i < localStorage.fdisplaySlabTotal-1; i++){
+		
 		var head_s_array=fdisplay_head_array[i].split('fdfd');
 		
 		var slabfdisplay =head_s_array[0];
@@ -2186,23 +2527,35 @@ if (localStorage.fdisplay_data_ready.length > 10){
 		var fdisplay_detail_n=fdisplay_detail_array[i]
 		
 		var fdisplay_detail_s_array_1 =  fdisplay_detail_n.split('rdrd');
+		
 		var fdTotal_detail=fdisplay_detail_s_array_1.length
 		
 				for (var d=0; d < fdTotal_detail-1; d++){
-					
+					//alert (fdisplay_detail_s_array_1[d])
 					var fdisplay_detail_s_array =  fdisplay_detail_s_array_1[d].split('fdfd');
 					
 					var ItemQtyfdisplay= fdisplay_detail_s_array[1];
 					var ItemFaceupfdisplay= fdisplay_detail_s_array[2];
 					var ItemVisiblefdisplay= fdisplay_detail_s_array[3];
 					
-					$("#ItemQtyfdisplay_"+i.toString()+"_"+d.toString()).val(ItemQtyfdisplay);
-					$("#ItemFaceupfdisplay_"+i.toString()+"_"+d.toString()).val(ItemFaceupfdisplay);
+					
+					//$("#ItemQtyfdisplay_"+i.toString()+"_"+d.toString()).val(ItemQtyfdisplay);
+					//$("#ItemFaceupfdisplay_"+i.toString()+"_"+d.toString()).val(ItemFaceupfdisplay);
+					
+					//alert (ItemVisiblefdisplay)
 					if (ItemVisiblefdisplay=='YES'){
-						$("#ItemVisiblefdisplay_"+i.toString()+"_"+d.toString()).attr('checked',true);
+						//alert ('test')
+						$("#ItemVisiblefdisplayTDY_" +i.toString()+"_"+d.toString()).html('YES');
+						$("#ItemVisiblefdisplayTDN_" +i.toString()+"_"+d.toString()).html('');
+						
+					} 
+					else {
+						
+						$("#ItemVisiblefdisplayTDY_"   +i.toString()+"_"+d.toString()).html('');
+						$("#ItemVisiblefdisplayTDN_" +i.toString()+"_"+d.toString()).html('NO');
 					} //endif
 
-			
+					
 				}//end for
 			
 	
@@ -2213,8 +2566,10 @@ if (localStorage.fdisplay_data_ready.length > 10){
 
 
 if (localStorage.fd_done_flag==1){
+	//alert ('test')
 	$('#fdisplay').find('input, textarea, button, select').attr('disabled','disabled');
 	$('#fdisplay').addClass('disabledAnchor');
+	//alert ('test  1')
 }
 if (localStorage.before_flag==1){
 	$('#fdisplayStringShowBefore').find('input, textarea, button, select').attr('disabled','disabled');
@@ -2250,7 +2605,9 @@ function qpds_ready_data() {
 		
 		
 		if (qpdsSL_image_path.length<10){
-			qpds_image_flag=1
+			//qpds_image_flag=1
+			qpds_image_flag=0
+
 		}
 		
 		
@@ -2274,7 +2631,9 @@ function qpds_ready_data() {
 			
 			
 			if  ((ItemQtyqpds.length < 1) || (ItemVisibleqpds=='NO')){
-					error_qty_flag_qpds=1;
+				//	error_qty_flag_qpds=1;
+					error_qty_flag_qpds=0;
+
 			}
 			
 			
@@ -2317,7 +2676,10 @@ function qpds_ready_data() {
 	}
 
 	else{
-		var url = "#npdPage";
+		var url = "#keyTaskPage";
+	
+		
+		//var url = "#npdPage";
 		//var url = "#submitPage";
 		$.mobile.navigate(url);
 		$('#qpds').find('input, textarea, button, select').attr('disabled','disabled');
@@ -2536,8 +2898,8 @@ function place_ready_data() {
 	localStorage.place_data_ready=place_data
 	
 	place_page_set();
-	//if ((image_name.length > 10)){
-	if ((place_image_path.length > 10)){
+	if ((image_name.length > 10)){
+	//if ((place_image_path.length > 10)){
 		var url = "#keyTaskPage";
 		$.mobile.navigate(url);
 	//	$('#place_show').find('input, textarea, button, select').attr('disabled','disabled');
@@ -2789,6 +3151,10 @@ function submit_data() {
 			var fdisplay_data=localStorage.fdisplay_data_ready.replace('detaildetail','')
 			var qpds_data=localStorage.qpds_data_ready.replace('detaildetail','')
 			//$("#submit_data_check").html(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
+			//alert(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
+		//	+'&brand_data='+localStorage.br_distrib_string
+			//alert(fdisplay_data)
+			//alert(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
 			var check_outlet= localStorage.outletString;
 			$.ajax({
 						type: 'POST',
@@ -2804,7 +3170,7 @@ function submit_data() {
 										$("#submit_data_check").html(result);
 									}
 									if (result=='SUCCESS'){
-										
+										//alert ('1')
 										//marchandising distribution
 										var temp="";							
 										if(localStorage.mar_distrib_data=="undefined" || localStorage.mar_distrib_data==undefined || localStorage.mar_distrib_data==""){
@@ -2866,8 +3232,8 @@ function submit_data() {
 										
 										localStorage.show_cancel=0;
 		
-										
-		
+										//alert ('2')
+													
 										localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
 										
 										//localStorage.outletString=outletStringShow
@@ -2899,6 +3265,7 @@ function submit_data() {
 										
 										upload_fd();
 										cancel_outlet();
+										
 										var url = "#outletPage";
 										$.mobile.navigate(url);
 										//location.reload();
@@ -3215,7 +3582,7 @@ function upload_fd(){
 			var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+ "_before").val();
 			
 			
-		
+			
 			
 			if (image_name.length >10){
 				uploadPhoto(fdSLfdisplay_image_path, image_name);
@@ -3228,6 +3595,7 @@ function upload_fd(){
 		}
 					
 		}//end for
+	//alert (fdSLfdisplay_image_path)	
 	upload_qpds();
 
 }
@@ -3422,21 +3790,25 @@ function uploadPhoto(imageURI, imageName) {
   params.value2 = "param";
 
   options.params = params;
+  
+  options.chunkedMode = false;
 
   var ft = new FileTransfer();
 	
-
+	
 
 //ft.upload(imageURI, encodeURI("http://127.0.0.1:8000/unilever/syncmobile/fileUploader/"),win,fail,options);
-
- ft.upload(imageURI, encodeURI("http://e4.businesssolutionapps.com/mrepimage/syncmobile/fileUploader/"),win,fail,options);
+ ft.upload(imageURI, encodeURI("http://i001.yeapps.com/image_hub/uniext/upload_image/"),win,fail,options);
+ 
+ 
+ //ft.upload(imageURI, encodeURI("http://e4.businesssolutionapps.com/mrepimage/syncmobile/fileUploader/"),win,fail,options);
 }
 
 function win(r) {
 
 	file_upload_error = 0;
-	
-//	step_flag=0; //1 fd , 2 qpds, 3 gift
+	//alert ('test')
+//	step_flag=0; //1 fd , 2 qpds, 3 giftuniext
 	
 	if (localStorage.step_flag==1){ //for fixed display
 		$("#submit_data").html("Fixed Display Synced Successfully");
@@ -3654,6 +4026,84 @@ function buttonCheck(){
 	
 
 }
+//function buttonCheck(){
+////	localStorage.latlongSubmit=1
+////	ocalStorage.dataSubmit=0
+////	localStorage.fddataSubmit=0
+////	localStorage.qpdsdataSubmit=0
+//		if ((localStorage.latlongSubmit==0) && (localStorage.placeLatLongCount >3)){
+//		localStorage.latlongSubmit=1
+////		
+////		
+////		//
+//////		$("#location_button").hide();
+//////		$("#sub_button_div").hide();
+//////
+//////		$("#image_up_button").hide();
+//////		
+//////		//submit_data();localStorage.fdisplaySlabTotal
+//////		//$("#NOutlet_button").show();
+//////		
+//////		
+////
+//////		$("#lat").val(0);
+//////		$("#long").val(0);
+////	
+//	}
+//
+//		if ((localStorage.latlongSubmit==0) && (localStorage.placeLatLongCount >3)){
+//		localStorage.latlongSubmit=1
+//
+//	}
+//
+//	localStorage.latlongSubmit=50
+//	localStorage.dataSubmit=20
+//
+//	if ((localStorage.latlongSubmit==0) & (localStorage.dataSubmit==0)){
+//		
+//		
+//		$("#location_button").show();
+//		$("#sub_button_div").hide();
+//
+//		$("#image_up_button").hide();
+//		$("#NOutlet_button").hide();
+//		
+//		
+//		
+//		$("#lat").val(0);
+//		$("#long").val(0);
+//		
+//	}
+//
+//	if ((localStorage.latlongSubmit==1) && (localStorage.dataSubmit==0) && ((localStorage.fddataSubmit==0) || (localStorage.qpdsdataSubmit==0) || (localStorage.npddataSubmit==0) || (localStorage.giftdataSubmit==0) || (localStorage.placedataSubmit==0) || (localStorage.shopdataSubmit==0))){
+//		$("#location_button").hide();
+//		$("#sub_button_div").show();
+//
+//		$("#image_up_button").hide();
+//		$("#NOutlet_button").hide();
+//		
+//	
+//	}
+//	if ((localStorage.latlongSubmit==1) && (localStorage.dataSubmit==1) && ((localStorage.fddataSubmit==0) || (localStorage.qpdsdataSubmit==0) || (localStorage.npddataSubmit==0) || (localStorage.giftdataSubmit==0) || (localStorage.placedataSubmit==0) || (localStorage.shopdataSubmit==0))){
+//		$("#location_button").hide();
+//		$("#sub_button_div").hide();
+//
+//		$("#image_up_button").show();
+//		$("#NOutlet_button").hide();
+//		
+//	
+//	}
+//	if ((localStorage.latlongSubmit==1) && (localStorage.dataSubmit==1) && (localStorage.fddataSubmit==1) && (localStorage.qpdsdataSubmit==1) && (localStorage.npddataSubmit==1) && (localStorage.giftdataSubmit==1) && (localStorage.placedataSubmit==1) && (localStorage.shopdataSubmit==1)){
+//		$("#location_button").hide();
+//		$("#sub_button_div").hide();
+//
+//		$("#image_up_button").hide();
+//		$("#NOutlet_button").show();
+//	
+//	}
+//	
+//
+//}
 
 function menupage(){
 	

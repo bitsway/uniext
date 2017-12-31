@@ -1675,7 +1675,7 @@ function syncOutlet() {
 
 					if (localStorage.p6==1){
 
-fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height="25px" style="color:#0329C0"><td style="color:#006A6A; font-size:18px;" colspan="2"> <label>Cart Shelf Space  ('+fdiPerc+'%) </label> </td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input onBlur="getOtherValue(/'+hightName+'|'+slab_text+'/)" type="number" id="'+widthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td style="color:#006A6A; font-size:18px;" colspan="3"> <label>Suggested Shelf Space</label></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input readonly  type="number" name="'+sghightName +'" id="'+sghightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input readonly type="number" id="'+sgwidthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td  style="color:#006A6A; font-size:18px;" colspan="2"> <label>UBL Shelf Space</label></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input readonly  type="number" name="'+UBLhightName +'" id="'+UBLhightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+UBLwidthName+'" value=""></td></tr></table></br>'
+fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height="25px" style="color:#0329C0"><td style="color:#006A6A; font-size:18px;" colspan="2"> <label>Cart Shelf Space   </label> </td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input  type="number" name="'+hightName +'" id="'+hightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input onBlur="getOtherValue(/'+hightName+'|'+slab_text+'/)" type="number" id="'+widthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td style="color:#006A6A; font-size:18px;" colspan="4"> <label>Suggested Shelf Space ('+fdiPerc+'%)</label></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input readonly  style="background-color:#9FCED7" type="number" name="'+sghightName +'" id="'+sghightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input readonly  style="background-color:#9FCED7" type="number" id="'+sgwidthName+'" value=""></td></tr><tr height="25px" style="color:#0329C0"><td  style="color:#006A6A; font-size:18px;" colspan="2"> <label>UBL Shelf Space</label></td></tr><tr height="25px" style="color:#0329C0"><td width="80px" style="color:#006A6A; font-size:18px;">Height:</td> <td   style="color:#006A6A; font-size:18px;" ><input readonly  style="background-color:#9FCED7"  type="number" name="'+UBLhightName +'" id="'+UBLhightName+'" value="" min="0"></td><td></td><td width="80px"  style="color:#006A6A; font-size:18px;">Width:</td> <td  style="color:#006A6A; font-size:18px;" ><input type="number" id="'+UBLwidthName+'" value=""></td></tr></table></br>'
 
 					}
 
@@ -1685,7 +1685,7 @@ fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height
 					//alert(ho);
 					
 					//<input type="hidden" name="'+ brSLfdisplay +'" id="'+ brSLfdisplay +'" value="'+brSLfdisplay+'" min="0">
-
+				if (localStorage.p6==1){
 					if (bListGet!=''){
 						fdisplayStringShow=fdisplayStringShow+'<table width="70%" border="0" cellpadding="0" cellspacing="0"><tr bgcolor="#9FCED7" ><td style="color:#006A6A; font-size:18px;">Brand</td> <td  style="color:#006A6A; font-size:18px;" width="10%">Column</td></tr>'
 						
@@ -1704,6 +1704,9 @@ fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0"><tr height
 						}
 						fdisplayStringShow=fdisplayStringShow+'</table></br>'
 					}
+				}
+					
+					
 					
 					fdisplayStringShow=fdisplayStringShow+'<table width="100%" border="0" cellpadding="0" cellspacing="0">'
 					
@@ -2226,35 +2229,39 @@ function fdisplay_ready_data() {
 	var br_dis_str_inc="";
 	//alert(localStorage.fdisplay_done);
 	
-	//alert(localStorage.fdisplaySlabTotal);
+	
 	for (var i=0; i < localStorage.fdisplaySlabTotal-1; i++){
-		var fdisplayTotal='fdisplayTotal'+i.toString()
-		
+		var fdisplayTotal='fdisplayTotal'+i.toString()		
 		var fdTotal=$("#fdSL_total_hidden_"+i.toString()).val();
-		//alert(fdisplayTotal)
+		
 		var fdSLfdisplay_image_path=$("#fdSL_image_div_hidden_"+i.toString()).val(); 
 		var fdSLfdisplay_image_name=$("#fdSL_image_name_hidden_"+i.toString()).val(); 
 		
+		//alert (fdSLfdisplay_image_path)
+		//alert (fdSLfdisplay_image_path.length)
+		//alert (localStorage.fdisplay_done)
 		if (localStorage.fdisplay_done==0){
 		
 		if (fdSLfdisplay_image_path.length<10){
-			//image_flag=1
-			image_flag=0
+			image_flag=1
+			
+			//image_flag=0
 		}
 		
 			var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+"_before").val(); 
 			var fdSLfdisplay_image_name_before=$("#fdSL_image_name_hidden_"+i.toString()+"_before").val();
 			
 			var fdSLfdisplay=$("#fdSLfdisplay_"+i.toString()).val(); 
-
+			
 		//		alert(localStorage.fdisplay_done);
 			
 			for (var d=0; d < fdTotal-1; d++){
+				
 				var ItemQtyfdisplay=''
-				var Itemfdisplay=$("#Itemfdisplay_"+i.toString()+"_"+d.toString()).val();
+				var Itemfdisplay=''//$("#Itemfdisplay_"+i.toString()+"_"+d.toString()).val();
 				var ItemFaceupfdisplay=''
-				var slabfdisplay=$("#slabfdisplay_"+i.toString()+"_"+d.toString()).val();
-				//alert(slabfdisplay)
+				var slabfdisplay=''//$("#slabfdisplay_"+i.toString()+"_"+d.toString()).val();
+				
 
 				//================HeightWight and Brand==================
 				var fdisplaySlab_name = localStorage.outletChannel+" / "+slabfdisplay
@@ -2319,7 +2326,7 @@ function fdisplay_ready_data() {
 			
 		//==========================Brand===================================							
 	
-
+				
 				var ItemVisiblefdisplay_f="#ItemVisiblefdisplay_"+i.toString()+"_"+d.toString();
 				//alert (ItemVisiblefdisplay_f)
 				var ItemVisiblefdisplay_g= ($(ItemVisiblefdisplay_f).is(':checked') ? 1 : 0);
@@ -2339,7 +2346,7 @@ function fdisplay_ready_data() {
 					error_qty_flag=0;
 					
 				}
-			
+			//alert (image_flag)
 		//	alert(localStorage.outletChannel+" / "+slabfdisplay+" / "+hightName)
 				//alert (localStorage.outletChannel+" / "+slabfdisplay+" / "+hightName+" / "+widthName)
 				
@@ -2348,7 +2355,7 @@ function fdisplay_ready_data() {
 
 					fdisplay_data_detail=fdisplay_data_detail+Itemfdisplay+'fdfd'+ItemQtyfdisplay+'fdfd'+ItemFaceupfdisplay+'fdfd'+ItemVisiblefdisplay+'fdfd'+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+'rdrd'
 
-
+				
 
 				
 //					fdisplay_data_detail=fdisplay_data_detail+Itemfdisplay+'fdfd'+ItemQtyfdisplay+'fdfd'+ItemFaceupfdisplay+'fdfd'+ItemVisiblefdisplay+'fdfd'+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+hightName+'fdfd'+widthName+'fdfd'+'rdrd'
@@ -2387,7 +2394,7 @@ function fdisplay_ready_data() {
 	//error_qty_flag=0
 	//image_flag=0
 	//--------------------------
-	
+	//alert (image_flag)
 	if (error_qty_flag==1){
 		
 		var url = "#fixedDisplay";
