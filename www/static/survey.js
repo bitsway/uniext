@@ -2229,39 +2229,36 @@ function fdisplay_ready_data() {
 	var br_dis_str_inc="";
 	//alert(localStorage.fdisplay_done);
 	
-	
+	//alert(localStorage.fdisplaySlabTotal);
 	for (var i=0; i < localStorage.fdisplaySlabTotal-1; i++){
-		var fdisplayTotal='fdisplayTotal'+i.toString()		
-		var fdTotal=$("#fdSL_total_hidden_"+i.toString()).val();
+		var fdisplayTotal='fdisplayTotal'+i.toString()
 		
+		var fdTotal=$("#fdSL_total_hidden_"+i.toString()).val();
+		//alert(fdisplayTotal)
 		var fdSLfdisplay_image_path=$("#fdSL_image_div_hidden_"+i.toString()).val(); 
 		var fdSLfdisplay_image_name=$("#fdSL_image_name_hidden_"+i.toString()).val(); 
 		
-		//alert (fdSLfdisplay_image_path)
-		//alert (fdSLfdisplay_image_path.length)
-		//alert (localStorage.fdisplay_done)
 		if (localStorage.fdisplay_done==0){
 		
 		if (fdSLfdisplay_image_path.length<10){
-			//image_flag=1
-			
-			image_flag=0
+			image_flag=1
+			//alert (image_flag)
+			//image_flag=0
 		}
 		
 			var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+"_before").val(); 
 			var fdSLfdisplay_image_name_before=$("#fdSL_image_name_hidden_"+i.toString()+"_before").val();
 			
 			var fdSLfdisplay=$("#fdSLfdisplay_"+i.toString()).val(); 
-			
+
 		//		alert(localStorage.fdisplay_done);
 			
 			for (var d=0; d < fdTotal-1; d++){
-				
 				var ItemQtyfdisplay=''
-				var Itemfdisplay=''//$("#Itemfdisplay_"+i.toString()+"_"+d.toString()).val();
+				var Itemfdisplay=$("#Itemfdisplay_"+i.toString()+"_"+d.toString()).val();
 				var ItemFaceupfdisplay=''
-				var slabfdisplay=''//$("#slabfdisplay_"+i.toString()+"_"+d.toString()).val();
-				
+				var slabfdisplay=$("#slabfdisplay_"+i.toString()+"_"+d.toString()).val();
+				//alert(slabfdisplay)
 
 				//================HeightWight and Brand==================
 				var fdisplaySlab_name = localStorage.outletChannel+" / "+slabfdisplay
@@ -2326,7 +2323,7 @@ function fdisplay_ready_data() {
 			
 		//==========================Brand===================================							
 	
-				
+
 				var ItemVisiblefdisplay_f="#ItemVisiblefdisplay_"+i.toString()+"_"+d.toString();
 				//alert (ItemVisiblefdisplay_f)
 				var ItemVisiblefdisplay_g= ($(ItemVisiblefdisplay_f).is(':checked') ? 1 : 0);
@@ -2346,7 +2343,7 @@ function fdisplay_ready_data() {
 					error_qty_flag=0;
 					
 				}
-			//alert (image_flag)
+			
 		//	alert(localStorage.outletChannel+" / "+slabfdisplay+" / "+hightName)
 				//alert (localStorage.outletChannel+" / "+slabfdisplay+" / "+hightName+" / "+widthName)
 				
@@ -2355,7 +2352,7 @@ function fdisplay_ready_data() {
 
 					fdisplay_data_detail=fdisplay_data_detail+Itemfdisplay+'fdfd'+ItemQtyfdisplay+'fdfd'+ItemFaceupfdisplay+'fdfd'+ItemVisiblefdisplay+'fdfd'+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+'rdrd'
 
-				
+
 
 				
 //					fdisplay_data_detail=fdisplay_data_detail+Itemfdisplay+'fdfd'+ItemQtyfdisplay+'fdfd'+ItemFaceupfdisplay+'fdfd'+ItemVisiblefdisplay+'fdfd'+slabfdisplay+'fdfd'+fdSLfdisplay+'fdfd'+hightName+'fdfd'+widthName+'fdfd'+'rdrd'
@@ -2394,21 +2391,20 @@ function fdisplay_ready_data() {
 	//error_qty_flag=0
 	//image_flag=0
 	//--------------------------
-	//alert (image_flag)
-	//if (error_qty_flag==1){
-//		
-//		var url = "#fixedDisplay";
-//		$.mobile.navigate(url);
-//		
-//	}
-	// alert (image_flag)
-	 if (image_flag==1){
+	alert (image_flag)
+	if (error_qty_flag==1){
 		
 		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
 		
 	}
-	else if ((localStorage.npdTotal > 0) & (image_flag==1)){
+	else if (image_flag==1){
+		
+		var url = "#fixedDisplay";
+		$.mobile.navigate(url);
+		
+	}
+		else if (localStorage.npdTotal > 0){
 		var url = "#npdPage";
 		$.mobile.navigate(url);
 	}
