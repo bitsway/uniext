@@ -2383,7 +2383,6 @@ function fdisplay_ready_data() {
 		//}
 	 
 	// alert (localStorage.fdisplayStringShow)
-	 alert (image_flag)
 	 fdisplay_page_set()
 	// brand_ready_data();
 	 //alert (localStorage.fdisplayStringShow) 
@@ -2402,33 +2401,32 @@ function fdisplay_ready_data() {
 //		$.mobile.navigate(url);
 //		
 //	}
-	alert (image_flag)
-	if (image_flag==1){
+	 alert (image_flag)
+	 if (image_flag==1){
 		
 		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
 		
 	}
-	if (image_flag==0){
-			if (localStorage.npdTotal > 0){
-				var url = "#npdPage";
-				$.mobile.navigate(url);
-			}
-			
-			else if (localStorage.qpdsSkip==0 ){
-				var url = "#qpdsPage";
-				$.mobile.navigate(url);
-				$('#fdisplay').find('input, textarea, button, select').attr('disabled','disabled');
-				$('#fdisplay').addClass('disabledAnchor');	
-				localStorage.fd_done_flag=1;
-			
-			}
-			else {
-				var url = "#mhskusPage";
-				$.mobile.navigate(url);
+	else if ((localStorage.npdTotal > 0) & (image_flag==1)){
+		var url = "#npdPage";
+		$.mobile.navigate(url);
+	}
+
+	else if (localStorage.qpdsSkip==0 ){
+		var url = "#qpdsPage";
+		$.mobile.navigate(url);
+		$('#fdisplay').find('input, textarea, button, select').attr('disabled','disabled');
+		$('#fdisplay').addClass('disabledAnchor');	
+		localStorage.fd_done_flag=1;
 		
 	}
+	else {
+		var url = "#mhskusPage";
+		$.mobile.navigate(url);
+		
 	}
+
 	//==================
 	
 
