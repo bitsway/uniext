@@ -2391,7 +2391,7 @@ function fdisplay_ready_data() {
 	//error_qty_flag=0
 	//image_flag=0
 	//--------------------------
-	alert (image_flag)
+	//alert (image_flag)
 	if (error_qty_flag==1){
 		
 		var url = "#fixedDisplay";
