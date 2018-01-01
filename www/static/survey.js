@@ -2394,19 +2394,21 @@ function fdisplay_ready_data() {
 	//image_flag=0
 	//--------------------------
 	//alert (image_flag)
-	if (error_qty_flag==1){
+	//if (error_qty_flag==1){
+//		
+//		var url = "#fixedDisplay";
+//		$.mobile.navigate(url);
+//		
+//	}
+	if (image_flag==1){
 		
 		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
 		
 	}
-	else if (image_flag==1){
-		
-		var url = "#fixedDisplay";
-		$.mobile.navigate(url);
-		
-	}
-		else if (localStorage.npdTotal > 0){
+		else if ((image_flag==0)& (localStorage.npdTotal > 0)){
+		fdisplay_ready_data_done()
+		fdisplay_ready_data_done()	
 		var url = "#npdPage";
 		$.mobile.navigate(url);
 	}
