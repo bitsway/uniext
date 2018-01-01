@@ -2241,9 +2241,9 @@ function fdisplay_ready_data() {
 		if (localStorage.fdisplay_done==0){
 		
 		if (fdSLfdisplay_image_path.length<10){
-			//image_flag=1
+			image_flag=1
 			//alert (image_flag)
-			image_flag=0
+			//image_flag=0
 		}
 		
 			var fdSLfdisplay_image_path_before=$("#fdSL_image_div_hidden_"+i.toString()+"_before").val(); 
