@@ -2242,6 +2242,7 @@ function fdisplay_ready_data() {
 		
 		if (fdSLfdisplay_image_path.length<10){
 			image_flag=1
+			
 			//alert (image_flag)
 			//image_flag=0
 		}
