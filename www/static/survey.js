@@ -2308,7 +2308,7 @@ function fdisplay_ready_data() {
 				if ((hightNameValue=='')||(widthNameValue=='')||(UBLwidthNameValue=='')){
 					//alert(hightNameValue)
 					hightNameValue_error=1
-								}
+				}
 
 				
 				var	 brandCheckStr = localStorage.brandCheckStr
@@ -2339,7 +2339,7 @@ function fdisplay_ready_data() {
 								var bNameValue= $("#"+bName).val();
 								br_dis_str_inc=br_dis_str_inc+'<brbr>'+bName+'fdfd'+bNameValue+'fdfd'+colNameValue
 								
-								if (colNameValue.length<0){
+								if (colNameValue.length <=0){
 									br_flag=1
 								}
 
@@ -2403,7 +2403,9 @@ function fdisplay_ready_data() {
 	}
 	//}
 	 fdisplay_data='headstart'+fdisplay_data_head+'headend'+fdisplay_data_detail +'<brStart>'+br_distrib_string
-	 localStorage.fdisplay_data_ready=fdisplay_data
+	// localStorage.fdisplay_data_ready=fdisplay_data
+	
+	
 	// alert (localStorage.fdisplay_data_ready)
 	 
 	// alert (localStorage.fdisplay_data_ready)
@@ -2438,6 +2440,7 @@ function fdisplay_ready_data() {
 		
 	}
 		else if ((image_flag==0)& (localStorage.npdTotal > 0)){
+		localStorage.fdisplay_data_ready=fdisplay_data
 		fdisplay_ready_data_done()
 		fdisplay_ready_data_done()	
 		var url = "#npdPage";
@@ -2445,6 +2448,7 @@ function fdisplay_ready_data() {
 	}
 
 	else if (localStorage.qpdsSkip==0 ){
+		localStorage.fdisplay_data_ready=fdisplay_data
 		var url = "#qpdsPage";
 		$.mobile.navigate(url);
 		$('#fdisplay').find('input, textarea, button, select').attr('disabled','disabled');
@@ -4415,16 +4419,16 @@ function submi_saved_req(i){
 								
 								saved_image_upload();
 								
-								//localStorage.mhskus_data_ready = ''
-	//							localStorage.npd_data_ready = ''
-	//							localStorage.fdisplay_data_ready = ''
-	//							localStorage.qpds_data_ready = ''
-	//							localStorage.gift_data_ready = ''
-	//							localStorage.place_data_ready = ''
-	//							localStorage.shop_data_ready = ''
-	//							
-	//							localStorage.fdisplayTotal=0;
-	//							localStorage.qpdsSlabTotal=0;
+								localStorage.mhskus_data_ready = ''
+								localStorage.npd_data_ready = ''
+								localStorage.fdisplay_data_ready = ''
+								localStorage.qpds_data_ready = ''
+								localStorage.gift_data_ready = ''
+								localStorage.place_data_ready = ''
+								localStorage.shop_data_ready = ''
+								
+								localStorage.fdisplayTotal=0;
+								localStorage.qpdsSlabTotal=0;
 	//							
 	//							
 								var saved_req=localStorage.saved_req
@@ -4434,7 +4438,8 @@ function submi_saved_req(i){
 								saved_req=saved_req.replace('<savedsaved>'+s_data,'')
 								localStorage.saved_req=saved_req
 								
-								
+								$("#login_image_saved").hide();
+								$("#savedVisitRecord").show();
 	
 								
 								savedVisit();
