@@ -12,8 +12,6 @@
 //var apipath='http://127.0.0.1:8000/uniext/syncmobile_schedule/';
 //var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
-//var apipath='http://127.0.0.1:8000/uniext/syncmobile_scheduleNew/';
-//var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
 
 var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew/';
@@ -2103,13 +2101,13 @@ function npd_ready_data() {
 		var npd_image_name_hidden=$("#npd_image_name_hidden_"+i.toString()).val(); 
 		
 		if (ItemQtynpd.length < 1){
-			error_flag_qty_npd=1;
-			//error_flag_qty_npd=0;
+		//	error_flag_qty_npd=1;
+			error_flag_qty_npd=0;
 
 		}
 		if (npd_image_div_path.length < 1){
-			error_image_flag_npd=1;
-			//error_image_flag_npd=0;
+		//	error_image_flag_npd=1;
+			error_image_flag_npd=0;
 
 		}
 		
@@ -2229,20 +2227,6 @@ function fdisplay_ready_data() {
 	var image_flag=0;
 	var error_qty_flag=0;
 	var br_dis_str_inc="";
-	var br_flag=0;
-
-	var hightNameValue_error=0;
-	
-//	var widthNameValue_error=0;
-//	
-//	var sghightNameValue_error=0;
-//	
-//	var sgwidthNameValue_error=0;
-//	
-//	var UBLhightNameValue_error=0;
-//	
-//	var UBLwidthNameValue_error=0;
-
 	//alert(localStorage.fdisplay_done);
 	
 	//alert(localStorage.fdisplaySlabTotal);
@@ -2302,14 +2286,8 @@ function fdisplay_ready_data() {
 				var UBLhightNameValue=$("#"+UBLhightName).val();
 				
 				var UBLwidthNameValue=$("#"+UBLwidthName).val();
-				//alert(hightNameValue.length)
-				
 			//	alert(sghightNameValue)
-				if ((hightNameValue=='')||(widthNameValue=='')||(UBLwidthNameValue=='')){
-					//alert(hightNameValue)
-					hightNameValue_error=1
-								}
-
+				
 				
 				var	 brandCheckStr = localStorage.brandCheckStr
 				
@@ -2338,12 +2316,6 @@ function fdisplay_ready_data() {
 								var colNameValue=$("#"+colName).val();
 								var bNameValue= $("#"+bName).val();
 								br_dis_str_inc=br_dis_str_inc+'<brbr>'+bName+'fdfd'+bNameValue+'fdfd'+colNameValue
-								
-								if (colNameValue.length<0){
-									br_flag=1
-								}
-
-								
 								//alert(br_distrib_string)
 						}
 				}
@@ -2369,8 +2341,8 @@ function fdisplay_ready_data() {
 					}	
 					//alert(localStorage.ItemVisiblefdisplay)
 				if  ((ItemQtyfdisplay.length < 1) || (ItemFaceupfdisplay.length < 1) || (ItemVisiblefdisplay=='NO')){
-					error_qty_flag=1;
-					//error_qty_flag=0;
+					//error_qty_flag=1;
+					error_qty_flag=0;
 					
 				}
 			
@@ -2422,15 +2394,13 @@ function fdisplay_ready_data() {
 	//image_flag=0
 	//--------------------------
 	//alert (image_flag)
-	
-	//((error_flag_qty_npd==1) || (error_image_flag_npd==1))
-	if ((error_qty_flag==1) || (br_flag==1) || (hightNameValue_error==1)){
-		
-		var url = "#fixedDisplay";
-		$.mobile.navigate(url);
-		
-	}
-	else if (image_flag==1){
+	//if (error_qty_flag==1){
+//		
+//		var url = "#fixedDisplay";
+//		$.mobile.navigate(url);
+//		
+//	}
+	if (image_flag==1){
 		
 		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
@@ -2640,8 +2610,8 @@ function qpds_ready_data() {
 		
 		
 		if (qpdsSL_image_path.length<10){
-			qpds_image_flag=1
-			//qpds_image_flag=0
+			//qpds_image_flag=1
+			qpds_image_flag=0
 
 		}
 		
@@ -2666,8 +2636,8 @@ function qpds_ready_data() {
 			
 			
 			if  ((ItemQtyqpds.length < 1) || (ItemVisibleqpds=='NO')){
-				error_qty_flag_qpds=1;
-					//error_qty_flag_qpds=0;
+				//	error_qty_flag_qpds=1;
+					error_qty_flag_qpds=0;
 
 			}
 			
