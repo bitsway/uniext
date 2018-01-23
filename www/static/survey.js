@@ -19,7 +19,7 @@
 var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew/';
 var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
-//var apipath='http://127.0.0.1:8000/unilever_latest/syncmobile_schedule/';
+//var apipath='http://127.0.0.1:8000/unilever_l#atest/syncmobile_schedule/';
 //var apipath_image = 'http://127.0.0.1:8000/unilever_latest/';
 
  
@@ -2368,11 +2368,11 @@ function fdisplay_ready_data() {
 						ItemVisiblefdisplay='YES'
 					}	
 					//alert(localStorage.ItemVisiblefdisplay)
-				if  ((ItemQtyfdisplay.length < 1) || (ItemFaceupfdisplay.length < 1) || (ItemVisiblefdisplay=='NO')){
-					error_qty_flag=1;
-					//error_qty_flag=0;
-					
-				}
+				//if  ((ItemQtyfdisplay.length < 1) || (ItemFaceupfdisplay.length < 1) || (ItemVisiblefdisplay=='NO')){
+//					error_qty_flag=1;
+//					//error_qty_flag=0;
+//					
+//				}
 			
 		//	alert(localStorage.outletChannel+" / "+slabfdisplay+" / "+hightName)
 				//alert (localStorage.outletChannel+" / "+slabfdisplay+" / "+hightName+" / "+widthName)
@@ -2424,7 +2424,8 @@ function fdisplay_ready_data() {
 	//alert (image_flag)
 	
 	//((error_flag_qty_npd==1) || (error_image_flag_npd==1))
-	if ((error_qty_flag==1) || (br_flag==1) || (hightNameValue_error==1)){
+	
+	if ((br_flag==1) || (hightNameValue_error==1)){
 		
 		var url = "#fixedDisplay";
 		$.mobile.navigate(url);
