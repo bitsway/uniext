@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml   com.phonegap.unihe -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.uniext01"
-        version   = "1.0.0">
+        id        = "com.businesssolutionapps.unihe"
+        version   = "1.0.3">
 
-    <name>UniExt</name>
+    <name>HawksEye</name>
 
     <description>
-        UniExt
+        Hawks Eye
     </description>
 
     <author href="www.yeapps.com" email="sabbir456@gmail.com">
-        UniExt
+        Businesss Solution Apps Team
     </author>
 
     <!--
