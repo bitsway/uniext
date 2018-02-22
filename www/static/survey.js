@@ -4410,6 +4410,7 @@ function submi_saved_req(i){
 								
 								$("#savedVisitRecordError").html("Data Synced Successfully");
 								$("#submit_data").html('');
+								$("#login_image_saved").hide()
 								localStorage.step_flag=0;
 								
 								
