@@ -2126,8 +2126,8 @@ function npd_ready_data() {
 	
 	
 	//Local -------------------------
-	error_flag_qty_npd=0
-	error_image_flag_npd=0
+	//error_flag_qty_npd=0
+	//error_image_flag_npd=0
 	
 	//------------------------------
 	
@@ -2420,8 +2420,8 @@ function fdisplay_ready_data() {
 	//==============
 	
 	//Local----------------------
-	error_qty_flag=0
-	image_flag=0
+	//error_qty_flag=0
+	//image_flag=0
 	//--------------------------
 	//alert (image_flag)
 	
@@ -2698,8 +2698,8 @@ function qpds_ready_data() {
 	//==============
 	
 	//Local-----------------
-	error_qty_flag_qpds=0
-	qpds_image_flag=0
+	//error_qty_flag_qpds=0
+	//qpds_image_flag=0
 	//--------------------
 	
 	
@@ -4231,7 +4231,6 @@ function munu_page_check(){
 
 
 function savedVisit(){
-	alert ('test')
 	$("#login_image_saved").hide();
 	$("#savedVisitRecord").show();
 	var saved_req=localStorage.saved_req;
@@ -4275,7 +4274,6 @@ function savedVisit(){
 }
 
 function submi_saved_req(i){
-	alert ('test')
 	if (localStorage.selectedOutlet!=''){
 		 $("#savedVisitRecordError").html("Please Complete or Cancel ongoing work.");
 	}
@@ -4341,7 +4339,7 @@ function submi_saved_req(i){
 		
 		var url_submit = apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready
 		
-	   alert (url_submit)
+	
 			   
 		//localStorage.selectedOutlet=selectedOutlet;				
 		//localStorage.selected_date_get=selected_date;
@@ -4420,7 +4418,7 @@ function submi_saved_req(i){
 								
 								
 								
-								//saved_image_upload();
+								saved_image_upload();
 								
 								localStorage.mhskus_data_ready = ''
 								localStorage.npd_data_ready = ''
