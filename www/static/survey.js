@@ -3220,7 +3220,7 @@ function submit_data() {
 									alert (submit_url2+'&SL='+SL)
 									$.ajax({
 											type: 'POST',
-											url: submit_url1+'&SL='+SL,
+											url: submit_url2+'&SL='+SL,
 											 success: function(result2) {	
 													
 													if (result2==''){
