@@ -16,7 +16,8 @@
 //var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
 
-var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew/';
+var apipath='http://e3.businesssolutionapps.com/unilever18/syncmobile_scheduleNew/';
+//var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew/';
 var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
 //var apipath='http://127.0.0.1:8000/unilever_l#atest/syncmobile_schedule/';
@@ -3198,7 +3199,7 @@ function submit_data() {
 			var check_outlet= localStorage.outletString;
 			var submit_url1= apipath+'syncSubmitData1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&fdisplay_data='+fdisplay_data
 			var submit_url2= apipath+'syncSubmitData2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready
-			alert (submit_url1)
+			//alert (submit_url1)
 			
 			//url: apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready,
 			$.ajax({
@@ -3217,7 +3218,7 @@ function submit_data() {
 									if (resultS=='SUCCESS'){
 										SL=result.split('<rdrd>')[1]
 									//	==============Second======
-									alert (submit_url2+'&SL='+SL)
+									//alert (submit_url2+'&SL='+SL)
 									$.ajax({
 											type: 'POST',
 											url: submit_url2+'&SL='+SL,
