@@ -4424,6 +4424,13 @@ function submi_saved_req(i){
 								
 								saved_image_upload();
 								
+								
+								
+								localStorage.selectedRoute = ''
+								localStorage.routeException = ''
+								localStorage.selectedOutlet = ''
+								localStorage.outletException  = ''
+								localStorage.outletChannel = ''
 								localStorage.mhskus_data_ready = ''
 								localStorage.npd_data_ready = ''
 								localStorage.fdisplay_data_ready = ''
@@ -4431,6 +4438,8 @@ function submi_saved_req(i){
 								localStorage.gift_data_ready = ''
 								localStorage.place_data_ready = ''
 								localStorage.shop_data_ready = ''
+								localStorage.key_data_ready= ''
+								
 								
 								localStorage.fdisplayTotal=0;
 								localStorage.qpdsSlabTotal=0;
@@ -4438,8 +4447,10 @@ function submi_saved_req(i){
 	//							
 								var saved_req=localStorage.saved_req
 								
-								var s_data=saved_req.split('<savedsaved>')[i]
 								
+								
+								var s_data=saved_req.split('<savedsaved>')[i]
+								alert (saved_req)
 								saved_req=saved_req.replace('<savedsaved>'+s_data,'')
 								saved_req=saved_req.replace(s_data,'')
 								localStorage.saved_req=saved_req
