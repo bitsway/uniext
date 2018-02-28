@@ -4276,9 +4276,8 @@ function savedVisit(){
 
 function submi_saved_req(i){
 	if (localStorage.selectedOutlet!=''){
-		 $("#cancel_cause").val('Will try later');
-		 cancel_outlet_Back()
-		 $("#savedVisitRecordError").html("Ongoing work will be cancelled automatically.");
+		 
+		 $("#savedVisitRecordError").html("Please Complete or Cancel ongoing work.");
 	}
 	else{
 		$("#login_image_saved").show();
@@ -4421,9 +4420,9 @@ function submi_saved_req(i){
 								
 								
 								
-								alert ('1')
+								
 								saved_image_upload();
-								alert ('2')
+								
 								
 								
 								localStorage.selectedRoute = ''
@@ -4447,13 +4446,13 @@ function submi_saved_req(i){
 	//							
 								var saved_req=localStorage.saved_req
 								
-								alert ('3')
+								
 								
 								var s_data=saved_req.split('<savedsaved>')[i]
-								alert (s_data)
+								
 								//saved_req=saved_req.replace('<savedsaved>'+s_data,'')
 								saved_req=saved_req.replace(s_data,'')
-								alert (saved_req)
+								
 								localStorage.saved_req=saved_req
 								
 								$("#login_image_saved").hide();
