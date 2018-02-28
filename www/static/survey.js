@@ -4459,8 +4459,8 @@ function submi_saved_req(i){
 								$("#savedVisitRecord").show();
 								
 								
-								//$("#cancel_cause").val('Will try later');
-								//cancel_outlet_Back()
+								$("#cancel_cause").val('Will try later');
+								cancel_outlet_Back()
 								savedVisit();
 								
 								
