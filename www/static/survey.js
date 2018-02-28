@@ -4461,6 +4461,7 @@ function submi_saved_req(i){
 								alert ('7')
 								$("#login_image_saved").hide();
 								$("#savedVisitRecord").show();
+								alert ('8')
 								
 								$("#cancel_cause").val('Will try later');
 								cancel_outlet_Back()
