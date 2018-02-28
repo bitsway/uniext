@@ -4450,17 +4450,18 @@ function submi_saved_req(i){
 								alert ('3')
 								
 								var s_data=saved_req.split('<savedsaved>')[i]
-								alert (saved_req)
-								saved_req=saved_req.replace('<savedsaved>'+s_data,'')
+								alert (s_data)
+								//saved_req=saved_req.replace('<savedsaved>'+s_data,'')
 								saved_req=saved_req.replace(s_data,'')
+								alert (saved_req)
 								localStorage.saved_req=saved_req
 								
 								$("#login_image_saved").hide();
 								$("#savedVisitRecord").show();
 								
 								
-								$("#cancel_cause").val('Will try later');
-								cancel_outlet_Back()
+								//$("#cancel_cause").val('Will try later');
+								//cancel_outlet_Back()
 								savedVisit();
 								
 								
