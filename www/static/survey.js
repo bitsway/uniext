@@ -4276,7 +4276,8 @@ function savedVisit(){
 
 function submi_saved_req(i){
 	if (localStorage.selectedOutlet!=''){
-		 
+		 $("#cancel_cause").val('Will try later');
+		 cancel_outlet_Back()
 		 $("#savedVisitRecordError").html("Please Complete or Cancel ongoing work.");
 	}
 	else{
@@ -4451,10 +4452,11 @@ function submi_saved_req(i){
 								var s_data=saved_req.split('<savedsaved>')[i]
 								
 								//saved_req=saved_req.replace('<savedsaved>'+s_data,'')
+								alert (s_data)
 								saved_req=saved_req.replace(s_data,'')
-								
+								alert ('1')
 								localStorage.saved_req=saved_req
-								
+								alert ('2')
 								$("#login_image_saved").hide();
 								$("#savedVisitRecord").show();
 								
