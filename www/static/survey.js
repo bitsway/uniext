@@ -4420,11 +4420,11 @@ function submi_saved_req(i){
 								// Enable disable div end
 								
 								
-								
+								alert ('1')
 								
 								saved_image_upload();
 								
-								
+								alert ('2')
 								
 								localStorage.selectedRoute = ''
 								localStorage.routeException = ''
@@ -4439,12 +4439,12 @@ function submi_saved_req(i){
 								localStorage.place_data_ready = ''
 								localStorage.shop_data_ready = ''
 								localStorage.key_data_ready= ''
-								
+								alert ('3')
 								
 								localStorage.fdisplayTotal=0;
 								localStorage.qpdsSlabTotal=0;
-	//							
-	//							
+								
+								alert ('4')
 								var saved_req=localStorage.saved_req
 								
 								
@@ -4452,14 +4452,15 @@ function submi_saved_req(i){
 								var s_data=saved_req.split('<savedsaved>')[i]
 								
 								//saved_req=saved_req.replace('<savedsaved>'+s_data,'')
-								alert (s_data)
+								
+								
+								alert ('5')
 								saved_req=saved_req.replace(s_data,'')
-								alert ('1')
+								alert ('6')
 								localStorage.saved_req=saved_req
-								alert ('2')
+								alert ('7')
 								$("#login_image_saved").hide();
 								$("#savedVisitRecord").show();
-								
 								
 								$("#cancel_cause").val('Will try later');
 								cancel_outlet_Back()
