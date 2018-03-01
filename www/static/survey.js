@@ -4236,6 +4236,7 @@ function savedVisit(){
 	$("#savedVisitRecord").show();
 	var saved_req=localStorage.saved_req;
 	var savedList=saved_req.split('<savedsaved>')
+	
 	//$("#savedVisitRecord").text(localStorage.saved_req);
 	
 	var saved_req_str=''
@@ -4410,7 +4411,7 @@ function submi_saved_req(i){
 	//							$("#outletString").append(localStorage.outletString).trigger('create');
 								
 								
-								
+								alert ('0')
 								$("#savedVisitRecordError").html("Data Synced Successfully");
 								$("#submit_data").html('');
 								$("#login_image_saved").hide()
@@ -4451,11 +4452,12 @@ function submi_saved_req(i){
 								
 								var s_data=saved_req.split('<savedsaved>')[i]
 								
-								//saved_req=saved_req.replace('<savedsaved>'+s_data,'')
-								
-								
-								//alert ('5')
+								if (i==0){
+								saved_req=saved_req.replace('<savedsaved>'+s_data,'')
+								}
+								else{
 								saved_req=saved_req.replace(s_data,'')
+								}
 								//alert ('6')
 								localStorage.saved_req=saved_req
 								//alert ('7')
