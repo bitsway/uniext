@@ -4236,12 +4236,12 @@ function savedVisit(){
 	$("#savedVisitRecord").show();
 	var saved_req=localStorage.saved_req;
 	var savedList=saved_req.split('<savedsaved>')
-	$("#savedVisitRecord").text(localStorage.saved_req);
+	//$("#savedVisitRecord").text(localStorage.saved_req);
 	
 	var saved_req_str=''
 	for (var i=0; i < savedList.length; i++){	
 		
-		if (savedList[i].length>20){
+		if (savedList[i]!=''){
 			var outlet_id=savedList[i].split('<OidOid>')[0]
 			outlet_id=outlet_id.replace('<','').replace('>','')
 			
