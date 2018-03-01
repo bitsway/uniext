@@ -4411,7 +4411,7 @@ function submi_saved_req(i){
 	//							$("#outletString").append(localStorage.outletString).trigger('create');
 								
 								
-								alert ('0')
+								//alert ('0')
 								$("#savedVisitRecordError").html("Data Synced Successfully");
 								$("#submit_data").html('');
 								$("#login_image_saved").hide()
@@ -4451,7 +4451,8 @@ function submi_saved_req(i){
 								
 								
 								var s_data=saved_req.split('<savedsaved>')[i]
-								
+								//alert (saved_req)
+								//alert (s_data)
 								if (i==0){
 								saved_req=saved_req.replace('<savedsaved>'+s_data,'')
 								}
@@ -4467,6 +4468,7 @@ function submi_saved_req(i){
 								
 								$("#cancel_cause").val('Will try later');
 								cancel_outlet_Back()
+								location.reload();
 								savedVisit();
 								
 								
