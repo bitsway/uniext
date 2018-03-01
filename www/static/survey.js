@@ -4238,7 +4238,7 @@ function savedVisit(){
 	var savedList=saved_req.split('<savedsaved>')
 	
 	//$("#savedVisitRecord").text(localStorage.saved_req);
-	
+	$("#savedVisitRecord").empty();
 	var saved_req_str=''
 	for (var i=0; i < savedList.length; i++){	
 		
@@ -4271,6 +4271,7 @@ function savedVisit(){
 	}
 	
 	$("#savedVisitRecordError").text('');
+	
 	var url = "#savedVisitPage";
 	$.mobile.navigate(url);
 }
@@ -4468,7 +4469,7 @@ function submi_saved_req(i){
 								
 								$("#cancel_cause").val('Will try later');
 								cancel_outlet_Back()
-								location.reload();
+								//location.reload();
 								savedVisit();
 								
 								
