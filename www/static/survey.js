@@ -4850,7 +4850,7 @@ function submit_data() {
 							if (Sflag==1){//part1
 									$.ajax({
 									type: 'POST',
-									url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
+									url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
 									 success: function(resultS1) {	
 											var resultS=resultS1.split('<rdrd>')[0]
 											var fSL=resultS1.split('<rdrd>')[1]
@@ -4868,7 +4868,7 @@ function submit_data() {
 												if (Sflag==2){//Part2
 																$.ajax({
 																type: 'POST',
-																url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
+																url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL,
 																 success: function(resultS1) {	
 																		var resultS=resultS1.split('<rdrd>')[0]
 																		var fSL=resultS1.split('<rdrd>')[1]
