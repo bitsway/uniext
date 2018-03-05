@@ -4812,7 +4812,7 @@ function submit_data() {
 			var submit_data1=''
 			var submit_data2=''
 			var submit_data3=''
-			alert (encode_submit_data)
+			alert (encode_submit_data.length)
 			if ((encode_submit_data.length <= 4000)){
 				Sflag=0
 				submit_data1=encode_submit_data
@@ -4836,7 +4836,7 @@ function submit_data() {
 						type: 'POST',
 						url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1,
 						 success: function(resultS1) {	
-						 		alert (resultS1)
+						 		alert ('1')
 								var resultS=resultS1.split('<rdrd>')[0]
 								var fSL=resultS1.split('<rdrd>')[1]
 								if (resultS1==''){
@@ -4856,7 +4856,7 @@ function submit_data() {
 									type: 'POST',
 									url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
 									 success: function(resultS2) {	
-									 		alert (resultS2)
+									 		alert ('2')
 											var resultS2_1=resultS2.split('<rdrd>')[0]
 											var fSL2=resultS2.split('<rdrd>')[1]
 											if (resultS2_1==''){
@@ -4875,7 +4875,7 @@ function submit_data() {
 																type: 'POST',
 																url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2,
 																 success: function(resultS3) {	
-																 		alert (resultS3)
+																 		alert ('3')
 																		var resultS3_1=resultS3.split('<rdrd>')[0]
 																		var fSL3=resultS3.split('<rdrd>')[1]
 																		if (resultS1==''){
