@@ -4812,6 +4812,7 @@ function submit_data() {
 			var submit_data1=''
 			var submit_data2=''
 			var submit_data3=''
+			alert (encode_submit_data)
 			if ((encode_submit_data.length <= 4000)){
 				Sflag=0
 				submit_data1=encode_submit_data
@@ -4826,13 +4827,16 @@ function submit_data() {
 				submit_data1=encode_submit_data.substring(4000, 0);
 			    submit_data2=encode_submit_data.substring(8000, 4000);
 				submit_data3=encode_submit_data.substring(12000, 8000);
+				
 				}
+		
 		//$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+encodeURIComponent(submit_data));
 			
 			$.ajax({
 						type: 'POST',
-						url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1,
+						url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1,
 						 success: function(resultS1) {	
+						 		alert (resultS1)
 								var resultS=resultS1.split('<rdrd>')[0]
 								var fSL=resultS1.split('<rdrd>')[1]
 								if (resultS1==''){
@@ -4850,37 +4854,39 @@ function submit_data() {
 							if (Sflag==1){//part1
 									$.ajax({
 									type: 'POST',
-									url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
-									 success: function(resultS1) {	
-											var resultS=resultS1.split('<rdrd>')[0]
-											var fSL=resultS1.split('<rdrd>')[1]
-											if (resultS1==''){
+									url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
+									 success: function(resultS2) {	
+									 		alert (resultS2)
+											var resultS2_1=resultS2.split('<rdrd>')[0]
+											var fSL2=resultS2.split('<rdrd>')[1]
+											if (resultS2_1==''){
 												alert ('Sorry Network not available');
 											}
 											else{
 					
-												if (resultS!='SUCCESS'){
+												if (resultS2_1!='SUCCESS'){
 													$("#submit_data_check").html(result);
 												}
-												if (resultS=='SUCCESS'){
+												if (resultS2_1=='SUCCESS'){
 													
 												//===============3=======================	
 												if (Sflag==2){//Part2
 																$.ajax({
 																type: 'POST',
-																url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL,
-																 success: function(resultS1) {	
-																		var resultS=resultS1.split('<rdrd>')[0]
-																		var fSL=resultS1.split('<rdrd>')[1]
+																url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2,
+																 success: function(resultS3) {	
+																 		alert (resultS3)
+																		var resultS3_1=resultS3.split('<rdrd>')[0]
+																		var fSL3=resultS3.split('<rdrd>')[1]
 																		if (resultS1==''){
 																			alert ('Sorry Network not available');
 																		}
 																		else{
 												
-																			if (resultS!='SUCCESS'){
+																			if (resultS3_1!='SUCCESS'){
 																				$("#submit_data_check").html(result);
 																			}
-																			if (resultS=='SUCCESS'){
+																			if (resultS3_1=='SUCCESS'){
 																				
 																				
 																				
@@ -4892,7 +4898,7 @@ function submit_data() {
 																		}
 																		
 																	  }, 
-																  error: function(result) {
+																  error: function(resultS3_1) {
 																	 
 																	 $("#sub_button").show();
 																	// $("#submit_data").html("Network timeout. Please ensure you have good network signal and working Internet.");
@@ -4932,7 +4938,7 @@ function submit_data() {
 											}//part 2 end
 											
 										  }, 
-									  error: function(result) {
+									  error: function(resultS2_1) {
 										 
 										 $("#sub_button").show();
 										// $("#submit_data").html("Network timeout. Please ensure you have good network signal and working Internet.");
