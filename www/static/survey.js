@@ -4805,23 +4805,172 @@ function submit_data() {
 			//alert(apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready)
 			var check_outlet= localStorage.outletString;
 			var submit_data=apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready
-		
-		$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&str='+encodeURIComponent(submit_data));
+			
+			var encode_submit_data=encodeURIComponent(submit_data)
+			
+			var Sflag=0
+			var submit_data1=''
+			var submit_data2=''
+			var submit_data3=''
+			if ((encode_submit_data.length <= 4000)){
+				Sflag=0
+				submit_data1=encode_submit_data
+				}
+			if ((encode_submit_data.length > 4000) & (encode_submit_data.length <= 8000)){
+				Sflag=1
+				submit_data1=encode_submit_data.substring(4000, 0);
+			    submit_data2=encode_submit_data.substring(8000, 4000);
+				}
+			if ((encode_submit_data.length > 8000) & (encode_submit_data.length <= 12000)){
+				Sflag=2
+				submit_data1=encode_submit_data.substring(4000, 0);
+			    submit_data2=encode_submit_data.substring(8000, 4000);
+				submit_data3=encode_submit_data.substring(12000, 8000);
+				}
+		//$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+encodeURIComponent(submit_data));
 			
 			$.ajax({
 						type: 'POST',
-						url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready,
-						 success: function(result) {	
-								
-								if (result==''){
+						url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1,
+						 success: function(resultS1) {	
+								var resultS=resultS1.split('<rdrd>')[0]
+								var fSL=resultS1.split('<rdrd>')[1]
+								if (resultS1==''){
 									alert ('Sorry Network not available');
 								}
 								else{
 		
-									if (result!='SUCCESS'){
+									if (resultS!='SUCCESS'){
 										$("#submit_data_check").html(result);
 									}
-									if (result=='SUCCESS'){
+									if (resultS=='SUCCESS'){
+										
+										
+				//			===================2================================
+							if (Sflag==1){//part1
+									$.ajax({
+									type: 'POST',
+									url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
+									 success: function(resultS1) {	
+											var resultS=resultS1.split('<rdrd>')[0]
+											var fSL=resultS1.split('<rdrd>')[1]
+											if (resultS1==''){
+												alert ('Sorry Network not available');
+											}
+											else{
+					
+												if (resultS!='SUCCESS'){
+													$("#submit_data_check").html(result);
+												}
+												if (resultS=='SUCCESS'){
+													
+												//===============3=======================	
+												if (Sflag==2){//Part2
+																$.ajax({
+																type: 'POST',
+																url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
+																 success: function(resultS1) {	
+																		var resultS=resultS1.split('<rdrd>')[0]
+																		var fSL=resultS1.split('<rdrd>')[1]
+																		if (resultS1==''){
+																			alert ('Sorry Network not available');
+																		}
+																		else{
+												
+																			if (resultS!='SUCCESS'){
+																				$("#submit_data_check").html(result);
+																			}
+																			if (resultS=='SUCCESS'){
+																				
+																				
+																				
+																				
+																				
+																				
+										
+																			}		
+																		}
+																		
+																	  }, 
+																  error: function(result) {
+																	 
+																	 $("#sub_button").show();
+																	// $("#submit_data").html("Network timeout. Please ensure you have good network signal and working Internet.");
+																	 localStorage.dataSubmit=0;
+																	 localStorage.submit_count=parseInt(localStorage.submit_count)+1
+																	 
+																	
+																	 if (localStorage.submit_count<1){
+																		 buttonCheck();
+																		 $("#submit_data").html('');
+																		 var url = "#submitPage";
+																		 $.mobile.navigate(url);	
+																	 }
+																	 else{
+																		  $("#submit_data").html("Saved Request. Please try later");
+																		  
+																		  
+																		  localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
+																		
+																		
+																		  localStorage.saved_req=localStorage.saved_req+'<savedsaved><'+localStorage.selectedOutlet+'><OidOid>'+localStorage.outletIDnameShow+'<showshow>'+apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+localStorage.fdisplay_data_ready+'&qpds_data='+localStorage.qpds_data_ready+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready+'&fdisplayTotal='+localStorage.fdisplayTotal+'&qpdsSlabTotal='+localStorage.qpdsSlabTotal+'</'+localStorage.selectedOutlet+'>'
+																		;
+																		
+																		$("#outletString").empty();
+																		$("#outletString").append(localStorage.outletString).trigger('create');
+																		
+																		cancel_outlet();
+																	 
+																	 }
+																  }
+															  });//end ajax
+													
+												}
+													
+												//=================================
+												}		
+											}//part 2 end
+											
+										  }, 
+									  error: function(result) {
+										 
+										 $("#sub_button").show();
+										// $("#submit_data").html("Network timeout. Please ensure you have good network signal and working Internet.");
+										 localStorage.dataSubmit=0;
+										 localStorage.submit_count=parseInt(localStorage.submit_count)+1
+										 
+										
+										 if (localStorage.submit_count<1){
+											 buttonCheck();
+											 $("#submit_data").html('');
+											 var url = "#submitPage";
+											 $.mobile.navigate(url);	
+										 }
+										 else{
+											  $("#submit_data").html("Saved Request. Please try later");
+											  
+											  
+											  localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
+											
+											
+											  localStorage.saved_req=localStorage.saved_req+'<savedsaved><'+localStorage.selectedOutlet+'><OidOid>'+localStorage.outletIDnameShow+'<showshow>'+apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+localStorage.fdisplay_data_ready+'&qpds_data='+localStorage.qpds_data_ready+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready+'&fdisplayTotal='+localStorage.fdisplayTotal+'&qpdsSlabTotal='+localStorage.qpdsSlabTotal+'</'+localStorage.selectedOutlet+'>'
+											;
+											
+											$("#outletString").empty();
+											$("#outletString").append(localStorage.outletString).trigger('create');
+											
+											cancel_outlet();
+										 
+										 }
+									  }
+								  });//end ajax
+										
+							}//part 1 end
+							//			=======================================================
+										
+										
+										
+								//======================Start
 										//alert ('1')
 										//marchandising distribution
 										var temp="";							
@@ -4923,9 +5072,9 @@ function submit_data() {
 										//location.reload();
 										localStorage.dataSubmit=0
 										
-									}
 									
-											
+								//==================End
+									}		
 								}
 								
 							  }, 
