@@ -4855,8 +4855,7 @@ function submit_data() {
 									//alert (encode_submit_data.length)
 									//alert (Sflag)
 									if  ((Sflag==1) || (Sflag==2)){  //part1
-									
-									//$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL);
+									$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL);
 									//alert ('2')
 									$.ajax({
 									type: 'POST',
@@ -4877,7 +4876,7 @@ function submit_data() {
 														}
 														if (resultS2_1=='SUCCESS'){
 													if (Sflag==2){//Part2
-													$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL);
+													$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data3+'&fSL='+fSL);
 													$.ajax({
 													type: 'POST',
 													url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data3+'&fSL='+fSL2,
