@@ -4812,7 +4812,7 @@ function submit_data() {
 			var submit_data1=''
 			var submit_data2=''
 			var submit_data3=''
-			alert (encode_submit_data.length)
+			
 			if ((encode_submit_data.length <= 4000)){
 				Sflag=0
 				submit_data1=encode_submit_data
@@ -4830,10 +4830,9 @@ function submit_data() {
 				
 				}
 
-	
-				alert (Sflag)
+				
 			
-			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1);
+			//$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1);
 			
 			$.ajax({
 						type: 'POST',
@@ -4852,17 +4851,19 @@ function submit_data() {
 									}
 									if (resultS=='SUCCESS'){
 										
-										alert ('1')
+
 				//			===================1 Start================================
-							
+									//alert (encode_submit_data.length)
+									//alert (Sflag)
 									if  ((Sflag==1) || (Sflag==2)){  //part1
-									alert ('2')
-									$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL);
+									
+									//$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL);
+									//alert ('2')
 									$.ajax({
 									type: 'POST',
-									url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
+									url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL,
 									 success: function(resultS2) {	
-									 		alert (resultS2)
+									 		//alert (resultS2)
 											var resultS2_1=resultS2.split('<rdrd>')[0]
 											var fSL2=resultS2.split('<rdrd>')[1]
 													
@@ -4879,9 +4880,8 @@ function submit_data() {
 															if (Sflag==2){//Part2
 																$.ajax({
 													type: 'POST',
-													url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2,
+													url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data3+'&fSL='+fSL2,
 													 success: function(resultS3) {	
-															alert ('3')
 															var resultS3_1=resultS3.split('<rdrd>')[0]
 															var fSL3=resultS3.split('<rdrd>')[1]
 															if (resultS1==''){
@@ -4982,106 +4982,106 @@ function submit_data() {
 										
 										
 								//======================1
-										//alert ('1')
-										//marchandising distribution
-										var temp="";							
-										if(localStorage.mar_distrib_data=="undefined" || localStorage.mar_distrib_data==undefined || localStorage.mar_distrib_data==""){
-											temp="";
-										}else{
-											var mar_distrib_dataList=localStorage.mar_distrib_data.split('rdrd');
-											
-											if(localStorage.mar_distrib_stock=="undefined" || localStorage.mar_distrib_stock==undefined || localStorage.mar_distrib_stock==""){
-												temp="";
-											}else{
-												//---
-												var mar_distrib_stock_new="";
-												
-												var mar_distrib_stockList=localStorage.mar_distrib_stock.split('rd');										
-												for (var j=0; j < mar_distrib_stockList.length; j++){
-													mar_distrib_stockListSingleL=mar_distrib_stockList[j].split(',');
-													var campSlChannel=mar_distrib_stockListSingleL[0]
-													var campAvailableQty=mar_distrib_stockListSingleL[1]
-													
-													//--
-													var availableQty=campAvailableQty;
-													for (var k=0; k < mar_distrib_dataList.length; k++){
-														mar_distrib_dataListSingleL=mar_distrib_dataList[k].split('fdfd');
-														var campId2=mar_distrib_dataListSingleL[0]
-														var givenQty2=mar_distrib_dataListSingleL[2]
-														
-														var campID2Channel=campId2.toString()+'_'+localStorage.outletChannel.toString()
-														
-														if(campSlChannel==campID2Channel){													
-															try{
-																availableQty=eval(campAvailableQty)-eval(givenQty2);
-															}catch(e){			
-																continue;
-															}
-															
-															break;
-															}
-													}//--
-													
-													if(mar_distrib_stock_new==""){
-														mar_distrib_stock_new=campSlChannel+','+availableQty;
-													}else{
-														mar_distrib_stock_new+='rd'+campSlChannel+','+availableQty;
-													}
-																			
-												}//---		
-												
-												localStorage.mar_distrib_stock=mar_distrib_stock_new;
-																
-											}
-										}								
-										localStorage.mar_distrib_data="";								
-										//----- marchandising end
-										
-										
-										localStorage.dataSubmit=1;
-										buttonCheck();
-										
-										
-										localStorage.show_cancel=0;
-		
-										//alert ('2')
-													
-										localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
-										
-										//localStorage.outletString=outletStringShow
-										//$("#outletString").html(localStorage.outletString);
-										
-										
-										$("#outletString").empty();
-										$("#outletString").append(localStorage.outletString).trigger('create');
-										
-										
-										
-										$("#submit_data_check").html("Data Synced Successfully");
-										$("#submit_data").html('');
-										localStorage.step_flag=0;
-										
-										
-										// Enable all disable div start
-										$('#mhskus').find('input, textarea, button, select').attr('disabled',false);
-										$('#npd').find('input, textarea, button, select').attr('disabled',false);
-										$('#fdisplayStringShowBefore').find('input, textarea, button, select').attr('disabled',false);
-										$('#fdisplay').find('input, textarea, button, select').attr('disabled',false);
-										$('#qpds').find('input, textarea, button, select').attr('disabled',false);
-										$('#gift').find('input, textarea, button, select').attr('disabled',false);
-										$('#place_show').find('input, textarea, button, select').attr('disabled',false);
-										$('#shop_show').find('input, textarea, button, select').attr('disabled',false);
-										
-										// Enable disable div end
-										
-										
-										upload_fd();
-										cancel_outlet();
-										
-										var url = "#outletPage";
-										$.mobile.navigate(url);
-										//location.reload();
-										localStorage.dataSubmit=0
+							//			//alert ('1')
+//										//marchandising distribution
+//										var temp="";							
+//										if(localStorage.mar_distrib_data=="undefined" || localStorage.mar_distrib_data==undefined || localStorage.mar_distrib_data==""){
+//											temp="";
+//										}else{
+//											var mar_distrib_dataList=localStorage.mar_distrib_data.split('rdrd');
+//											
+//											if(localStorage.mar_distrib_stock=="undefined" || localStorage.mar_distrib_stock==undefined || localStorage.mar_distrib_stock==""){
+//												temp="";
+//											}else{
+//												//---
+//												var mar_distrib_stock_new="";
+//												
+//												var mar_distrib_stockList=localStorage.mar_distrib_stock.split('rd');										
+//												for (var j=0; j < mar_distrib_stockList.length; j++){
+//													mar_distrib_stockListSingleL=mar_distrib_stockList[j].split(',');
+//													var campSlChannel=mar_distrib_stockListSingleL[0]
+//													var campAvailableQty=mar_distrib_stockListSingleL[1]
+//													
+//													//--
+//													var availableQty=campAvailableQty;
+//													for (var k=0; k < mar_distrib_dataList.length; k++){
+//														mar_distrib_dataListSingleL=mar_distrib_dataList[k].split('fdfd');
+//														var campId2=mar_distrib_dataListSingleL[0]
+//														var givenQty2=mar_distrib_dataListSingleL[2]
+//														
+//														var campID2Channel=campId2.toString()+'_'+localStorage.outletChannel.toString()
+//														
+//														if(campSlChannel==campID2Channel){													
+//															try{
+//																availableQty=eval(campAvailableQty)-eval(givenQty2);
+//															}catch(e){			
+//																continue;
+//															}
+//															
+//															break;
+//															}
+//													}//--
+//													
+//													if(mar_distrib_stock_new==""){
+//														mar_distrib_stock_new=campSlChannel+','+availableQty;
+//													}else{
+//														mar_distrib_stock_new+='rd'+campSlChannel+','+availableQty;
+//													}
+//																			
+//												}//---		
+//												
+//												localStorage.mar_distrib_stock=mar_distrib_stock_new;
+//																
+//											}
+//										}								
+//										localStorage.mar_distrib_data="";								
+//										//----- marchandising end
+//										
+//										
+//										localStorage.dataSubmit=1;
+//										buttonCheck();
+//										
+//										
+//										localStorage.show_cancel=0;
+//		
+//										//alert ('2')
+//													
+//										localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
+//										
+//										//localStorage.outletString=outletStringShow
+//										//$("#outletString").html(localStorage.outletString);
+//										
+//										
+//										$("#outletString").empty();
+//										$("#outletString").append(localStorage.outletString).trigger('create');
+//										
+//										
+//										
+//										$("#submit_data_check").html("Data Synced Successfully");
+//										$("#submit_data").html('');
+//										localStorage.step_flag=0;
+//										
+//										
+//										// Enable all disable div start
+//										$('#mhskus').find('input, textarea, button, select').attr('disabled',false);
+//										$('#npd').find('input, textarea, button, select').attr('disabled',false);
+//										$('#fdisplayStringShowBefore').find('input, textarea, button, select').attr('disabled',false);
+//										$('#fdisplay').find('input, textarea, button, select').attr('disabled',false);
+//										$('#qpds').find('input, textarea, button, select').attr('disabled',false);
+//										$('#gift').find('input, textarea, button, select').attr('disabled',false);
+//										$('#place_show').find('input, textarea, button, select').attr('disabled',false);
+//										$('#shop_show').find('input, textarea, button, select').attr('disabled',false);
+//										
+//										// Enable disable div end
+//										
+//										
+//										upload_fd();
+//										cancel_outlet();
+//										
+//										var url = "#outletPage";
+//										$.mobile.navigate(url);
+//										//location.reload();
+//										localStorage.dataSubmit=0
 										
 									
 								//==================End
