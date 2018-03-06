@@ -4831,9 +4831,7 @@ function submit_data() {
 				}
 
 
-				alert (submit_data1)
-				alert (submit_data2)
-				alert (submit_data3)
+				
 			
 			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1);
 			
@@ -4855,8 +4853,9 @@ function submit_data() {
 									if (resultS=='SUCCESS'){
 										
 										
-				//			===================2================================
-							if (Sflag==1){//part1
+				//			===================1 Start================================
+							
+									 if (Sflag==1){  //part1
 									$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL);
 									$.ajax({
 									type: 'POST',
@@ -4865,127 +4864,123 @@ function submit_data() {
 									 		alert ('2')
 											var resultS2_1=resultS2.split('<rdrd>')[0]
 											var fSL2=resultS2.split('<rdrd>')[1]
-											if (resultS2_1==''){
-												alert ('Sorry Network not available');
-											}
-											else{
-					
-												if (resultS2_1!='SUCCESS'){
-													$("#submit_data_check").html(result);
-												}
-												if (resultS2_1=='SUCCESS'){
 													
-												//===============3=======================	
-												if (Sflag==2){//Part2
-															$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2);
-															$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2);
-																
+										//			===================2 Start================================
+												if (resultS2_1==''){
+														alert ('Sorry Network not available');
+													}
+													else{
+							
+														if (resultS2_1!='SUCCESS'){
+															$("#submit_data_check").html(result);
+														}
+														if (resultS2_1=='SUCCESS'){
+															if (Sflag==2){//Part2
 																$.ajax({
-																type: 'POST',
-																url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2,
-																 success: function(resultS3) {	
-																 		alert ('3')
-																		var resultS3_1=resultS3.split('<rdrd>')[0]
-																		var fSL3=resultS3.split('<rdrd>')[1]
-																		if (resultS1==''){
-																			alert ('Sorry Network not available');
-																		}
-																		else{
-												
-																			if (resultS3_1!='SUCCESS'){
-																				$("#submit_data_check").html(result);
-																			}
-																			if (resultS3_1=='SUCCESS'){
-																				
-																				
-																				
-																				
-																				
-																				
-										
-																			}		
-																		}
-																		
-																	  }, 
-																  error: function(resultS3_1) {
-																	 
-																	 $("#sub_button").show();
-																	// $("#submit_data").html("Network timeout. Please ensure you have good network signal and working Internet.");
-																	 localStorage.dataSubmit=0;
-																	 localStorage.submit_count=parseInt(localStorage.submit_count)+1
-																	 
-																	
-																	 if (localStorage.submit_count<1){
-																		 buttonCheck();
-																		 $("#submit_data").html('');
-																		 var url = "#submitPage";
-																		 $.mobile.navigate(url);	
-																	 }
-																	 else{
-																		  $("#submit_data").html("Saved Request. Please try later");
-																		  
-																		  
-																		  localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
-																		
-																		
-																		  localStorage.saved_req=localStorage.saved_req+'<savedsaved><'+localStorage.selectedOutlet+'><OidOid>'+localStorage.outletIDnameShow+'<showshow>'+apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+localStorage.fdisplay_data_ready+'&qpds_data='+localStorage.qpds_data_ready+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready+'&fdisplayTotal='+localStorage.fdisplayTotal+'&qpdsSlabTotal='+localStorage.qpdsSlabTotal+'</'+localStorage.selectedOutlet+'>'
-																		;
-																		
-																		$("#outletString").empty();
-																		$("#outletString").append(localStorage.outletString).trigger('create');
-																		
-																		cancel_outlet();
-																	 
-																	 }
-																  }
-															  });//end ajax
-													
-												}
-													
-												//=================================
-												}		
-											}//part 2 end
-											
-										  }, 
+													type: 'POST',
+													url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2,
+													 success: function(resultS3) {	
+															alert ('3')
+															var resultS3_1=resultS3.split('<rdrd>')[0]
+															var fSL3=resultS3.split('<rdrd>')[1]
+															if (resultS1==''){
+																alert ('Sorry Network not available');
+															}
+															else{
+									
+																if (resultS3_1!='SUCCESS'){
+																	$("#submit_data_check").html(result);
+																}
+																if (resultS3_1=='SUCCESS'){
+							
+																}		
+															}
+																							
+												    		 }, 
+															 
+															 error: function(resultS3_1) {
+																						 
+															 $("#sub_button").show();
+															 $("#submit_data").html("Network timeout. Please ensure you have good network signal and working Internet.");
+															 localStorage.dataSubmit=0;
+															 localStorage.submit_count=parseInt(localStorage.submit_count)+1
+															 
+															
+															 if (localStorage.submit_count<1){
+																 buttonCheck();
+																 $("#submit_data").html('');
+																 var url = "#submitPage";
+																 $.mobile.navigate(url);	
+															 }
+															 else{
+														  $("#submit_data").html("Saved Request. Please try later");
+
+									localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
+									  localStorage.saved_req=localStorage.saved_req+'<savedsaved><'+localStorage.selectedOutlet+'><OidOid>'+localStorage.outletIDnameShow+'<showshow>'+apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+localStorage.fdisplay_data_ready+'&qpds_data='+localStorage.qpds_data_ready+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready+'&fdisplayTotal='+localStorage.fdisplayTotal+'&qpdsSlabTotal='+localStorage.qpdsSlabTotal+'</'+localStorage.selectedOutlet+'>';
+
+													$("#outletString").empty();
+ 													$("#outletString").append(localStorage.outletString).trigger('create');
+														
+														cancel_outlet();
+		
+																
+																}	//else
+															}//error
+															 });//end ajax 
+															 
+															}//Part2
+														}//end else Success
+													}//end resultS2_1
+										//			===================2 End================================		 
+										}, //Success
 									  error: function(resultS2_1) {
-										 
+													 
 										 $("#sub_button").show();
-										// $("#submit_data").html("Network timeout. Please ensure you have good network signal and working Internet.");
+										 $("#submit_data").html("Network timeout. Please ensure you have good network signal and working Internet.");
 										 localStorage.dataSubmit=0;
 										 localStorage.submit_count=parseInt(localStorage.submit_count)+1
-										 
-										
+													 
+													
 										 if (localStorage.submit_count<1){
 											 buttonCheck();
 											 $("#submit_data").html('');
 											 var url = "#submitPage";
 											 $.mobile.navigate(url);	
 										 }
-										 else{
-											  $("#submit_data").html("Saved Request. Please try later");
-											  
-											  
-											  localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
-											
-											
-											  localStorage.saved_req=localStorage.saved_req+'<savedsaved><'+localStorage.selectedOutlet+'><OidOid>'+localStorage.outletIDnameShow+'<showshow>'+apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+localStorage.fdisplay_data_ready+'&qpds_data='+localStorage.qpds_data_ready+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready+'&fdisplayTotal='+localStorage.fdisplayTotal+'&qpdsSlabTotal='+localStorage.qpdsSlabTotal+'</'+localStorage.selectedOutlet+'>'
-											;
-											
-											$("#outletString").empty();
-											$("#outletString").append(localStorage.outletString).trigger('create');
-											
-											cancel_outlet();
-										 
-										 }
-									  }
-								  });//end ajax
+									 else{
+										  $("#submit_data").html("Saved Request. Please try later");
+										  localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
+//											
 										
-							}//part 1 end
-							//			=======================================================
+										  localStorage.saved_req=localStorage.saved_req+'<savedsaved><'+localStorage.selectedOutlet+'><OidOid>'+localStorage.outletIDnameShow+'<showshow>'+apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+localStorage.fdisplay_data_ready+'&qpds_data='+localStorage.qpds_data_ready+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready+'&fdisplayTotal='+localStorage.fdisplayTotal+'&qpdsSlabTotal='+localStorage.qpdsSlabTotal+'</'+localStorage.selectedOutlet+'>';
+										
+										$("#outletString").empty();
+										$("#outletString").append(localStorage.outletString).trigger('create');
+										
+										cancel_outlet();
+									 
+									 }
+										 }//part 2 error end
+									 
+									  });//end ajax
+					
+									}//Sflag End
+								  
+							
+					
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
 										
 										
-										
-								//======================Start
+								//======================1
 										//alert ('1')
 										//marchandising distribution
 										var temp="";							
