@@ -4829,8 +4829,13 @@ function submit_data() {
 				submit_data3=encode_submit_data.substring(12000, 8000);
 				
 				}
-		
-		//$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+encodeURIComponent(submit_data));
+
+
+				alert (submit_data1)
+				alert (submit_data2)
+				alert (submit_data3)
+			
+			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1);
 			
 			$.ajax({
 						type: 'POST',
@@ -4852,6 +4857,7 @@ function submit_data() {
 										
 				//			===================2================================
 							if (Sflag==1){//part1
+									$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL);
 									$.ajax({
 									type: 'POST',
 									url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
@@ -4871,6 +4877,9 @@ function submit_data() {
 													
 												//===============3=======================	
 												if (Sflag==2){//Part2
+															$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2);
+															$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2);
+																
 																$.ajax({
 																type: 'POST',
 																url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data2+'&fSL='+fSL2,
