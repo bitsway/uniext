@@ -4830,8 +4830,8 @@ function submit_data() {
 				
 				}
 
-
-				
+	
+				alert (Sflag)
 			
 			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1);
 			
@@ -4839,7 +4839,7 @@ function submit_data() {
 						type: 'POST',
 						url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1,
 						 success: function(resultS1) {	
-						 		alert ('1')
+						 		
 								var resultS=resultS1.split('<rdrd>')[0]
 								var fSL=resultS1.split('<rdrd>')[1]
 								if (resultS1==''){
@@ -4852,16 +4852,17 @@ function submit_data() {
 									}
 									if (resultS=='SUCCESS'){
 										
-										
+										alert ('1')
 				//			===================1 Start================================
 							
-									 if (Sflag==1){  //part1
+									if  ((Sflag==1) || (Sflag==2)){  //part1
+									alert ('2')
 									$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL);
 									$.ajax({
 									type: 'POST',
 									url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL,
 									 success: function(resultS2) {	
-									 		alert ('2')
+									 		alert (resultS2)
 											var resultS2_1=resultS2.split('<rdrd>')[0]
 											var fSL2=resultS2.split('<rdrd>')[1]
 													
