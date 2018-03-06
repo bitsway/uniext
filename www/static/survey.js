@@ -4346,34 +4346,33 @@ function submi_saved_req(i){
 		
 		var url_submit = apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+fdisplay_data+'&qpds_data='+qpds_data+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready
 		
+		var encode_submit_data=encodeURIComponent(submit_data)
 	
-			   
-		//localStorage.selectedOutlet=selectedOutlet;				
-		//localStorage.selected_date_get=selected_date;
-		//alert (localStorage.selected_date_get)
-		//selected_date=selected_date_get;
-		//localStorage.selected_date=selected_date;	
-		
-	
-		//alert ('/'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date+'/');
-		//select_outlet_saved('/'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date+'/');
-		//=============================================
+		var Sflag=0
+			var submit_data1=''
+			var submit_data2=''
+			var submit_data3=''
 			
+			if ((encode_submit_data.length <= 4000)){
+				Sflag=0
+				submit_data1=encode_submit_data
+				}
+			if ((encode_submit_data.length > 4000) & (encode_submit_data.length <= 8000)){
+				Sflag=1
+				submit_data1=encode_submit_data.substring(4000, 0);
+			    submit_data2=encode_submit_data.substring(8000, 4000);
+				}
+			if ((encode_submit_data.length > 8000) & (encode_submit_data.length <= 12000)){
+				Sflag=2
+				submit_data1=encode_submit_data.substring(4000, 0);
+			    submit_data2=encode_submit_data.substring(8000, 4000);
+				submit_data3=encode_submit_data.substring(12000, 8000);
+				
+				}	   
 		
-			
-		//=====================================
-		
-		
-		//localStorage.show_cancel==1
-	//	div_change()
-	//	var url = "#outletPage";
-	//	$.mobile.navigate(url);
-	//	locatio.reload();
-		
-		//$("#savedVisitRecordError").html(url_submit);
 		$.ajax({
 				type: 'POST',
-				url: url_submit,
+				url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1,
 				 success: function(result) {	
 						//alert (result)
 						if (result==''){
@@ -4401,7 +4400,7 @@ function submi_saved_req(i){
 								localStorage.qpdsSlabTotal = ''
 							}
 							if (result=='SUCCESS'){
-	
+					
 								var check_outlet= localStorage.outletString;
 								
 	//
@@ -4877,8 +4876,9 @@ function submit_data() {
 															$("#submit_data_check").html(result);
 														}
 														if (resultS2_1=='SUCCESS'){
-															if (Sflag==2){//Part2
-																$.ajax({
+													if (Sflag==2){//Part2
+													$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data1+'&fSL='+fSL);
+													$.ajax({
 													type: 'POST',
 													url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+submit_data3+'&fSL='+fSL2,
 													 success: function(resultS3) {	
