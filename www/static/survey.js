@@ -4833,7 +4833,7 @@ function submit_data1() {
 				}
 			if ((encode_submit_data.length > 8000) & (encode_submit_data.length <= 12000)){
 				Sflag=2
-				submit_data1=encode_submit_data.substring(3000, 0);
+				submit_data1=encode_submit_data.substring(500, 0);
 			    submit_data2=encode_submit_data.substring(8000, 4000);
 				submit_data3=encode_submit_data.substring(12000, 8000);
 				
