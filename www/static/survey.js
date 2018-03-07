@@ -4849,23 +4849,25 @@ function submit_data1() {
 			
 			$.ajax({
 						type: 'POST',
-						url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1,
+						//url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1,
+						 url: apipath+'cancel_outlet?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&selectedRoute='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+outletID+'&outletEx='+localStorage.outletException+'&cancel_reason=Will try later&imageName='+imageName+'&imagePath='+imagePath+'&latitude='+latitude+'&longitude='+longitude,
+						 
 						 success: function(resultS1) {	
 						 		
-								var resultS=resultS1.split('<rdrd>')[0]
-								var fSL=resultS1.split('<rdrd>')[1]
-								if (resultS1==''){
-									alert ('Sorry Network not available');
-								}
-								else{
-		
-									if (resultS!='SUCCESS'){
-										$("#submit_data_check").html(result);
-									}
-									if (resultS=='SUCCESS'){
-										localStorage.submit_data1_done=1
-										localStorage.fSL=fSL
-										
+								//var resultS=resultS1.split('<rdrd>')[0]
+//								var fSL=resultS1.split('<rdrd>')[1]
+//								if (resultS1==''){
+//									alert ('Sorry Network not available');
+//								}
+//								else{
+//		
+//									if (resultS!='SUCCESS'){
+//										$("#submit_data_check").html(result);
+//									}
+//									if (resultS=='SUCCESS'){
+//										localStorage.submit_data1_done=1
+//										localStorage.fSL=fSL
+//										
 										$("#sub_button_div").hide();	
 										$("#sub_button_div1").show();
 										$("#sub_button_div2").hide();											
@@ -4873,8 +4875,8 @@ function submit_data1() {
 										
 									
 								//==================End
-									}		
-								}
+							//		}		
+								//}
 								
 							  }, 
 						  error: function(result) {
