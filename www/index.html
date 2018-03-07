@@ -253,6 +253,31 @@ $(document).ready(function(){
 				$("#saved_button").html('<a data-role="button" onClick="savedVisit()" ><img src="saved_visit.png"></a>')
 				
 				}
+				if ((localStorage.submit_data1_done==0) & (localStorage.submit_data2_done==0) & (localStorage.submit_data3_done==0)){
+						$("#sub_button_div").show();	
+						$("#sub_button_div1").hide();
+						$("#sub_button_div2").hide();
+				
+				}
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==0) & (localStorage.submit_data3_done==0)){
+						$("#sub_button_div").hide();	
+						$("#sub_button_div1").show();
+						$("#sub_button_div2").hide();
+				
+				}
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==0)){
+						$("#sub_button_div").hide();	
+						$("#sub_button_div1").hide();
+						$("#sub_button_div2").show();
+				
+				}
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==1)){
+						$("#sub_button_div").hide();	
+						$("#sub_button_div1").hide();
+						$("#sub_button_div2").hide();
+				
+				}
+				
 				//localStorage.ItemVisiblefdisplay;
 				//alert (localStorage.outletIDnameShow);
 				
@@ -737,9 +762,18 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
             
 			<div id="sub_button_div">
             
-        	<a  data-role="button" onClick="submit_data();" >Submit Data</a>
+        	<a  data-role="button" onClick="submit_data1();" >Next</a>
 			</div> 
-			
+			<div id="sub_button_div1">
+            
+        	<a  data-role="button" onClick="submit_data2();" >Next 1</a>
+			</div> 
+            <div id="sub_button_div2">
+            
+        	<a  data-role="button" onClick="submit_data3();" >Next 2</a>
+			</div> 
+            
+            
 
 			<div id="image_up_button">
         	<a   data-role="button" onClick="check_step();" >Complete Submission</a>			
