@@ -16,7 +16,7 @@
 //var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
 
-var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
+var apipath='http://i001.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
 //var apipath='http://e3.businesssolutionapps.com/unilever18/syncmobile_scheduleNew/';
 var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
