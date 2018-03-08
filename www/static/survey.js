@@ -4845,14 +4845,15 @@ function submit_data1() {
 				localStorage.submit_data1_done=0
 			    localStorage.submit_data2_done=0
 				localStorage.submit_data3_done=0
-			$("#submit_show").val(apipath+'cancel_outlet?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&selectedRoute='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+outletID+'&outletEx='+localStorage.outletException+'&cancel_reason=Will try later&imageName='+imageName+'&imagePath='+imagePath+'&latitude='+latitude+'&longitude='+longitude);
+			$("#submit_show").val(apipath+'test?cid=ghfghfghfghcbvcbvcfgxfdsdfsfgdsgfsfdshfgfggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg');
 			
 			$.ajax({
 						type: 'POST',
 						//url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1,
-						 url: apipath+'cancel_outlet?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&selectedRoute='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+outletID+'&outletEx='+localStorage.outletException+'&cancel_reason=Will try later&imageName='+imageName+'&imagePath='+imagePath+'&latitude='+latitude+'&longitude='+longitude,
+						 url: apipath+'test?cid=ghfghfghfghcbvcbvcfgxfdsdfsfgdsgfsfdshfgfggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg',
 						 
 						 success: function(resultS1) {	
+						 			alert ('Success')
 						 		
 								//var resultS=resultS1.split('<rdrd>')[0]
 //								var fSL=resultS1.split('<rdrd>')[1]
@@ -4880,7 +4881,8 @@ function submit_data1() {
 								
 							  }, 
 						  error: function(result) {
-							 
+							 	 alert ('Failed')
+								 
 								 $("#sub_button_div").show();	
 								 $("#sub_button_div1").hide();
 								 $("#sub_button_div2").hide();	
