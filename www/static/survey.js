@@ -19,7 +19,7 @@
 //var apipath='http://i001.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
 //var apipath='http://e3.businesssolutionapps.com/unilever18/syncmobile_scheduleNew/';
 //var apipath='http://i001.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
-var apipath='w02.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
+var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
 var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
 //var apipath='http://127.0.0.1:8000/unilever_l#atest/syncmobile_schedule/';
