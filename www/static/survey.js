@@ -17,7 +17,9 @@
 
 
 //var apipath='http://i001.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
-var apipath='http://e3.businesssolutionapps.com/unilever18/syncmobile_scheduleNew/';
+//var apipath='http://e3.businesssolutionapps.com/unilever18/syncmobile_scheduleNew/';
+//var apipath='http://i001.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
+var apipath='w02.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
 var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
 //var apipath='http://127.0.0.1:8000/unilever_l#atest/syncmobile_schedule/';
@@ -4824,16 +4826,16 @@ function submit_data1() {
 			
 			if ((encode_submit_data.length <= 4000)){
 				Sflag=0
-				submit_data1=encode_submit_data.substring(3000, 0);
+				submit_data1=encode_submit_data.substring(1000, 0);
 				}
 			if ((encode_submit_data.length > 4000) & (encode_submit_data.length <= 8000)){
 				Sflag=1
-				submit_data1=encode_submit_data.substring(3000, 0);
+				submit_data1=encode_submit_data.substring(1000, 0);
 			    submit_data2=encode_submit_data.substring(8000, 4000);
 				}
 			if ((encode_submit_data.length > 8000) & (encode_submit_data.length <= 12000)){
 				Sflag=2
-				submit_data1=encode_submit_data.substring(3000, 0);
+				submit_data1=encode_submit_data.substring(1000, 0);
 			    submit_data2=encode_submit_data.substring(8000, 4000);
 				submit_data3=encode_submit_data.substring(12000, 8000);
 				
@@ -4845,7 +4847,7 @@ function submit_data1() {
 				localStorage.submit_data1_done=0
 			    localStorage.submit_data2_done=0
 				localStorage.submit_data3_done=0
-			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel);
+			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1);
 			
 			$.ajax({
 						type: 'POST',
