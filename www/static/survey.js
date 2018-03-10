@@ -1469,6 +1469,12 @@ function selectOutletException() {
 //=====================Select Outlet Start====================
 
 function syncOutlet() { 
+	localStorage.submit_data1_done==0
+	localStorage.submit_data2_done==0
+	localStorage.submit_data3_done==0
+	localStorage.submit_data4_done==0
+	localStorage.submit_data5_done==0
+	localStorage.submit_data6_done==0
 	result_string=localStorage.selected_outletinfo_all_final;
 	
 	if (result_string.length > 50){
@@ -4954,7 +4960,7 @@ function submit_data1() {
 }
 //=================================Data 2==========================
 function submit_data2() { 
-			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1);
+			$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data2+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
 						url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data2+'&fSL='+localStorage.fSL,
@@ -4975,9 +4981,12 @@ function submit_data2() {
 										localStorage.submit_data2_done=1
 										localStorage.fSL=fSL
 										
-										$("#sub_button_div").hide();	
+										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
-										$("#sub_button_div2").show();											
+										$("#sub_button_div2").show();
+										$("#sub_button_div3").hide();
+										$("#sub_button_div4").hide();
+										$("#sub_button_div5").hide();												
 				
 										
 									
@@ -5000,11 +5009,12 @@ function submit_data2() {
 
 //=================================Data 3==========================
 function submit_data3() { 
+	$("#submit_show").val(apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data3+'&fSL='+localStorage.fSL);
 	$.ajax({
 						type: 'POST',
-						url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data3+'&fSL='+localStorage.fSL,
+						url: apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data3+'&fSL='+localStorage.fSL,
 						 success: function(resultS1) {	
-						 		
+						 		//alert (resultS1)
 								var resultS=resultS1.split('<rdrd>')[0]
 								var fSL=resultS1.split('<rdrd>')[1]
 								if (resultS1==''){
@@ -5020,9 +5030,12 @@ function submit_data3() {
 										localStorage.submit_data2_done=1
 										localStorage.fSL=fSL
 										
-										$("#sub_button_div").hide();	
+										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
-										$("#sub_button_div2").show();											
+										$("#sub_button_div2").hide();
+										$("#sub_button_div3").show();
+										$("#sub_button_div4").hide();
+										$("#sub_button_div5").hide();												
 				
 										
 									
@@ -5045,9 +5058,10 @@ function submit_data3() {
 //======================Data 4===========================================
 
 function submit_data4() { 
+$("#submit_show").val(apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data4+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
-						url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data4+'&fSL='+localStorage.fSL,
+						url: apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data4+'&fSL='+localStorage.fSL,
 						 success: function(resultS1) {	
 						 		
 								var resultS=resultS1.split('<rdrd>')[0]
@@ -5065,9 +5079,12 @@ function submit_data4() {
 										localStorage.submit_data2_done=1
 										localStorage.fSL=fSL
 										
-										$("#sub_button_div").hide();	
+										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
-										$("#sub_button_div2").show();											
+										$("#sub_button_div2").hide();
+										$("#sub_button_div3").hide();
+										$("#sub_button_div4").show();
+										$("#sub_button_div5").hide();										
 				
 										
 									
@@ -5090,9 +5107,10 @@ function submit_data4() {
 //======================Data 5===========================================
 
 function submit_data5() { 
+			$("#submit_show").val(apipath+'zero_test_4?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data5+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
-						url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data5+'&fSL='+localStorage.fSL,
+						url: apipath+'zero_test_4?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data5+'&fSL='+localStorage.fSL,
 						 success: function(resultS1) {	
 						 		
 								var resultS=resultS1.split('<rdrd>')[0]
@@ -5110,9 +5128,12 @@ function submit_data5() {
 										localStorage.submit_data2_done=1
 										localStorage.fSL=fSL
 										
-										$("#sub_button_div").hide();	
+										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
-										$("#sub_button_div2").show();											
+										$("#sub_button_div2").hide();
+										$("#sub_button_div3").hide();
+										$("#sub_button_div4").hide();
+										$("#sub_button_div5").show();											
 				
 										
 									
@@ -5135,9 +5156,10 @@ function submit_data5() {
 //======================Data 5===========================================
 
 function submit_data6() { 
+			$("#submit_show").val(apipath+'zero_test_5?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data6+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
-						url: apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data6+'&fSL='+localStorage.fSL,
+						url: apipath+'zero_test_5?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data6+'&fSL='+localStorage.fSL,
 						 success: function(resultS1) {	
 								var resultS=resultS1.split('<rdrd>')[0]
 								var fSL=resultS1.split('<rdrd>')[1]
@@ -5154,11 +5176,118 @@ function submit_data6() {
 										localStorage.submit_data2_done=1
 										localStorage.fSL=fSL
 										
-										$("#sub_button_div").hide();	
+										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
-										$("#sub_button_div2").show();											
+										$("#sub_button_div2").hide();
+										$("#sub_button_div3").hide();
+										$("#sub_button_div4").hide();
+										$("#sub_button_div5").hide();	
+										$("#sub_button_save").hide();	
+										
+											
+										
+//									==============after Submit=============	
+										var temp="";							
+										if(localStorage.mar_distrib_data=="undefined" || localStorage.mar_distrib_data==undefined || localStorage.mar_distrib_data==""){
+											temp="";
+										}else{
+											var mar_distrib_dataList=localStorage.mar_distrib_data.split('rdrd');
+											
+											if(localStorage.mar_distrib_stock=="undefined" || localStorage.mar_distrib_stock==undefined || localStorage.mar_distrib_stock==""){
+												temp="";
+											}else{
+												//---
+												var mar_distrib_stock_new="";
+												
+												var mar_distrib_stockList=localStorage.mar_distrib_stock.split('rd');										
+												for (var j=0; j < mar_distrib_stockList.length; j++){
+													mar_distrib_stockListSingleL=mar_distrib_stockList[j].split(',');
+													var campSlChannel=mar_distrib_stockListSingleL[0]
+													var campAvailableQty=mar_distrib_stockListSingleL[1]
+													
+													//--
+													var availableQty=campAvailableQty;
+													for (var k=0; k < mar_distrib_dataList.length; k++){
+														mar_distrib_dataListSingleL=mar_distrib_dataList[k].split('fdfd');
+														var campId2=mar_distrib_dataListSingleL[0]
+														var givenQty2=mar_distrib_dataListSingleL[2]
+														
+														var campID2Channel=campId2.toString()+'_'+localStorage.outletChannel.toString()
+														
+														if(campSlChannel==campID2Channel){													
+															try{
+																availableQty=eval(campAvailableQty)-eval(givenQty2);
+															}catch(e){			
+																continue;
+															}
+															
+															break;
+															}
+													}//--
+													
+													if(mar_distrib_stock_new==""){
+														mar_distrib_stock_new=campSlChannel+','+availableQty;
+													}else{
+														mar_distrib_stock_new+='rd'+campSlChannel+','+availableQty;
+													}
+																			
+												}//---		
+												
+												localStorage.mar_distrib_stock=mar_distrib_stock_new;
+																
+											}
+										}								
+										localStorage.mar_distrib_data="";								
+										//----- marchandising end
+										
+										
+										localStorage.dataSubmit=1;
+										buttonCheck();
+										
+										
+										localStorage.show_cancel=0;
+		
+										//alert ('2')
+													
+										localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
+										
+										//localStorage.outletString=outletStringShow
+										//$("#outletString").html(localStorage.outletString);
+										
+										
+										$("#outletString").empty();
+										$("#outletString").append(localStorage.outletString).trigger('create');
+										
+										
+										
+										$("#submit_data_check").html("Data Synced Successfully");
+										$("#submit_data").html('');
+										localStorage.step_flag=0;
+										
+										
+										// Enable all disable div start
+										$('#mhskus').find('input, textarea, button, select').attr('disabled',false);
+										$('#npd').find('input, textarea, button, select').attr('disabled',false);
+										$('#fdisplayStringShowBefore').find('input, textarea, button, select').attr('disabled',false);
+										$('#fdisplay').find('input, textarea, button, select').attr('disabled',false);
+										$('#qpds').find('input, textarea, button, select').attr('disabled',false);
+										$('#gift').find('input, textarea, button, select').attr('disabled',false);
+										$('#place_show').find('input, textarea, button, select').attr('disabled',false);
+										$('#shop_show').find('input, textarea, button, select').attr('disabled',false);
+										
+										// Enable disable div end
+										
+										
+										upload_fd();
+										cancel_outlet();
+										
+										var url = "#outletPage";
+										$.mobile.navigate(url);
+										//location.reload();
+										localStorage.dataSubmit=0
+																		
 				
-								//==================End
+								//==================End====
 									}		
 								}
 								
@@ -5172,4 +5301,25 @@ function submit_data6() {
 						  }
 					  });//end ajax
 					  
+}
+
+function sub_button_save() { 
+
+	$("#submit_data").html("Saved Request. Please try later");
+
+									localStorage.outletString=check_outlet.replace('<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'">','<input type="radio" name="RadioOutlet" value="'+localStorage.selectedOutlet+'rdrd'+localStorage.selected_date_get+'" disabled="True">');
+									  localStorage.saved_req=localStorage.saved_req+'<savedsaved><'+localStorage.selectedOutlet+'><OidOid>'+localStorage.outletIDnameShow+'<showshow>'+apipath+'syncSubmitData?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute+'&routeEx='+localStorage.routeException+'&outlet='+localStorage.selectedOutlet+'&scheduleDate='+ localStorage.selected_date +'&outletEx='+localStorage.outletException+'&channel='+localStorage.outletChannel+'&latlong='+latlong+'&visitDate='+visitDate+'&startTime='+localStorage.startTime+'&endTime='+endTime+'&giftImage='+giftImage+'&mhskus_data='+localStorage.mhskus_data_ready+'&npd_data='+localStorage.npd_data_ready+'&fdisplay_data='+localStorage.fdisplay_data_ready+'&qpds_data='+localStorage.qpds_data_ready+'&gift_data='+localStorage.gift_data_ready+'&place_data='+localStorage.place_data_ready+'&shop_data='+localStorage.shop_data_ready+'&key_data='+localStorage.key_data_ready+'&fdisplayTotal='+localStorage.fdisplayTotal+'&qpdsSlabTotal='+localStorage.qpdsSlabTotal+'</'+localStorage.selectedOutlet+'>';
+
+									$("#outletString").empty();
+									$("#outletString").append(localStorage.outletString).trigger('create');
+									$("#sub_button_div0").hide();	
+									$("#sub_button_div1").hide();
+									$("#sub_button_div2").hide();
+									$("#sub_button_div3").hide();
+									$("#sub_button_div4").hide();
+									$("#sub_button_div5").hide();	
+									$("#sub_button_save").hide();	
+										
+									cancel_outlet();
+			
 }
