@@ -4907,7 +4907,7 @@ function submit_data1() {
 				localStorage.submit_data4_done=0
 				localStorage.submit_data5_done=0
 				localStorage.submit_data6_done=0
-			//$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1);
+			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1);
 			
 			$.ajax({
 						type: 'POST',
@@ -4936,7 +4936,8 @@ function submit_data1() {
 										$("#sub_button_div2").hide();
 										$("#sub_button_div3").hide();
 										$("#sub_button_div4").hide();
-										$("#sub_button_div5").hide();											
+										$("#sub_button_div5").hide();		
+																			
 										
 										
 									}		
