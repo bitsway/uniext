@@ -253,30 +253,73 @@ $(document).ready(function(){
 				$("#saved_button").html('<a data-role="button" onClick="savedVisit()" ><img src="saved_visit.png"></a>')
 				
 				}
-				if ((localStorage.submit_data1_done==0) & (localStorage.submit_data2_done==0) & (localStorage.submit_data3_done==0)){
-						$("#sub_button_div").show();	
+				if ((localStorage.submit_data1_done==0) & (localStorage.submit_data2_done==0) & (localStorage.submit_data3_done==0) & (localStorage.submit_data4_done==0) & (localStorage.submit_data5_done==0) & (localStorage.submit_data6_done==0)){
+						
+						$("#sub_button_div0").show();
 						$("#sub_button_div1").hide();
 						$("#sub_button_div2").hide();
+						$("#sub_button_div3").hide();
+						$("#sub_button_div4").hide();
+						$("#sub_button_div5").hide();
+						
 				
 				}
-				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==0) & (localStorage.submit_data3_done==0)){
-						$("#sub_button_div").hide();	
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==0) & (localStorage.submit_data3_done==0) & (localStorage.submit_data4_done==0) & (localStorage.submit_data5_done==0) & (localStorage.submit_data6_done==0)){
+						$("#sub_button_div0").hide();	
 						$("#sub_button_div1").show();
 						$("#sub_button_div2").hide();
+						$("#sub_button_div3").hide();
+						$("#sub_button_div4").hide();
+						$("#sub_button_div5").hide();
+						
 				
 				}
-				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==0)){
-						$("#sub_button_div").hide();	
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==0) & (localStorage.submit_data4_done==0) & (localStorage.submit_data5_done==0) & (localStorage.submit_data6_done==0)){
+						$("#sub_button_div0").hide();	
 						$("#sub_button_div1").hide();
 						$("#sub_button_div2").show();
+						$("#sub_button_div3").hide();
+						$("#sub_button_div4").hide();
+						$("#sub_button_div5").hide();
 				
 				}
-				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==1)){
-						$("#sub_button_div").hide();	
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==1) & (localStorage.submit_data4_done==0) & (localStorage.submit_data5_done==0) & (localStorage.submit_data6_done==0)){
+						$("#sub_button_div0").hide();	
 						$("#sub_button_div1").hide();
 						$("#sub_button_div2").hide();
+						$("#sub_button_div3").show();
+						$("#sub_button_div4").hide();
+						$("#sub_button_div5").hide();
 				
 				}
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==1) & (localStorage.submit_data4_done==1) & (localStorage.submit_data5_done==0) & (localStorage.submit_data6_done==0)){
+						$("#sub_button_div0").hide();	
+						$("#sub_button_div1").hide();
+						$("#sub_button_div2").hide();
+						$("#sub_button_div3").hide();
+						$("#sub_button_div4").show();
+						$("#sub_button_div5").hide();
+				
+				}
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==1) & (localStorage.submit_data4_done==1) & (localStorage.submit_data5_done==1) & (localStorage.submit_data6_done==0)){
+						$("#sub_button_div0").hide();	
+						$("#sub_button_div1").hide();
+						$("#sub_button_div2").hide();
+						$("#sub_button_div3").hide();
+						$("#sub_button_div4").hide();
+						$("#sub_button_div5").show();
+				
+				}
+				if ((localStorage.submit_data1_done==1) & (localStorage.submit_data2_done==1) & (localStorage.submit_data3_done==1) & (localStorage.submit_data4_done==1) & (localStorage.submit_data5_done==1) & (localStorage.submit_data6_done==1)){
+						$("#sub_button_div0").hide();	
+						$("#sub_button_div1").hide();
+						$("#sub_button_div2").hide();
+						$("#sub_button_div3").hide();
+						$("#sub_button_div4").hide();
+						$("#sub_button_div5").hide();
+				
+				}
+				
 				
 				//localStorage.ItemVisiblefdisplay;
 				//alert (localStorage.outletIDnameShow);
@@ -760,7 +803,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 			<!--<a data-role="button" onClick="getlocationand_askhelp();">Confirm Location</a>-->
 			</div>
             
-			<div id="sub_button_divT">
+			<div id="sub_button_div0">
             
         	<a  data-role="button" onClick="submit_data1();" >Next</a>
 			</div> 
@@ -771,6 +814,18 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
             <div id="sub_button_div2">
             
         	<a  data-role="button" onClick="submit_data3();" >Next 2</a>
+			</div> 
+            <div id="sub_button_div3">
+            
+        	<a  data-role="button" onClick="submit_data4();" >Next 3</a>
+			</div> 
+             <div id="sub_button_div4">
+            
+        	<a  data-role="button" onClick="submit_data5();" >Next 4</a>
+			</div> 
+             <div id="sub_button_div5">
+            
+        	<a  data-role="button" onClick="submit_data6();" >Submit</a>
 			</div> 
             
             
