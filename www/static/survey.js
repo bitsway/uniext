@@ -4908,7 +4908,13 @@ function submit_data1() {
 				localStorage.submit_data5_done=0
 				localStorage.submit_data6_done=0
 			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1);
-			
+			$("#sub_button_div0").hide();	
+			$("#sub_button_div1").hide();
+			$("#sub_button_div2").hide();
+			$("#sub_button_div3").hide();
+			$("#sub_button_div4").hide();
+			$("#sub_button_div5").hide();	
+			$("#sub_button_save").hide();	
 			$.ajax({
 						type: 'POST',
 						//url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1,
@@ -4930,14 +4936,16 @@ function submit_data1() {
 									if (resultS=='SUCCESS'){
 										localStorage.submit_data1_done=1
 										localStorage.fSL=fSL
+									    $("#submit_data").html("Sync done part1");
 									
 										$("#sub_button_div0").hide();	
-										$("#sub_button_div1").show();
+										$("#sub_button_div1").hide();
 										$("#sub_button_div2").hide();
 										$("#sub_button_div3").hide();
 										$("#sub_button_div4").hide();
-										$("#sub_button_div5").hide();		
-																			
+										$("#sub_button_div5").hide();	
+										$("#sub_button_save").hide();	
+										submit_data2();								
 										
 										
 									}		
@@ -4951,6 +4959,7 @@ function submit_data1() {
 									$("#sub_button_div3").hide();
 									$("#sub_button_div4").hide();
 									$("#sub_button_div5").hide();	
+									$("#sub_button_save").show();
 							
 								    $("#submit_data").html("Please try later");
 
@@ -4961,6 +4970,13 @@ function submit_data1() {
 }
 //=================================Data 2==========================
 function submit_data2() { 
+			$("#sub_button_div0").hide();	
+			$("#sub_button_div1").hide();
+			$("#sub_button_div2").hide();
+			$("#sub_button_div3").hide();
+			$("#sub_button_div4").hide();
+			$("#sub_button_div5").hide();	
+			$("#sub_button_save").hide();	
 			$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data2+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
@@ -4982,12 +4998,15 @@ function submit_data2() {
 										localStorage.submit_data2_done=1
 										localStorage.fSL=fSL
 										
+										$("#submit_data").html("Sync done part2");
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
-										$("#sub_button_div2").show();
+										$("#sub_button_div2").hide();
 										$("#sub_button_div3").hide();
 										$("#sub_button_div4").hide();
-										$("#sub_button_div5").hide();												
+										$("#sub_button_div5").hide();	
+										$("#sub_button_save").hide();	
+										submit_data3()											
 				
 										
 									
@@ -4998,7 +5017,13 @@ function submit_data2() {
 							  }, 
 						  error: function(result) {
 							 
-							 $("#sub_button").show();
+							 	$("#sub_button_div0").hide();	
+								$("#sub_button_div1").hide();
+								$("#sub_button_div2").hide();
+								$("#sub_button_div3").hide();
+								$("#sub_button_div4").hide();
+								$("#sub_button_div5").hide();	
+								$("#sub_button_save").show();
 							
 								  $("#submit_data").html("Please try later");
 
@@ -5010,6 +5035,13 @@ function submit_data2() {
 
 //=================================Data 3==========================
 function submit_data3() { 
+	$("#sub_button_div0").hide();	
+	$("#sub_button_div1").hide();
+	$("#sub_button_div2").hide();
+	$("#sub_button_div3").hide();
+	$("#sub_button_div4").hide();
+	$("#sub_button_div5").hide();	
+	$("#sub_button_save").hide();
 	$("#submit_show").val(apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data3+'&fSL='+localStorage.fSL);
 	$.ajax({
 						type: 'POST',
@@ -5028,15 +5060,19 @@ function submit_data3() {
 									}
 									if (resultS=='SUCCESS'){
 										
-										localStorage.submit_data2_done=1
+										localStorage.submit_data3_done=1
 										localStorage.fSL=fSL
+										$("#submit_data").html("Sync done part3");
+										
 										
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
 										$("#sub_button_div2").hide();
-										$("#sub_button_div3").show();
+										$("#sub_button_div3").hide();
 										$("#sub_button_div4").hide();
-										$("#sub_button_div5").hide();												
+										$("#sub_button_div5").hide();	
+										$("#sub_button_save").hide();	
+										submit_data3();										
 				
 										
 									
@@ -5047,7 +5083,13 @@ function submit_data3() {
 							  }, 
 						  error: function(result) {
 							 
-							 $("#sub_button").show();
+							    $("#sub_button_div0").hide();	
+								$("#sub_button_div1").hide();
+								$("#sub_button_div2").hide();
+								$("#sub_button_div3").hide();
+								$("#sub_button_div4").hide();
+								$("#sub_button_div5").hide();	
+								$("#sub_button_save").show();
 							
 								  $("#submit_data").html("Please try later");
 
@@ -5059,6 +5101,13 @@ function submit_data3() {
 //======================Data 4===========================================
 
 function submit_data4() { 
+			$("#sub_button_div0").hide();	
+			$("#sub_button_div1").hide();
+			$("#sub_button_div2").hide();
+			$("#sub_button_div3").hide();
+			$("#sub_button_div4").hide();
+			$("#sub_button_div5").hide();	
+			$("#sub_button_save").hide();
 $("#submit_show").val(apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data4+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
@@ -5077,15 +5126,18 @@ $("#submit_show").val(apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+loca
 									}
 									if (resultS=='SUCCESS'){
 										
-										localStorage.submit_data2_done=1
+										localStorage.submit_data4_done=1
 										localStorage.fSL=fSL
+										$("#submit_data").html("Sync done part4");
 										
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
 										$("#sub_button_div2").hide();
 										$("#sub_button_div3").hide();
-										$("#sub_button_div4").show();
-										$("#sub_button_div5").hide();										
+										$("#sub_button_div4").hide();
+										$("#sub_button_div5").hide();	
+										$("#sub_button_save").hide();	
+										submit_data5();									
 				
 										
 									
@@ -5096,7 +5148,13 @@ $("#submit_show").val(apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+loca
 							  }, 
 						  error: function(result) {
 							 
-							 $("#sub_button").show();
+							 	$("#sub_button_div0").hide();	
+								$("#sub_button_div1").hide();
+								$("#sub_button_div2").hide();
+								$("#sub_button_div3").hide();
+								$("#sub_button_div4").hide();
+								$("#sub_button_div5").hide();	
+								$("#sub_button_save").show();
 							
 								  $("#submit_data").html("Please try later");
 
@@ -5108,6 +5166,13 @@ $("#submit_show").val(apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+loca
 //======================Data 5===========================================
 
 function submit_data5() { 
+			$("#sub_button_div0").hide();	
+			$("#sub_button_div1").hide();
+			$("#sub_button_div2").hide();
+			$("#sub_button_div3").hide();
+			$("#sub_button_div4").hide();
+			$("#sub_button_div5").hide();	
+			$("#sub_button_save").hide();
 			$("#submit_show").val(apipath+'zero_test_4?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data5+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
@@ -5126,16 +5191,18 @@ function submit_data5() {
 									}
 									if (resultS=='SUCCESS'){
 										
-										localStorage.submit_data2_done=1
+										localStorage.submit_data5_done=1
 										localStorage.fSL=fSL
+										$("#submit_data").html("Sync done part5");
 										
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
 										$("#sub_button_div2").hide();
 										$("#sub_button_div3").hide();
 										$("#sub_button_div4").hide();
-										$("#sub_button_div5").show();											
-				
+										$("#sub_button_div5").hide();	
+										$("#sub_button_save").hide();										
+										submit_data6();
 										
 									
 								//==================End
@@ -5145,7 +5212,13 @@ function submit_data5() {
 							  }, 
 						  error: function(result) {
 							 
-							 $("#sub_button").show();
+								$("#sub_button_div0").hide();	
+								$("#sub_button_div1").hide();
+								$("#sub_button_div2").hide();
+								$("#sub_button_div3").hide();
+								$("#sub_button_div4").hide();
+								$("#sub_button_div5").hide();	
+								$("#sub_button_save").show();
 							
 								  $("#submit_data").html("Please try later");
 
@@ -5157,6 +5230,13 @@ function submit_data5() {
 //======================Data 5===========================================
 
 function submit_data6() { 
+			$("#sub_button_div0").hide();	
+			$("#sub_button_div1").hide();
+			$("#sub_button_div2").hide();
+			$("#sub_button_div3").hide();
+			$("#sub_button_div4").hide();
+			$("#sub_button_div5").hide();	
+			$("#sub_button_save").hide();
 			$("#submit_show").val(apipath+'zero_test_5?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data6+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
@@ -5174,9 +5254,9 @@ function submit_data6() {
 									}
 									if (resultS=='SUCCESS'){
 										
-										localStorage.submit_data2_done=1
+										localStorage.submit_data6_done=1
 										localStorage.fSL=fSL
-										
+										$("#submit_data").html("Sync done ...");
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
 										$("#sub_button_div2").hide();
@@ -5295,9 +5375,15 @@ function submit_data6() {
 							  }, 
 						  error: function(result) {
 							 
-							 $("#sub_button").show();
+							 	    $("#sub_button_div0").hide();	
+									$("#sub_button_div1").hide();
+									$("#sub_button_div2").hide();
+									$("#sub_button_div3").hide();
+									$("#sub_button_div4").hide();
+									$("#sub_button_div5").hide();	
+									$("#sub_button_save").show();
 							
-								  $("#submit_data").html("Please try later");
+								    $("#submit_data").html("Please try later");
 
 						  }
 					  });//end ajax
