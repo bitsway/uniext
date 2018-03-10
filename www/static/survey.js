@@ -4815,7 +4815,7 @@ function submit_data1() {
 	}
 	else{
 			
-			$("#sub_button").hide();
+			//$("#sub_button").hide();
 			
 			$("#submit_data").html('<img height="40px" width="40px" src="loading.gif">');
 			//=========================AJAX Submit==========================	
@@ -4939,13 +4939,13 @@ function submit_data1() {
 									    $("#submit_data").html("Sync done part1");
 									
 										$("#sub_button_div0").hide();	
-										$("#sub_button_div1").hide();
+										$("#sub_button_div1").show();
 										$("#sub_button_div2").hide();
 										$("#sub_button_div3").hide();
 										$("#sub_button_div4").hide();
 										$("#sub_button_div5").hide();	
-										$("#sub_button_save").hide();	
-										submit_data2();								
+										$("#sub_button_save").show();	
+										//submit_data2();								
 										
 										
 									}		
@@ -4977,6 +4977,7 @@ function submit_data2() {
 			$("#sub_button_div4").hide();
 			$("#sub_button_div5").hide();	
 			$("#sub_button_save").hide();	
+			$("#submit_data").html('<img height="40px" width="40px" src="loading.gif">');
 			$("#submit_show").val(apipath+'zero_test_1?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data2+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
@@ -5001,12 +5002,12 @@ function submit_data2() {
 										$("#submit_data").html("Sync done part2");
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
-										$("#sub_button_div2").hide();
+										$("#sub_button_div2").show();
 										$("#sub_button_div3").hide();
 										$("#sub_button_div4").hide();
 										$("#sub_button_div5").hide();	
-										$("#sub_button_save").hide();	
-										submit_data3()											
+										$("#sub_button_save").show();	
+									//	submit_data3()											
 				
 										
 									
@@ -5025,7 +5026,7 @@ function submit_data2() {
 								$("#sub_button_div5").hide();	
 								$("#sub_button_save").show();
 							
-								  $("#submit_data").html("Please try later");
+								$("#submit_data").html("Please try later");
 
 						  }
 					  });//end ajax
@@ -5042,6 +5043,7 @@ function submit_data3() {
 	$("#sub_button_div4").hide();
 	$("#sub_button_div5").hide();	
 	$("#sub_button_save").hide();
+	$("#submit_data").html('<img height="40px" width="40px" src="loading.gif">');
 	$("#submit_show").val(apipath+'zero_test_2?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data3+'&fSL='+localStorage.fSL);
 	$.ajax({
 						type: 'POST',
@@ -5068,11 +5070,11 @@ function submit_data3() {
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
 										$("#sub_button_div2").hide();
-										$("#sub_button_div3").hide();
+										$("#sub_button_div3").show();
 										$("#sub_button_div4").hide();
 										$("#sub_button_div5").hide();	
-										$("#sub_button_save").hide();	
-										submit_data3();										
+										$("#sub_button_save").show();	
+										//submit_data3();										
 				
 										
 									
@@ -5108,6 +5110,7 @@ function submit_data4() {
 			$("#sub_button_div4").hide();
 			$("#sub_button_div5").hide();	
 			$("#sub_button_save").hide();
+			$("#submit_data").html('<img height="40px" width="40px" src="loading.gif">');
 $("#submit_show").val(apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data4+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
@@ -5134,10 +5137,10 @@ $("#submit_show").val(apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+loca
 										$("#sub_button_div1").hide();
 										$("#sub_button_div2").hide();
 										$("#sub_button_div3").hide();
-										$("#sub_button_div4").hide();
+										$("#sub_button_div4").show();
 										$("#sub_button_div5").hide();	
-										$("#sub_button_save").hide();	
-										submit_data5();									
+										$("#sub_button_save").show();	
+										//submit_data5();									
 				
 										
 									
@@ -5156,7 +5159,7 @@ $("#submit_show").val(apipath+'zero_test_3?cid='+localStorage.cid+'&cm_id='+loca
 								$("#sub_button_div5").hide();	
 								$("#sub_button_save").show();
 							
-								  $("#submit_data").html("Please try later");
+								$("#submit_data").html("Please try later");
 
 						  }
 					  });//end ajax
@@ -5173,6 +5176,7 @@ function submit_data5() {
 			$("#sub_button_div4").hide();
 			$("#sub_button_div5").hide();	
 			$("#sub_button_save").hide();
+			$("#submit_data").html('<img height="40px" width="40px" src="loading.gif">');
 			$("#submit_show").val(apipath+'zero_test_4?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data5+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
@@ -5200,9 +5204,9 @@ function submit_data5() {
 										$("#sub_button_div2").hide();
 										$("#sub_button_div3").hide();
 										$("#sub_button_div4").hide();
-										$("#sub_button_div5").hide();	
-										$("#sub_button_save").hide();										
-										submit_data6();
+										$("#sub_button_div5").show();	
+										$("#sub_button_save").show();										
+										//submit_data6();
 										
 									
 								//==================End
@@ -5380,7 +5384,7 @@ function submit_data6() {
 									$("#sub_button_div2").hide();
 									$("#sub_button_div3").hide();
 									$("#sub_button_div4").hide();
-									$("#sub_button_div5").hide();	
+									$("#sub_button_div5").show();	
 									$("#sub_button_save").show();
 							
 								    $("#submit_data").html("Please try later");
