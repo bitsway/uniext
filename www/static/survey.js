@@ -4917,7 +4917,7 @@ function submit_data1() {
 			$("#sub_button_save").hide();	
 			$.ajax({
 						type: 'POST',
-						timeout: 30000,
+						timeout: 60000,
 						//url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1,
 						 url:  apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1,
 						 
@@ -5242,6 +5242,7 @@ function submit_data6() {
 			$("#sub_button_div4").hide();
 			$("#sub_button_div5").hide();	
 			$("#sub_button_save").hide();
+			$("#submit_data").html('<img height="40px" width="40px" src="loading.gif">');
 			$("#submit_show").val(apipath+'zero_test_5?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data6+'&fSL='+localStorage.fSL);
 			$.ajax({
 						type: 'POST',
@@ -5328,7 +5329,7 @@ function submit_data6() {
 										
 										
 										localStorage.dataSubmit=1;
-										buttonCheck();
+										//buttonCheck();
 										
 										
 										localStorage.show_cancel=0;
