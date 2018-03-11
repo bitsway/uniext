@@ -4917,11 +4917,12 @@ function submit_data1() {
 			$("#sub_button_save").hide();	
 			$.ajax({
 						type: 'POST',
+						timeout: 30000,
 						//url: apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1,
 						 url:  apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1,
 						 
 						 success: function(resultS1) {	
-						 		alert (resultS1)	
+						 		//alert (resultS1)	
 						 		
 								var resultS=resultS1.split('<rdrd>')[0]
 								var fSL=resultS1.split('<rdrd>')[1]
