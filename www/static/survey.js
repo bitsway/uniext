@@ -4974,7 +4974,7 @@ function submit_data1() {
 				localStorage.submit_data4_done=0
 				localStorage.submit_data5_done=0
 				localStorage.submit_data6_done=0
-			//$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1);
+			$("#submit_show").val(apipath+'zero_test?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&outlet='+localStorage.selectedOutlet+'&channel='+localStorage.outletChannel+'&strGet='+localStorage.submit_data1);
 			$("#sub_button_div0").hide();	
 			$("#sub_button_div1").hide();
 			$("#sub_button_div2").hide();
@@ -5004,7 +5004,7 @@ function submit_data1() {
 									if (resultS=='SUCCESS'){
 										localStorage.submit_data1_done=1
 										localStorage.fSL=fSL
-									    $("#submit_data").html("Sync done part1");
+									    $("#submit_data").html("Synced part one of six.");
 									
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").show();
@@ -5068,7 +5068,7 @@ function submit_data2() {
 										localStorage.submit_data2_done=1
 										localStorage.fSL=fSL
 										
-										$("#submit_data").html("Sync done part2");
+										$("#submit_data").html("Synced part two of six.");
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
 										$("#sub_button_div2").show();
@@ -5088,7 +5088,7 @@ function submit_data2() {
 						  error: function(result) {
 							 
 							 	$("#sub_button_div0").hide();	
-								$("#sub_button_div1").hide();
+								$("#sub_button_div1").show();
 								$("#sub_button_div2").hide();
 								$("#sub_button_div3").hide();
 								$("#sub_button_div4").hide();
@@ -5156,7 +5156,7 @@ function submit_data3() {
 										
 										localStorage.submit_data3_done=1
 										localStorage.fSL=fSL
-										$("#submit_data").html("Sync done part3");
+										$("#submit_data").html("Synced part three of six.");
 										
 										
 										$("#sub_button_div0").hide();	
@@ -5179,7 +5179,7 @@ function submit_data3() {
 							 
 							    $("#sub_button_div0").hide();	
 								$("#sub_button_div1").hide();
-								$("#sub_button_div2").hide();
+								$("#sub_button_div2").show();
 								$("#sub_button_div3").hide();
 								$("#sub_button_div4").hide();
 								$("#sub_button_div5").hide();	
@@ -5246,7 +5246,7 @@ function submit_data4() {
 										
 										localStorage.submit_data4_done=1
 										localStorage.fSL=fSL
-										$("#submit_data").html("Sync done part4");
+										$("#submit_data").html("Synced part four of six.");
 										
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
@@ -5269,7 +5269,7 @@ function submit_data4() {
 							 	$("#sub_button_div0").hide();	
 								$("#sub_button_div1").hide();
 								$("#sub_button_div2").hide();
-								$("#sub_button_div3").hide();
+								$("#sub_button_div3").show();
 								$("#sub_button_div4").hide();
 								$("#sub_button_div5").hide();	
 								$("#sub_button_save").show();
@@ -5335,7 +5335,7 @@ function submit_data5() {
 										
 										localStorage.submit_data5_done=1
 										localStorage.fSL=fSL
-										$("#submit_data").html("Sync done part5");
+										$("#submit_data").html("Synced part five of six.");
 										
 										$("#sub_button_div0").hide();	
 										$("#sub_button_div1").hide();
@@ -5358,7 +5358,7 @@ function submit_data5() {
 								$("#sub_button_div1").hide();
 								$("#sub_button_div2").hide();
 								$("#sub_button_div3").hide();
-								$("#sub_button_div4").hide();
+								$("#sub_button_div4").show();
 								$("#sub_button_div5").hide();	
 								$("#sub_button_save").show();
 							
@@ -5568,6 +5568,7 @@ function submit_data6() {
 											cancel_outlet_Back()
 											//location.reload();
 											savedVisit();
+											localStorage.savedataflag=0
 											
 										}
 										else{
