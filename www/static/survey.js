@@ -4421,7 +4421,7 @@ function submi_saved_req(i){
 			    submit_data2=encode_submit_data.substring(4000, 2000);
 				submit_data3=encode_submit_data.substring(6000, 4000);
 				submit_data4=encode_submit_data.substring(8000, 6000);
-				submit_data5=encode_submit_data.substring(10000, 8000);
+				submit_data5=encode_submit_data.substring(10000,8000);
 				
 				}
 			if ((encode_submit_data.length > 10000) & (encode_submit_data.length <= 12000)){
@@ -4430,8 +4430,8 @@ function submi_saved_req(i){
 			    submit_data2=encode_submit_data.substring(4000, 2000);
 				submit_data3=encode_submit_data.substring(6000, 4000);
 				submit_data4=encode_submit_data.substring(8000, 6000);
-				submit_data5=encode_submit_data.substring(10000, 8000);
-				submit_data6=encode_submit_data.substring(12000, 10000);
+				submit_data5=encode_submit_data.substring(10000,8000);
+				submit_data6=encode_submit_data.substring(12000,10000);
 				
 				}
 			
@@ -4496,93 +4496,36 @@ function submi_saved_req(i){
 									}
 									
 						   
-							if (resultS=='SUCCESS'){
-								//alert ('1')
-								var check_outlet= localStorage.outletString;
-								localStorage.submit_data1_done=1
-								localStorage.fSL=fSL
-								$("#submit_data").html("Sync done part1");
-							
-								$("#sub_button_div0").hide();	
-								$("#sub_button_div1").show();
-								$("#sub_button_div2").hide();
-								$("#sub_button_div3").hide();
-								$("#sub_button_div4").hide();
-								$("#sub_button_div5").hide();	
-								$("#sub_button_save").show();
-	
-								
-								
+									if (resultS=='SUCCESS'){
+										//alert ('1')
+										var check_outlet= localStorage.outletString;
+										localStorage.submit_data1_done=1
+										localStorage.fSL=fSL
+										$("#submit_data").html("Sync done part1");
+									
+										$("#sub_button_div0").hide();	
+										$("#sub_button_div1").show();
+										$("#sub_button_div2").hide();
+										$("#sub_button_div3").hide();
+										$("#sub_button_div4").hide();
+										$("#sub_button_div5").hide();	
+										$("#sub_button_save").show();
+			
+										
+										
+		
+										$("#savedVisitRecordError").html("Data Synced Part1");
+										$("#submit_data").html('');
+										$("#login_image_saved").hide()
+										localStorage.step_flag=0;
+										localStorage.savedataflag=1
 
-								$("#savedVisitRecordError").html("Data Synced Part1");
-								$("#submit_data").html('');
-								$("#login_image_saved").hide()
-								localStorage.step_flag=0;
-								
-								
-								// Enable disable div end
-								
-								
-								//alert ('1')
-								localStorage.savedataflag=1
-								//saved_image_upload();
-								
-								//alert ('2')
-								
-								//localStorage.selectedRoute = ''
-//								localStorage.routeException = ''
-//								localStorage.selectedOutlet = ''
-//								localStorage.outletException  = ''
-//								localStorage.outletChannel = ''
-//								localStorage.mhskus_data_ready = ''
-//								localStorage.npd_data_ready = ''
-//								localStorage.fdisplay_data_ready = ''
-//								localStorage.qpds_data_ready = ''
-//								localStorage.gift_data_ready = ''
-//								localStorage.place_data_ready = ''
-//								localStorage.shop_data_ready = ''
-//								localStorage.key_data_ready= ''
-//								//alert ('3')
-//								
-//								localStorage.fdisplayTotal=0;
-//								localStorage.qpdsSlabTotal=0;
-//								
-//								//alert ('4')
-//								var saved_req=localStorage.saved_req
-//								
-//								
-//								
-//								var s_data=saved_req.split('<savedsaved>')[i]
-//								//alert (saved_req)
-//								//alert (s_data)
-//								if (i==0){
-//								saved_req=saved_req.replace('<savedsaved>'+s_data,'')
-//								}
-//								else{
-//								saved_req=saved_req.replace(s_data,'')
-//								}
-//								//alert ('6')
-//								localStorage.saved_req=saved_req
-//								//alert ('7')
-//								$("#login_image_saved").hide();
-//								$("#savedVisitRecord").show();
-//								//alert ('8')
-//								
-//								$("#cancel_cause").val('Will try later');
-//								cancel_outlet_Back()
-//								//location.reload();
-//								savedVisit();
-								
-								
-								
-								//location.reload();
-								// $("#savedVisitRecordError").html("Please try later");
-								var url = "#submitPage";
-								$.mobile.navigate(url);
-							}
+										var url = "#submitPage";
+										$.mobile.navigate(url);
+									}
 							
 									
-						}
+							  }
 						
 					  }, 
 				  error: function(resultS1) {
@@ -4590,20 +4533,20 @@ function submi_saved_req(i){
 						 $("#savedVisitRecord").show();
 						 $("#savedVisitRecordError").html("Please try later");
 						//localStorage.selectedRoute = ''
-						localStorage.routeException = ''
-						localStorage.selectedOutlet = ''
-						localStorage.outletException  = ''
-						localStorage.outletChannel = ''
-						localStorage.mhskus_data_ready = ''
-						localStorage.npd_data_ready = ''
-						localStorage.fdisplay_data_ready = ''
-						localStorage.qpds_data_ready = ''
-						localStorage.gift_data_ready = ''
-						localStorage.place_data_ready = ''
-						localStorage.shop_data_ready = ''
-						localStorage.key_data_ready=''
-						localStorage.fdisplayTotal = ''
-						localStorage.qpdsSlabTotal = ''
+						//localStorage.routeException = ''
+//						localStorage.selectedOutlet = ''
+//						localStorage.outletException  = ''
+//						localStorage.outletChannel = ''
+//						localStorage.mhskus_data_ready = ''
+//						localStorage.npd_data_ready = ''
+//						localStorage.fdisplay_data_ready = ''
+//						localStorage.qpds_data_ready = ''
+//						localStorage.gift_data_ready = ''
+//						localStorage.place_data_ready = ''
+//						localStorage.shop_data_ready = ''
+//						localStorage.key_data_ready=''
+//						localStorage.fdisplayTotal = ''
+//						localStorage.qpdsSlabTotal = ''
 				  }
 			  });//end ajax
 	}
@@ -5013,9 +4956,7 @@ function submit_data1() {
 										$("#sub_button_div4").hide();
 										$("#sub_button_div5").hide();	
 										$("#sub_button_save").show();	
-										//submit_data2();								
-										
-										
+
 									}		
 								}
 								
@@ -5076,10 +5017,7 @@ function submit_data2() {
 										$("#sub_button_div4").hide();
 										$("#sub_button_div5").hide();	
 										$("#sub_button_save").show();	
-									//	submit_data3()											
-				
-										
-									   
+
 								//==================End
 									}		
 								}
@@ -5097,27 +5035,27 @@ function submit_data2() {
 							
 								$("#submit_data").html("Please try later");
 								
-								if (localStorage.savedataflag==1){
-									    localStorage.selectedRoute = ''
-										localStorage.routeException = ''
-										localStorage.selectedOutlet = ''
-										localStorage.outletException  = ''
-										localStorage.outletChannel = ''
-										localStorage.mhskus_data_ready = ''
-										localStorage.npd_data_ready = ''
-										localStorage.fdisplay_data_ready = ''
-										localStorage.qpds_data_ready = ''
-										localStorage.gift_data_ready = ''
-										localStorage.place_data_ready = ''
-										localStorage.shop_data_ready = ''
-										localStorage.key_data_ready= ''
-										//alert ('3')
-										
-										localStorage.fdisplayTotal=0;
-										localStorage.qpdsSlabTotal=0;
-										
-										localStorage.savedataflag=0;
-								}
+//								if (localStorage.savedataflag==1){
+//									    localStorage.selectedRoute = ''
+//										localStorage.routeException = ''
+//										localStorage.selectedOutlet = ''
+//										localStorage.outletException  = ''
+//										localStorage.outletChannel = ''
+//										localStorage.mhskus_data_ready = ''
+//										localStorage.npd_data_ready = ''
+//										localStorage.fdisplay_data_ready = ''
+//										localStorage.qpds_data_ready = ''
+//										localStorage.gift_data_ready = ''
+//										localStorage.place_data_ready = ''
+//										localStorage.shop_data_ready = ''
+//										localStorage.key_data_ready= ''
+//										//alert ('3')
+//										
+//										localStorage.fdisplayTotal=0;
+//										localStorage.qpdsSlabTotal=0;
+//										
+//										localStorage.savedataflag=0;
+//								}
 
 						  }
 					  });//end ajax
@@ -5166,10 +5104,7 @@ function submit_data3() {
 										$("#sub_button_div4").hide();
 										$("#sub_button_div5").hide();	
 										$("#sub_button_save").show();	
-										//submit_data3();										
-				
-										
-									
+
 								//==================End
 									}		
 								}
@@ -5187,27 +5122,27 @@ function submit_data3() {
 							
 							    $("#submit_data").html("Please try later");
 								
-								if (localStorage.savedataflag==1){
-									    localStorage.selectedRoute = ''
-										localStorage.routeException = ''
-										localStorage.selectedOutlet = ''
-										localStorage.outletException  = ''
-										localStorage.outletChannel = ''
-										localStorage.mhskus_data_ready = ''
-										localStorage.npd_data_ready = ''
-										localStorage.fdisplay_data_ready = ''
-										localStorage.qpds_data_ready = ''
-										localStorage.gift_data_ready = ''
-										localStorage.place_data_ready = ''
-										localStorage.shop_data_ready = ''
-										localStorage.key_data_ready= ''
-										//alert ('3')
-										
-										localStorage.fdisplayTotal=0;
-										localStorage.qpdsSlabTotal=0;
-										
-										localStorage.savedataflag=0;
-								}
+								//if (localStorage.savedataflag==1){
+//									    localStorage.selectedRoute = ''
+//										localStorage.routeException = ''
+//										localStorage.selectedOutlet = ''
+//										localStorage.outletException  = ''
+//										localStorage.outletChannel = ''
+//										localStorage.mhskus_data_ready = ''
+//										localStorage.npd_data_ready = ''
+//										localStorage.fdisplay_data_ready = ''
+//										localStorage.qpds_data_ready = ''
+//										localStorage.gift_data_ready = ''
+//										localStorage.place_data_ready = ''
+//										localStorage.shop_data_ready = ''
+//										localStorage.key_data_ready= ''
+//										//alert ('3')
+//										
+//										localStorage.fdisplayTotal=0;
+//										localStorage.qpdsSlabTotal=0;
+//										
+//										localStorage.savedataflag=0;
+//								}
 
 						  }
 					  });//end ajax
@@ -5276,27 +5211,27 @@ function submit_data4() {
 							
 								$("#submit_data").html("Please try later");
 								
-								if (localStorage.savedataflag==1){
-									    localStorage.selectedRoute = ''
-										localStorage.routeException = ''
-										localStorage.selectedOutlet = ''
-										localStorage.outletException  = ''
-										localStorage.outletChannel = ''
-										localStorage.mhskus_data_ready = ''
-										localStorage.npd_data_ready = ''
-										localStorage.fdisplay_data_ready = ''
-										localStorage.qpds_data_ready = ''
-										localStorage.gift_data_ready = ''
-										localStorage.place_data_ready = ''
-										localStorage.shop_data_ready = ''
-										localStorage.key_data_ready= ''
-										//alert ('3')
-										
-										localStorage.fdisplayTotal=0;
-										localStorage.qpdsSlabTotal=0;
-										
-										localStorage.savedataflag=0;
-								}
+								//if (localStorage.savedataflag==1){
+//									    localStorage.selectedRoute = ''
+//										localStorage.routeException = ''
+//										localStorage.selectedOutlet = ''
+//										localStorage.outletException  = ''
+//										localStorage.outletChannel = ''
+//										localStorage.mhskus_data_ready = ''
+//										localStorage.npd_data_ready = ''
+//										localStorage.fdisplay_data_ready = ''
+//										localStorage.qpds_data_ready = ''
+//										localStorage.gift_data_ready = ''
+//										localStorage.place_data_ready = ''
+//										localStorage.shop_data_ready = ''
+//										localStorage.key_data_ready= ''
+//										//alert ('3')
+//										
+//										localStorage.fdisplayTotal=0;
+//										localStorage.qpdsSlabTotal=0;
+//										
+//										localStorage.savedataflag=0;
+//								}
 
 						  }
 					  });//end ajax
@@ -5364,27 +5299,27 @@ function submit_data5() {
 							
 								  $("#submit_data").html("Please try later");
 								  
-								 if (localStorage.savedataflag==1){
-									    localStorage.selectedRoute = ''
-										localStorage.routeException = ''
-										localStorage.selectedOutlet = ''
-										localStorage.outletException  = ''
-										localStorage.outletChannel = ''
-										localStorage.mhskus_data_ready = ''
-										localStorage.npd_data_ready = ''
-										localStorage.fdisplay_data_ready = ''
-										localStorage.qpds_data_ready = ''
-										localStorage.gift_data_ready = ''
-										localStorage.place_data_ready = ''
-										localStorage.shop_data_ready = ''
-										localStorage.key_data_ready= ''
-										//alert ('3')
-										
-										localStorage.fdisplayTotal=0;
-										localStorage.qpdsSlabTotal=0;
-										
-										localStorage.savedataflag=0;
-								}
+								 //if (localStorage.savedataflag==1){
+//									    localStorage.selectedRoute = ''
+//										localStorage.routeException = ''
+//										localStorage.selectedOutlet = ''
+//										localStorage.outletException  = ''
+//										localStorage.outletChannel = ''
+//										localStorage.mhskus_data_ready = ''
+//										localStorage.npd_data_ready = ''
+//										localStorage.fdisplay_data_ready = ''
+//										localStorage.qpds_data_ready = ''
+//										localStorage.gift_data_ready = ''
+//										localStorage.place_data_ready = ''
+//										localStorage.shop_data_ready = ''
+//										localStorage.key_data_ready= ''
+//										//alert ('3')
+//										
+//										localStorage.fdisplayTotal=0;
+//										localStorage.qpdsSlabTotal=0;
+//										
+//										localStorage.savedataflag=0;
+//								}
 
 						  }
 					  });//end ajax
@@ -5600,27 +5535,27 @@ function submit_data6() {
 									$("#sub_button_save").show();
 							
 								    $("#submit_data").html("Please try later");
-									if (localStorage.savedataflag==1){
-									    localStorage.selectedRoute = ''
-										localStorage.routeException = ''
-										localStorage.selectedOutlet = ''
-										localStorage.outletException  = ''
-										localStorage.outletChannel = ''
-										localStorage.mhskus_data_ready = ''
-										localStorage.npd_data_ready = ''
-										localStorage.fdisplay_data_ready = ''
-										localStorage.qpds_data_ready = ''
-										localStorage.gift_data_ready = ''
-										localStorage.place_data_ready = ''
-										localStorage.shop_data_ready = ''
-										localStorage.key_data_ready= ''
-										//alert ('3')
-										
-										localStorage.fdisplayTotal=0;
-										localStorage.qpdsSlabTotal=0;
-										
-										localStorage.savedataflag=0;
-								}
+									//if (localStorage.savedataflag==1){
+//									    localStorage.selectedRoute = ''
+//										localStorage.routeException = ''
+//										localStorage.selectedOutlet = ''
+//										localStorage.outletException  = ''
+//										localStorage.outletChannel = ''
+//										localStorage.mhskus_data_ready = ''
+//										localStorage.npd_data_ready = ''
+//										localStorage.fdisplay_data_ready = ''
+//										localStorage.qpds_data_ready = ''
+//										localStorage.gift_data_ready = ''
+//										localStorage.place_data_ready = ''
+//										localStorage.shop_data_ready = ''
+//										localStorage.key_data_ready= ''
+//										//alert ('3')
+//										
+//										localStorage.fdisplayTotal=0;
+//										localStorage.qpdsSlabTotal=0;
+//										
+//										localStorage.savedataflag=0;
+//								}
 
 						  }
 					  });//end ajax
