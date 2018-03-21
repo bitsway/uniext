@@ -121,9 +121,9 @@ function outlet_next_page(){
 	var shop_image_name=$("#shop_image_name_hidden").val();
 	var shop_image_path=$("#shop_image_div_hidden").val();
 	//alert (shop_image_name.length)
-	if (shop_image_name.length < 10){
-	//if (shop_image_path.length < 10){
-	//	alert('1')
+	//if (shop_image_name.length < 10){
+	if (shop_image_path.length < 10){
+	
 			var url = "#cancelPage";
 			$.mobile.navigate(url);
 			
