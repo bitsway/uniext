@@ -3614,7 +3614,7 @@ function onFailPlace(message) {
 //Shop
 function get_pic_shop() {
 	var tempTime = $.now();
-	shop_image_name=tempTime.toString()+"_"+localStorage.selectedOutlet+"_shop.jpg";
+	shop_image_name=tempTime.toString()+"_"+localStorage.cm_id+"_shop.jpg";
 	$("#shop_image_name_hidden").val(shop_image_name);
 	navigator.camera.getPicture(onSuccessShop, onFailShop, { quality: 70,
 		targetWidth: 450,
