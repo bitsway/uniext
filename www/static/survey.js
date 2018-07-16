@@ -19,10 +19,10 @@
 //var apipath='http://i001.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
 //var apipath='http://e3.businesssolutionapps.com/unilever18/syncmobile_scheduleNew/';
 //var apipath='http://i001.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
-//var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
+var apipath='http://w02.yeapps.com/unilever18/syncmobile_scheduleNew_test/';
 //var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
-var apipath='http://w05.yeapps.com/unilever18sync/syncmobile_scheduleNew_test/';
+//var apipath='http://w05.yeapps.com/unilever18sync/syncmobile_scheduleNew_test/';
 var apipath_image = 'http://w02.yeapps.com/unilever18/';
 
 //var apipath='http://127.0.0.1:8000/unilever_l#atest/syncmobile_schedule/';
@@ -523,7 +523,7 @@ function check_user() {
 		localStorage.outletString='';
 	//	clear_autho();
    		
-	//alert (apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode)	
+	alert (apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode)	
 	//$("#error_login").html(apipath+'check_user?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode);	
    		$.ajax({
 				 type: 'POST',
@@ -1043,7 +1043,7 @@ function marketPJP() {
 	if(localStorage.selectedRoute!=undefined){
 		//$("#dataerror").html(apipath+'sync_route?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute);
 	//======================================	
-		//alert (apipath+'sync_route?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute)
+		alert (apipath+'sync_route?cid='+localStorage.cid+'&cm_id='+localStorage.cm_id+'&cm_pass='+localStorage.cm_pass+'&synccode='+localStorage.synccode+'&route='+localStorage.selectedRoute)
 		localStorage.routeException='';
 		$.ajax({
 				 type: 'POST',
